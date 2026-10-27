@@ -7,7 +7,7 @@
 //    to scripts/idea-urls.json so later runs skip this step. Skipped when BRIGHTDATA_SERP_ZONE isn't set.
 // 2. Price: Bright Data's "Menards Products" scraper reads every saved product page, plus any extra
 //    URLs in scripts/urls.txt (1 record each).
-// Options: --find-only stops after step 1.
+// Options: --find-only stops after step 1. --limit N looks up at most N ideas this run.
 //          --raw saves the untouched scraper output to scripts/raw-snapshot.json for checking field names.
 //          --from <file.json> builds catalog.json from a Bright Data export instead of calling the API.
 
@@ -42,7 +42,8 @@ const readJson = async (f, fallback) => JSON.parse(await readFile(f, "utf8").cat
 // Google results for `site:menards.com <phrase>` through Bright Data's SERP API.
 async function findProducts(ideas, saved) {
   const zone = process.env.BRIGHTDATA_SERP_ZONE;
-  const todo = ideas.filter(i => !saved[i.id]?.length);
+  const li = process.argv.indexOf("--limit");
+  const todo = ideas.filter(i => !saved[i.id]?.length).slice(0, li > 0 ? +process.argv[li + 1] || Infinity : Infinity);
   if (!todo.length) return;
   if (!zone) { console.log(`${todo.length} ideas have no Menards products yet; set BRIGHTDATA_SERP_ZONE to look them up.`); return; }
   console.log(`Looking up ${todo.length} ideas on Google…`);
@@ -51,16 +52,23 @@ async function findProducts(ideas, saved) {
     await Promise.all(todo.slice(i, i + 5).map(async idea => {
       const q = encodeURIComponent(`site:menards.com ${idea.q}`);
       try {
-        const res = await call("https://api.brightdata.com/request", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ zone, url: `https://www.google.com/search?q=${q}&num=10&gl=us&hl=en&brd_json=1`, format: "raw" }),
-        });
-        const data = typeof res === "string" ? JSON.parse(res) : res;
-        const links = (data.organic || []).map(r => clean(r.link || r.url)).filter(l => PRODUCT.test(l));
+        let data;
+        for (let attempt = 0; attempt < 3 && !data; attempt++) {
+          const res = await call("https://api.brightdata.com/request", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ zone, url: `https://www.google.com/search?q=${q}&num=20&gl=us&hl=en&brd_json=1`, format: "raw" }),
+          });
+          // Busy searches sometimes come back empty; try again.
+          if (res && res !== "") data = typeof res === "string" ? JSON.parse(res) : res;
+          else await sleep(2000);
+        }
+        if (!data) throw new Error("empty response 3 times");
+        const all = (data.organic || []).map(r => clean(r.link || r.url));
+        const links = all.filter(l => PRODUCT.test(l));
         saved[idea.id] = [...new Set(links)].slice(0, 3);
         if (saved[idea.id].length) found++;
-        else console.log(`  no Menards products for "${idea.n}"`);
+        else console.log(`  no Menards products for "${idea.n}" (top results: ${all.slice(0, 3).join(" ") || "none"})`);
       } catch (e) {
         if (/^40[13] /.test(e.message)) throw e; // bad key or zone: every lookup would fail the same way
         console.log(`  lookup failed for "${idea.n}": ${e.message.slice(0, 160)}`);
