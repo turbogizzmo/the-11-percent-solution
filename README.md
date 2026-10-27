@@ -12,9 +12,18 @@ Not affiliated with or endorsed by Menards. Prices are whatever you enter.
 - Copy a shopping list, or share your item list with a link
 - Lists are saved in the browser on each device; works offline in the store and can be added to the home screen
 
-## Why no live prices?
+## Menards picks (catalog)
 
-Menards has no public product API. The only automated options are paid third-party scraping services, which cost money per lookup, break when the site changes, and run against the site's terms. Each item links to a Menards.com search so you can check the current price.
+Menards has no public product API, so prices come from Bright Data's "Menards Products" scraper (dataset `gd_motp6b7s1n9zlq6lwj`) and are saved in `catalog.json`. The app searches that file on the phone: single items, or 2 or 3 different items, closest to the check with tax. Prices are a snapshot and vary by store, so every item links to its Menards.com page.
+
+To refresh:
+
+1. Put Menards product page URLs in `scripts/urls.txt` (one per line). Each URL is one Bright Data record; the free tier is 5,000 a month.
+2. Add the repo secret `BRIGHTDATA_API_KEY` (`gh secret set BRIGHTDATA_API_KEY`).
+3. Run the **Refresh Menards catalog** workflow (Actions tab), or it runs on the 2nd of each month.
+4. To have the workflow redeploy the site, also add `CLOUDFLARE_API_TOKEN` (Pages edit) and `CLOUDFLARE_ACCOUNT_ID` secrets.
+
+Locally: `BRIGHTDATA_API_KEY=... node scripts/refresh-catalog.mjs --raw` (the `--raw` flag saves the scraper output so you can check its field names).
 
 ## Run locally
 
@@ -44,5 +53,8 @@ The default sales tax is 5.5%. Change `tax:5.5` in `index.html` to set a differe
 | --- | --- |
 | `index.html` | The whole app: markup, styles, and script, including the match solver |
 | `sw.js` | Offline caching |
+| `catalog.json` | Menards items and prices (generated) |
+| `scripts/refresh-catalog.mjs`, `scripts/urls.txt` | Catalog refresh from Bright Data |
+| `.github/workflows/refresh-catalog.yml` | Monthly refresh and redeploy |
 | `manifest.webmanifest`, `icon*.png`, `icon.svg` | Home-screen install |
 | `_headers` | Cloudflare Pages response headers |

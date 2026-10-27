@@ -1,0 +1,3 @@
+# Menards product page URLs, one per line. Each one costs one Bright Data record per refresh.
+https://www.menards.com/main/flooring-rugs/carpet/sculptured-carpet/mohawk-reg-velvet-splendor-sculptured-carpet-12-ft-wide/mn620m161200a/p-1535524129067-c-6545.htm
+https://www.menards.com/main/grocery-home/grocery/snack-food/snack-bars-fruit-snacks/sunbelt-bakery-reg-chewy-chocolate-chip-granola-bars-15-count/33018/p-1444439342246-c-6724.htm

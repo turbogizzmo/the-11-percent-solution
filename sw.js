@@ -1,5 +1,5 @@
 // Keeps the app working with bad signal inside the store.
-const CACHE = "spend-the-check-v1";
+const CACHE = "spend-the-check-v2";
 const CORE = ["./", "index.html", "manifest.webmanifest", "icon.svg", "icon-192.png"];
 
 self.addEventListener("install", e => {

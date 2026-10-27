@@ -159,6 +159,16 @@ h2{font:700 1.25rem/1.2 var(--display);margin:0;text-transform:uppercase;letter-
 .del:hover{color:var(--red)}
 .list-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
 
+.catbar input{width:100%;border:1px solid var(--rule);background:var(--surface);border-radius:4px;padding:10px 12px}
+.chips.depts{margin:10px 0}
+.chip[aria-pressed="true"]{background:var(--brand);border:1px solid var(--brand);color:#fff}
+.seg{display:flex;border:2px solid var(--brand);border-radius:4px;overflow:hidden;margin-bottom:12px}
+.seg button{flex:1;border:0;background:var(--surface);padding:8px 4px;font-weight:700;color:var(--brand)}
+.seg button+button{border-left:2px solid var(--brand)}
+.seg button[aria-pressed="true"]{background:var(--brand);color:#fff}
+.lines .n a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--ink-soft)}
+.lines .d{display:block;font-size:.75rem;color:var(--ink-soft)}
+
 .ideas{margin-top:18px}
 .ideas p{font-size:.875rem;color:var(--ink-soft);margin:0 2px 8px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -228,9 +238,27 @@ footer p{margin:4px 0}
     <div class="micr" aria-hidden="true">⑆ 000000 ⑆ 0000 ⑈ spend it all ⑈</div>
   </div>
 
+  <section aria-labelledby="catTitle">
+    <div class="sec-head">
+      <h2 id="catTitle">Menards picks</h2>
+      <p class="sub" id="catMeta"></p>
+    </div>
+    <div class="catbar">
+      <label class="vh" for="catSearch">Only show items matching</label>
+      <input id="catSearch" type="search" placeholder="Narrow it down, e.g. tools, bulbs, dog" autocomplete="off">
+    </div>
+    <div class="chips depts" id="deptChips"></div>
+    <div class="seg" role="group" aria-label="How many items">
+      <button type="button" data-size="1" aria-pressed="true">1 item</button>
+      <button type="button" data-size="2" aria-pressed="false">2 items</button>
+      <button type="button" data-size="3" aria-pressed="false">3 items</button>
+    </div>
+    <div class="results" id="catResults" aria-live="polite"></div>
+  </section>
+
   <section aria-labelledby="matchesTitle">
     <div class="sec-head">
-      <h2 id="matchesTitle">Closest matches</h2>
+      <h2 id="matchesTitle">From your own list</h2>
       <label class="inline-field">Up to <input id="maxKinds" inputmode="numeric" aria-label="Most different items in one trip"> different items</label>
     </div>
     <div class="results" id="results" aria-live="polite"></div>
@@ -281,7 +309,7 @@ footer p{margin:4px 0}
   const KEY = "spend-the-check.v1";
   const IDEAS = ["Furnace filter","Ice melt","LED bulbs","AA batteries","AAA batteries","Paper towels","Toilet paper","Trash bags","Bird seed","Water softener salt","Windshield washer fluid","Duct tape","WD-40","Caulk","Work gloves","Extension cord","Mouse traps","Dish soap","Laundry detergent","Pop / soda","Snacks","Light switch cover","Smoke detector","Furnace filter (spare)"];
 
-  const defaults = { checks:[8628], over:300, tax:5.5, maxKinds:6, items:[] };
+  const defaults = { checks:[8628], over:300, tax:5.5, maxKinds:6, items:[], catSize:1, depts:[], catq:"" };
   let state = load();
 
   function load(){
@@ -360,6 +388,157 @@ footer p{margin:4px 0}
     return { results:best, truncated, count:n };
   }
   window.__solve = solve; // for testing
+
+  // ---------- Menards catalog ----------
+  // catalog.json is rebuilt by scripts/refresh-catalog.mjs: { updated, items:[{n,p,d,u}] }, p in cents.
+  let catalog = { updated:null, items:[] };
+  let catLoaded = false;
+  async function loadCatalog(){
+    try{
+      const res = await fetch("catalog.json", { cache:"no-cache" });
+      if(res.ok){
+        const c = await res.json();
+        catalog = { updated:c.updated || null, items:(c.items||[]).filter(i => i && i.n && i.p > 0) };
+      }
+    }catch(e){}
+    catLoaded = true;
+    renderDepts(); scheduleCat();
+  }
+
+  // Closest combos of `size` different catalog items (one of each) to the check, tax included.
+  function catSolve(items, T, over, taxPct, size, limit){
+    const r = Math.max(0, taxPct)/100;
+    const total = s => s + Math.round(s*r);
+    const cap = T + over;
+    const want = Math.round(T/(1+r)); // subtotal that lands on the check after tax
+    const list = items.filter(i => total(i.p) <= cap).sort((a,b) => a.p - b.p);
+    const n = list.length;
+    let pool = [];
+    const add = idx => {
+      const sub = idx.reduce((s,k) => s + list[k].p, 0), t = total(sub);
+      if(t > cap) return;
+      pool.push({ score:Math.abs(T - t), sub, tax:t-sub, total:t, idx });
+      if(pool.length > 4000){ pool.sort((a,b) => a.score-b.score); pool.length = 800; }
+    };
+    // index of the first item priced >= v, searching from `lo`
+    const lower = (v, lo) => { let hi = n; while(lo < hi){ const m = (lo+hi) >> 1; if(list[m].p < v) lo = m+1; else hi = m; } return lo; };
+    const near = (v, lo, fn) => { const k = lower(v, lo); for(const c of [k-1, k, k+1]) if(c >= lo && c < n) fn(c); };
+
+    if(size === 1) for(let i=0;i<n;i++) add([i]);
+    else if(size === 2) for(let i=0;i<n;i++) near(want - list[i].p, i+1, j => add([i,j]));
+    else {
+      let steps = 0;
+      outer: for(let i=0;i<n;i++) for(let j=i+1;j<n;j++){
+        const rest = want - list[i].p - list[j].p;
+        if(rest < list[j].p - 200) break; // everything after j is pricier still
+        near(rest, j+1, k => add([i,j,k]));
+        if(++steps > 1500000) break outer;
+      }
+    }
+    pool.sort((a,b) => a.score - b.score);
+    // Spread results out: each item shows up in one suggestion at most.
+    const used = new Set(), out = [];
+    for(const c of pool){
+      if(c.idx.some(k => used.has(k))) continue;
+      c.idx.forEach(k => used.add(k));
+      out.push({ ...c, lines:c.idx.map(k => ({ q:1, name:list[k].n, price:list[k].p, url:list[k].u, dept:list[k].d })) });
+      if(out.length >= limit) break;
+    }
+    return out;
+  }
+
+  function catFiltered(){
+    const words = state.catq.toLowerCase().split(/\s+/).filter(Boolean);
+    const depts = new Set(state.depts);
+    return catalog.items.filter(i =>
+      (!depts.size || depts.has(i.d)) &&
+      words.every(w => i.n.toLowerCase().includes(w) || (i.d||"").toLowerCase().includes(w)));
+  }
+
+  function renderDepts(){
+    const box = $("deptChips"); box.innerHTML = "";
+    const counts = {};
+    catalog.items.forEach(i => { if(i.d) counts[i.d] = (counts[i.d]||0) + 1; });
+    const names = Object.keys(counts).sort((a,b) => counts[b]-counts[a]).slice(0, 14).sort();
+    state.depts = state.depts.filter(d => counts[d]);
+    names.forEach(d => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "chip"; b.textContent = d;
+      b.setAttribute("aria-pressed", state.depts.includes(d));
+      b.addEventListener("click", () => {
+        state.depts = state.depts.includes(d) ? state.depts.filter(x => x !== d) : state.depts.concat(d);
+        b.setAttribute("aria-pressed", state.depts.includes(d)); save(); scheduleCat();
+      });
+      box.appendChild(b);
+    });
+    const meta = $("catMeta");
+    meta.textContent = catalog.items.length
+      ? `${catalog.items.length.toLocaleString()} items` + (catalog.updated ? ` · prices from ${new Date(catalog.updated).toLocaleDateString("en-US",{month:"short",day:"numeric"})}` : "")
+      : "";
+  }
+
+  let catTimer;
+  function scheduleCat(){ clearTimeout(catTimer); catTimer = setTimeout(renderCat, 150); }
+  function renderCat(){
+    const box = $("catResults");
+    const T = target();
+    if(!catLoaded){ box.innerHTML = `<div class="empty">Loading Menards items…</div>`; return; }
+    if(!catalog.items.length){
+      box.innerHTML = `<div class="empty"><strong>The Menards catalog isn't loaded yet.</strong> Use your own list below for now.</div>`;
+      return;
+    }
+    if(!T){ box.innerHTML = `<div class="empty">Type your check amount above to start.</div>`; return; }
+    const items = catFiltered();
+    if(!items.length){ box.innerHTML = `<div class="empty"><strong>No items match that filter.</strong> Try a different word or category.</div>`; return; }
+    const res = catSolve(items, T, state.over, state.tax, state.catSize, 6);
+    if(!res.length){
+      box.innerHTML = `<div class="empty"><strong>No ${state.catSize}-item combos fit under ${fmt(T + state.over)}.</strong> Try fewer items or a wider filter.</div>`;
+      return;
+    }
+    box.innerHTML = "";
+    res.forEach((r, idx) => box.appendChild(receipt(r, T, idx)));
+    const n = document.createElement("p"); n.className = "note";
+    n.textContent = "Prices come from Menards.com and can differ by store. Tap an item to check it before you go.";
+    box.appendChild(n);
+  }
+  $("catSearch").value = state.catq;
+  $("catSearch").addEventListener("input", e => { state.catq = e.target.value; save(); scheduleCat(); });
+  document.querySelectorAll(".seg button").forEach(b => {
+    b.setAttribute("aria-pressed", +b.dataset.size === state.catSize);
+    b.addEventListener("click", () => {
+      state.catSize = +b.dataset.size; save();
+      document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", x === b));
+      scheduleCat();
+    });
+  });
+
+  // One suggestion card. r: { lines:[{q,name,price,url?,dept?}], sub, tax, total }
+  function receipt(r, T, idx){
+    const div = document.createElement("article");
+    div.className = "receipt" + (idx===0 ? " best" : "");
+    const diff = r.total - T;
+    const verdict = diff > 0
+      ? `<span class="pill pay">You pay ${fmt(diff)}</span>`
+      : diff === 0 ? `<span class="pill ok">Exactly covered</span>`
+      : (-diff <= 100 ? `<span class="pill ok">Covered · ${fmt(-diff)} unused</span>`
+                      : `<span class="pill left">Covered · ${fmt(-diff)} unused</span>`);
+    const name = l => l.url && /^https:\/\/www\.menards\.com\//.test(l.url)
+      ? `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.name)}</a>` : esc(l.name);
+    div.innerHTML = `
+      ${idx===0 ? `<div class="tag">Closest to ${fmt(T)}</div>` : ""}
+      <ul class="lines">${r.lines.map(l => `<li><span class="q">${l.q}×</span><span class="n">${name(l)}${l.dept ? `<span class="d">${esc(l.dept)}</span>` : ""}</span><span class="p">${fmt(l.q*l.price)}</span></li>`).join("")}</ul>
+      <div class="totals">
+        <div><span>Subtotal</span><span>${fmt(r.sub)}</span></div>
+        <div><span>Tax ${state.tax}%</span><span>${fmt(r.tax)}</span></div>
+        <div class="grand"><span>Total</span><span>${fmt(r.total)}</span></div>
+      </div>
+      <div class="verdict">${verdict}<button class="smallbtn" type="button">Copy list</button></div>`;
+    div.querySelector(".smallbtn").addEventListener("click", () => {
+      const text = r.lines.map(l => `${l.q} x ${l.name} (${fmt(l.price)})` + (l.url ? `\n  ${l.url}` : "")).join("\n") + `\nTotal with tax: ${fmt(r.total)}`;
+      copy(text, "Shopping list copied");
+    });
+    return div;
+  }
 
   // ---------- render: checks ----------
   function renderChecks(){
@@ -448,7 +627,7 @@ footer p{margin:4px 0}
 
   // ---------- render: results ----------
   let timer;
-  function schedule(){ clearTimeout(timer); timer = setTimeout(renderResults, 120); }
+  function schedule(){ clearTimeout(timer); timer = setTimeout(renderResults, 120); scheduleCat(); }
   function renderResults(){
     const box = $("results");
     const T = target();
@@ -469,28 +648,8 @@ footer p{margin:4px 0}
     }
     box.innerHTML = "";
     res.results.forEach((r, idx) => {
-      const div = document.createElement("article");
-      div.className = "receipt" + (idx===0 ? " best" : "");
-      const diff = r.total - T;
-      const verdict = diff > 0
-        ? `<span class="pill pay">You pay ${fmt(diff)}</span>`
-        : diff === 0 ? `<span class="pill ok">Exactly covered</span>`
-        : (-diff <= 100 ? `<span class="pill ok">Covered · ${fmt(-diff)} unused</span>`
-                        : `<span class="pill left">Covered · ${fmt(-diff)} unused</span>`);
-      div.innerHTML = `
-        ${idx===0 ? `<div class="tag">Closest to ${fmt(T)}</div>` : ""}
-        <ul class="lines">${r.lines.map(l => `<li><span class="q">${l.q}×</span><span class="n">${esc(l.it.name)}</span><span class="p">${fmt(l.q*l.it.price)}</span></li>`).join("")}</ul>
-        <div class="totals">
-          <div><span>Subtotal</span><span>${fmt(r.sub)}</span></div>
-          <div><span>Tax ${state.tax}%</span><span>${fmt(r.tax)}</span></div>
-          <div class="grand"><span>Total</span><span>${fmt(r.total)}</span></div>
-        </div>
-        <div class="verdict">${verdict}<button class="smallbtn" type="button">Copy list</button></div>`;
-      div.querySelector(".smallbtn").addEventListener("click", () => {
-        const text = r.lines.map(l => `${l.q} x ${l.it.name} (${fmt(l.it.price)})`).join("\n") + `\nTotal with tax: ${fmt(r.total)}`;
-        copy(text, "Shopping list copied");
-      });
-      box.appendChild(div);
+      const lines = r.lines.map(l => ({ q:l.q, name:l.it.name, price:l.it.price }));
+      box.appendChild(receipt({ ...r, lines }, T, idx));
     });
     const best = res.results[0];
     if(T - best.total > 500){
@@ -601,7 +760,7 @@ footer p{margin:4px 0}
     clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 2200);
   }
 
-  renderChecks(); renderItems(); checkImport(); renderResults();
+  renderChecks(); renderItems(); checkImport(); renderResults(); renderCat(); loadCatalog();
 
   if("serviceWorker" in navigator && location.protocol === "https:"){
     window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
