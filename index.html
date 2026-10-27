@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The 11% Solution</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Enter your Menards rebate check amount and find the combination of things you'd buy anyway that uses it up without paying extra.">
+<meta name="theme-color" content="#21304a">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:title" content="The 11% Solution">
+<meta property="og:description" content="Turn an odd-amount rebate check into stuff you'd buy anyway, without paying a few hundred extra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef2ee;
+  --surface:#fbfcfa;
+  --check:#e3ece6;
+  --check-line:#9fb6a8;
+  --ink:#1d2738;
+  --ink-soft:#56627a;
+  --rule:#cfd8d2;
+  --navy:#21304a;
+  --green:#2c6a4c;
+  --green-bg:#e0efe6;
+  --red:#b23a2c;
+  --red-bg:#f7e4e0;
+  --amber:#9a6a12;
+  --amber-bg:#f6ecd5;
+  --focus:#3c6fd1;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141917;--surface:#1c2320;--check:#1f2a25;--check-line:#3d5248;
+    --ink:#e7ece9;--ink-soft:#9aa8a1;--rule:#2f3a35;--navy:#cfd9ef;
+    --green:#7cc9a0;--green-bg:#1d3329;--red:#f0907f;--red-bg:#3a221e;
+    --amber:#e6bd6a;--amber-bg:#352b18;--focus:#8fb1f5;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141917;--surface:#1c2320;--check:#1f2a25;--check-line:#3d5248;
+  --ink:#e7ece9;--ink-soft:#9aa8a1;--rule:#2f3a35;--navy:#cfd9ef;
+  --green:#7cc9a0;--green-bg:#1d3329;--red:#f0907f;--red-bg:#3a221e;
+  --amber:#e6bd6a;--amber-bg:#352b18;--focus:#8fb1f5;color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--sans);
+  padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.wrap{max-width:620px;margin:0 auto;padding-block:20px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+
+header.top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:4px 2px 18px}
+.brand{font-weight:700;font-size:1.25rem;letter-spacing:-.01em;margin:0}
+.brand span{color:var(--green)}
+.top p{margin:0;color:var(--ink-soft);font-size:.875rem;text-align:right}
+
+/* The check */
+.check{position:relative;background:var(--check);border:1px solid var(--check-line);border-radius:6px;
+  padding:18px 18px 16px;overflow:hidden;
+  background-image:
+    repeating-radial-gradient(circle at 0 100%, transparent 0 9px, color-mix(in srgb,var(--check-line) 22%,transparent) 9px 10px),
+    repeating-radial-gradient(circle at 100% 0, transparent 0 13px, color-mix(in srgb,var(--check-line) 14%,transparent) 13px 14px);}
+.check-head{display:flex;justify-content:space-between;gap:12px;font-size:.8125rem;color:var(--ink-soft)}
+.check-head b{color:var(--ink);font-weight:600}
+.payto{margin:14px 0 6px;font-size:.875rem;color:var(--ink-soft)}
+.payto em{font-style:normal;color:var(--ink);font-weight:500;border-bottom:1px solid var(--check-line);padding:0 4px}
+.amounts{display:flex;flex-direction:column;gap:8px}
+.amt-row{display:flex;align-items:center;gap:8px}
+.amt-box{flex:1;display:flex;align-items:center;background:var(--surface);border:1.5px solid var(--navy);border-radius:4px;padding:4px 12px;min-width:0}
+.amt-box .cur{font:600 1.75rem/1 var(--mono);color:var(--ink-soft);margin-right:4px}
+.amt-box input{flex:1;min-width:0;border:0;background:transparent;outline:none;font:600 2.25rem/1.2 var(--mono);letter-spacing:-.02em;padding:4px 0}
+.amt-row.extra .amt-box input{font-size:1.5rem}
+.amt-row.extra .amt-box .cur{font-size:1.25rem}
+.iconbtn{border:1px solid var(--check-line);background:var(--surface);border-radius:4px;width:40px;height:40px;display:grid;place-items:center;color:var(--ink-soft);flex:none}
+.iconbtn:hover{color:var(--ink)}
+.linkbtn{background:none;border:0;padding:6px 0;color:var(--navy);font-weight:600;font-size:.875rem;text-decoration:underline;text-underline-offset:3px}
+.checks-total{font:500 .875rem var(--mono);color:var(--ink-soft)}
+.check-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--check-line)}
+.field label{display:block;font-size:.8125rem;color:var(--ink-soft);margin-bottom:2px}
+.field .line{display:flex;align-items:baseline;gap:4px;border-bottom:1.5px solid var(--navy);padding-bottom:2px}
+.field input{width:100%;border:0;background:transparent;outline:none;font:600 1.125rem var(--mono);padding:2px 0}
+.field .unit{font:500 1rem var(--mono);color:var(--ink-soft)}
+.micr{margin-top:14px;font:500 .75rem var(--mono);color:var(--ink-soft);letter-spacing:.12em;opacity:.7;user-select:none}
+
+/* Sections */
+section{margin-top:28px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 2px 10px;flex-wrap:wrap}
+h2{font-size:1.125rem;margin:0;letter-spacing:-.005em}
+.sub{color:var(--ink-soft);font-size:.875rem;margin:0}
+.inline-field{display:flex;align-items:center;gap:6px;font-size:.875rem;color:var(--ink-soft)}
+.inline-field input{width:3.2em;text-align:center;border:1px solid var(--rule);border-radius:4px;background:var(--surface);padding:3px 4px;font:500 .9375rem var(--mono)}
+
+/* Receipts */
+.results{display:flex;flex-direction:column;gap:12px}
+.receipt{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;position:relative}
+.receipt.best{border-color:var(--navy);box-shadow:3px 3px 0 var(--navy)}
+.receipt .tag{font-size:.8125rem;font-weight:600;color:var(--navy);margin-bottom:6px}
+.lines{list-style:none;margin:0;padding:0;font-size:.9375rem}
+.lines li{display:flex;gap:10px;padding:3px 0}
+.lines .q{font:500 .875rem var(--mono);color:var(--ink-soft);min-width:2.2em}
+.lines .n{flex:1;min-width:0;overflow-wrap:anywhere}
+.lines .p{font:500 .9375rem var(--mono);white-space:nowrap}
+.totals{margin-top:8px;padding-top:8px;border-top:1px dashed var(--rule);font:400 .875rem var(--mono);color:var(--ink-soft)}
+.totals div{display:flex;justify-content:space-between}
+.totals .grand{color:var(--ink);font-weight:600;font-size:1rem;margin-top:2px}
+.verdict{margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pill{display:inline-block;border-radius:999px;padding:3px 10px;font-size:.875rem;font-weight:600}
+.pill.ok{background:var(--green-bg);color:var(--green)}
+.pill.pay{background:var(--red-bg);color:var(--red)}
+.pill.left{background:var(--amber-bg);color:var(--amber)}
+.smallbtn{border:1px solid var(--rule);background:transparent;border-radius:4px;padding:5px 10px;font-size:.8125rem;font-weight:600;color:var(--ink-soft)}
+.smallbtn:hover{color:var(--ink);border-color:var(--ink-soft)}
+.empty{border:1.5px dashed var(--rule);border-radius:4px;padding:18px 16px;color:var(--ink-soft);font-size:.9375rem;background:color-mix(in srgb,var(--surface) 50%,transparent)}
+.empty strong{color:var(--ink)}
+.note{font-size:.8125rem;color:var(--ink-soft);margin:8px 2px 0}
+
+/* Item list */
+.addform{display:grid;grid-template-columns:1fr 6.5em auto;gap:8px;margin-bottom:12px}
+.addform input{border:1px solid var(--rule);background:var(--surface);border-radius:4px;padding:10px 12px;min-width:0}
+.addform input.price{font-family:var(--mono)}
+.btn{border:0;background:var(--navy);color:var(--paper);border-radius:4px;padding:10px 16px;font-weight:600}
+.items{list-style:none;margin:0;padding:0;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+.items li{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;padding:10px 12px;border-top:1px solid var(--rule)}
+.items li:first-child{border-top:0}
+.items li.off .iname{color:var(--ink-soft);text-decoration:line-through}
+.items li.needs{background:var(--amber-bg)}
+.items input[type=checkbox]{width:20px;height:20px;accent-color:var(--green);margin:0}
+.iname{font-weight:500;overflow-wrap:anywhere}
+.iname a{font-weight:400;font-size:.8125rem;color:var(--ink-soft);margin-left:6px;white-space:nowrap}
+.ictrl{grid-column:2 / 4;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pricebox{display:flex;align-items:center;border:1px solid var(--rule);border-radius:4px;background:var(--paper);padding:0 8px}
+.pricebox span{font:500 .9375rem var(--mono);color:var(--ink-soft)}
+.pricebox input{width:5.2em;border:0;background:transparent;outline:none;padding:6px 2px;font:500 .9375rem var(--mono)}
+.stepper{display:flex;align-items:center;border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.stepper button{border:0;background:transparent;width:30px;height:32px;color:var(--ink-soft);font-weight:600}
+.stepper output{font:500 .875rem var(--mono);min-width:3.6em;text-align:center}
+.pin{border:1px solid var(--rule);background:transparent;border-radius:999px;padding:5px 10px;font-size:.8125rem;font-weight:600;color:var(--ink-soft)}
+.pin[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.del{border:0;background:none;color:var(--ink-soft);font-size:1.25rem;line-height:1;width:32px;height:32px;border-radius:4px}
+.del:hover{color:var(--red)}
+.list-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+
+.ideas{margin-top:18px}
+.ideas p{font-size:.875rem;color:var(--ink-soft);margin:0 2px 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px dashed var(--check-line);background:transparent;border-radius:999px;padding:6px 12px;font-size:.875rem;color:var(--ink)}
+.chip:hover{border-style:solid;background:var(--surface)}
+
+.banner{background:var(--navy);color:var(--paper);border-radius:4px;padding:12px 14px;margin-bottom:16px;display:none}
+.banner.show{display:block}
+.banner .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.banner button{border:1px solid color-mix(in srgb,var(--paper) 50%,transparent);background:transparent;color:var(--paper);border-radius:4px;padding:6px 12px;font-weight:600;font-size:.875rem}
+.banner button.primary{background:var(--paper);color:var(--navy)}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:4px;font-size:.9375rem;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:90vw}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+details.how{margin-top:32px;border-top:1px solid var(--rule);padding-top:14px}
+details.how summary{font-weight:600;cursor:pointer}
+details.how ul{padding-left:20px;color:var(--ink-soft);font-size:.9375rem}
+footer{margin-top:28px;font-size:.8125rem;color:var(--ink-soft)}
+footer p{margin:4px 0}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media (max-width:420px){
+  .addform{grid-template-columns:1fr 6em}
+  .addform .btn{grid-column:1 / 3}
+  .amt-box input{font-size:2rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1 class="brand">The 11% <span>Solution</span></h1>
+    <p>Use the whole rebate.<br>Don't pay hundreds extra.</p>
+  </header>
+
+  <div class="banner" id="importBanner" role="region" aria-label="Shared list">
+    <div id="importText"></div>
+    <div class="row">
+      <button class="primary" id="importAdd">Add to my list</button>
+      <button id="importReplace">Replace my list</button>
+      <button id="importDismiss">Dismiss</button>
+    </div>
+  </div>
+
+  <div class="check" aria-labelledby="checkTitle">
+    <div class="check-head"><span id="checkTitle"><b>Rebate credit check</b></span><span>Store credit only</span></div>
+    <div class="payto">Pay to the order of <em>stuff you'd buy anyway</em></div>
+    <div class="amounts" id="amounts"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <button class="linkbtn" id="addCheck" type="button">Add another check</button>
+      <span class="checks-total" id="checksTotal"></span>
+    </div>
+    <div class="check-fields">
+      <div class="field">
+        <label for="over">OK to pay out of pocket</label>
+        <div class="line"><span class="unit">$</span><input id="over" inputmode="decimal" autocomplete="off"></div>
+      </div>
+      <div class="field">
+        <label for="tax">Sales tax</label>
+        <div class="line"><input id="tax" inputmode="decimal" autocomplete="off"><span class="unit">%</span></div>
+      </div>
+    </div>
+    <div class="micr" aria-hidden="true">⑆ 000000 ⑆ 0000 ⑈ spend it all ⑈</div>
+  </div>
+
+  <section aria-labelledby="matchesTitle">
+    <div class="sec-head">
+      <h2 id="matchesTitle">Closest matches</h2>
+      <label class="inline-field">Up to <input id="maxKinds" inputmode="numeric" aria-label="Most different items in one trip"> different items</label>
+    </div>
+    <div class="results" id="results" aria-live="polite"></div>
+  </section>
+
+  <section aria-labelledby="listTitle">
+    <div class="sec-head">
+      <h2 id="listTitle">Things you'd buy anyway</h2>
+      <p class="sub" id="listCount"></p>
+    </div>
+    <form class="addform" id="addForm" autocomplete="off">
+      <label class="vh" for="newName">Item name</label>
+      <input id="newName" placeholder="Item, e.g. furnace filter 16x25" required>
+      <label class="vh" for="newPrice">Price</label>
+      <input id="newPrice" class="price" placeholder="$ price" inputmode="decimal">
+      <button class="btn" type="submit">Add item</button>
+    </form>
+    <ul class="items" id="items"></ul>
+    <div class="list-actions">
+      <button class="linkbtn" id="shareBtn" type="button">Share my list</button>
+      <button class="linkbtn" id="clearBtn" type="button">Clear list</button>
+    </div>
+    <div class="ideas">
+      <p>Ideas to add. Tap one, then fill in the price you see in the store or online.</p>
+      <div class="chips" id="chips"></div>
+    </div>
+  </section>
+
+  <details class="how">
+    <summary>How it works</summary>
+    <ul>
+      <li>Your list is the menu. Add things you really would buy, with today's prices. Set how many of each you'd take with the stepper.</li>
+      <li>Tap <b>Must buy</b> on anything that has to be in the cart. Uncheck an item to leave it out without deleting it.</li>
+      <li>Matches add sales tax so the total lines up with the register, then show what's left on the check or what you'd pay.</li>
+      <li>Your list stays on this device. <b>Share my list</b> makes a link someone else can open to copy it.</li>
+      <li>Prices change and vary by store, so double-check at the shelf before you check out.</li>
+    </ul>
+  </details>
+
+  <footer>
+    <p>Not affiliated with or endorsed by Menards. Prices are whatever you enter.</p>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(() => {
+  const KEY = "spend-the-check.v1";
+  const IDEAS = ["Furnace filter","Ice melt","LED bulbs","AA batteries","AAA batteries","Paper towels","Toilet paper","Trash bags","Bird seed","Water softener salt","Windshield washer fluid","Duct tape","WD-40","Caulk","Work gloves","Extension cord","Mouse traps","Dish soap","Laundry detergent","Pop / soda","Snacks","Light switch cover","Smoke detector","Furnace filter (spare)"];
+
+  const defaults = { checks:[8628], over:300, tax:5.5, maxKinds:6, items:[] };
+  let state = load();
+
+  function load(){
+    try{
+      const raw = localStorage.getItem(KEY);
+      if(raw){ const s = JSON.parse(raw); return Object.assign({}, defaults, s, {items:(s.items||[]).map(normItem)}); }
+    }catch(e){}
+    return JSON.parse(JSON.stringify(defaults));
+  }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+  let uid = Date.now();
+  function normItem(i){
+    return { id: i.id || ("i"+(uid++)), name: String(i.name||"").slice(0,80), price: Math.max(0, Math.round(+i.price||0)),
+             max: Math.min(20, Math.max(1, Math.round(+i.max||1))), pinned: !!i.pinned, on: i.on !== false };
+  }
+
+  // money helpers (all cents)
+  const toCents = v => { const n = parseFloat(String(v).replace(/[^0-9.]/g,"")); return isFinite(n) ? Math.round(n*100) : 0; };
+  const fmt = c => "$" + (c/100).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+  const plain = c => (c/100).toFixed(2);
+  const esc = s => String(s).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+  const $ = id => document.getElementById(id);
+
+  // ---------- solver ----------
+  function solve(items, target, over, taxPct, maxKinds, limit){
+    const r = Math.max(0, taxPct)/100;
+    const total = s => s + Math.round(s*r);
+    const cap = target + over;
+    const act = items.filter(i => i.on && i.price > 0).sort((a,b) => b.price - a.price);
+    const n = act.length;
+    const suffix = new Array(n+1).fill(0);
+    for(let i=n-1;i>=0;i--) suffix[i] = suffix[i+1] + act[i].price*act[i].max;
+    const best = [];
+    let nodes = 0; const NODE_CAP = 600000; let truncated = false;
+    const qty = new Array(n).fill(0);
+    const worst = () => best.length < limit ? Infinity : best[best.length-1].score;
+
+    function record(sub, kinds, units){
+      const t = total(sub);
+      if(t > cap || sub === 0) return;
+      const score = Math.abs(target - t);
+      if(score > worst()) return;
+      const entry = { score, sub, tax:t-sub, total:t, units, kinds,
+        lines: act.map((it,i)=>({it, q:qty[i]})).filter(l=>l.q>0) };
+      let k = best.length;
+      while(k>0 && cmp(entry, best[k-1]) < 0) k--;
+      best.splice(k, 0, entry);
+      if(best.length > limit) best.pop();
+    }
+    function cmp(a,b){ return a.score-b.score || a.kinds-b.kinds || a.units-b.units; }
+
+    function dfs(i, sub, kinds, units){
+      if(++nodes > NODE_CAP){ truncated = true; return; }
+      if(i === n){ record(sub, kinds, units); return; }
+      // even buying everything left can't get close enough
+      if(best.length >= limit && target - total(sub + suffix[i]) > worst()) return;
+      const it = act[i];
+      const minQ = it.pinned ? 1 : 0;
+      for(let q = it.max; q >= minQ; q--){
+        const ns = sub + q*it.price;
+        if(total(ns) > cap) continue;
+        const nk = kinds + (q>0 ? 1 : 0);
+        if(nk > maxKinds && q>0) continue;
+        qty[i] = q;
+        dfs(i+1, ns, nk, units+q);
+        if(truncated) break;
+      }
+      qty[i] = 0;
+    }
+    // pinned items alone already too much?
+    const pinnedMin = act.filter(i=>i.pinned).reduce((s,i)=>s+i.price,0);
+    const pinnedKinds = act.filter(i=>i.pinned).length;
+    if(pinnedMin && (total(pinnedMin) > cap || pinnedKinds > maxKinds)) return { results:[], pinnedOver:true, count:n };
+    dfs(0, 0, 0, 0);
+    return { results:best, truncated, count:n };
+  }
+  window.__solve = solve; // for testing
+
+  // ---------- render: checks ----------
+  function renderChecks(){
+    const box = $("amounts"); box.innerHTML = "";
+    state.checks.forEach((c, idx) => {
+      const row = document.createElement("div");
+      row.className = "amt-row" + (idx ? " extra" : "");
+      row.innerHTML = `<label class="amt-box"><span class="cur">$</span><span class="vh">Check ${idx+1} amount</span>
+        <input inputmode="decimal" autocomplete="off" value="${c ? plain(c) : ""}" placeholder="0.00"></label>` +
+        (idx ? `<button class="iconbtn" type="button" aria-label="Remove check ${idx+1}">✕</button>` : "");
+      const input = row.querySelector("input");
+      input.addEventListener("input", () => { state.checks[idx] = toCents(input.value); save(); updateTotal(); schedule(); });
+      input.addEventListener("blur", () => { if(state.checks[idx]) input.value = plain(state.checks[idx]); });
+      const rm = row.querySelector("button");
+      if(rm) rm.addEventListener("click", () => { state.checks.splice(idx,1); save(); renderChecks(); schedule(); });
+      box.appendChild(row);
+    });
+    updateTotal();
+  }
+  function target(){ return state.checks.reduce((a,b)=>a+(b||0),0); }
+  function updateTotal(){
+    $("checksTotal").textContent = state.checks.length > 1 ? `${state.checks.length} checks · ${fmt(target())}` : "";
+  }
+
+  // ---------- render: items ----------
+  function renderItems(focusId){
+    const ul = $("items"); ul.innerHTML = "";
+    if(!state.items.length){
+      ul.style.display = "none";
+    } else ul.style.display = "";
+    state.items.forEach(it => {
+      const li = document.createElement("li");
+      li.className = (it.on ? "" : "off") + (it.price ? "" : " needs");
+      const q = encodeURIComponent(it.name);
+      li.innerHTML = `
+        <input type="checkbox" ${it.on?"checked":""} aria-label="Include ${esc(it.name)}">
+        <div class="iname">${esc(it.name)}<a href="https://www.menards.com/main/search.html?search=${q}" target="_blank" rel="noopener">check price ↗</a></div>
+        <button class="del" type="button" aria-label="Delete ${esc(it.name)}">×</button>
+        <div class="ictrl">
+          <label class="pricebox"><span>$</span><span class="vh">Price of ${esc(it.name)}</span>
+            <input inputmode="decimal" autocomplete="off" value="${it.price?plain(it.price):""}" placeholder="price"></label>
+          <div class="stepper" role="group" aria-label="Most of ${esc(it.name)} you'd buy">
+            <button type="button" aria-label="Fewer">−</button><output>up to ${it.max}</output><button type="button" aria-label="More">+</button>
+          </div>
+          <button class="pin" type="button" aria-pressed="${it.pinned}">Must buy</button>
+        </div>`;
+      const [chk] = li.querySelectorAll("input[type=checkbox]");
+      chk.addEventListener("change", () => { it.on = chk.checked; li.classList.toggle("off", !it.on); save(); schedule(); });
+      const price = li.querySelector(".pricebox input");
+      price.addEventListener("input", () => { it.price = toCents(price.value); li.classList.toggle("needs", !it.price); save(); schedule(); updateCount(); });
+      price.addEventListener("blur", () => { if(it.price) price.value = plain(it.price); });
+      const [minus, plus] = li.querySelectorAll(".stepper button");
+      const out = li.querySelector("output");
+      minus.addEventListener("click", () => { it.max = Math.max(1, it.max-1); out.textContent = "up to "+it.max; save(); schedule(); });
+      plus.addEventListener("click", () => { it.max = Math.min(20, it.max+1); out.textContent = "up to "+it.max; save(); schedule(); });
+      const pin = li.querySelector(".pin");
+      pin.addEventListener("click", () => { it.pinned = !it.pinned; pin.setAttribute("aria-pressed", it.pinned); save(); schedule(); });
+      li.querySelector(".del").addEventListener("click", () => {
+        state.items = state.items.filter(x => x !== it); save(); renderItems(); schedule(); toast(`Removed ${it.name}`);
+      });
+      ul.appendChild(li);
+      if(focusId === it.id) setTimeout(() => price.focus(), 0);
+    });
+    updateCount();
+    renderChips();
+  }
+  function updateCount(){
+    const priced = state.items.filter(i=>i.price>0).length;
+    $("listCount").textContent = state.items.length ? `${priced} of ${state.items.length} priced` : "";
+  }
+  function renderChips(){
+    const have = new Set(state.items.map(i=>i.name.toLowerCase()));
+    const box = $("chips"); box.innerHTML = "";
+    IDEAS.filter(n => !have.has(n.toLowerCase())).slice(0, 14).forEach(name => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "chip"; b.textContent = "+ " + name;
+      b.addEventListener("click", () => addItem(name, 0));
+      box.appendChild(b);
+    });
+  }
+  function addItem(name, price){
+    name = name.trim(); if(!name) return;
+    const it = normItem({ name, price });
+    state.items.unshift(it); save(); renderItems(it.id); schedule();
+  }
+
+  // ---------- render: results ----------
+  let timer;
+  function schedule(){ clearTimeout(timer); timer = setTimeout(renderResults, 120); }
+  function renderResults(){
+    const box = $("results");
+    const T = target();
+    const priced = state.items.filter(i => i.on && i.price > 0);
+    if(!T){ box.innerHTML = `<div class="empty">Type your check amount above to start.</div>`; return; }
+    if(!priced.length){
+      box.innerHTML = `<div class="empty"><strong>Nothing to match yet.</strong> Add a few things you'd buy anyway, with their prices, and the combinations that use up ${fmt(T)} show up here.</div>`;
+      return;
+    }
+    const res = solve(state.items, T, state.over, state.tax, Math.max(1, state.maxKinds||6), 4);
+    if(res.pinnedOver){
+      box.innerHTML = `<div class="empty"><strong>Your must-buy items already go past the limit.</strong> Raise the out-of-pocket amount or the item limit, or unpin something.</div>`;
+      return;
+    }
+    if(!res.results.length){
+      box.innerHTML = `<div class="empty"><strong>Everything on your list costs more than the check plus ${fmt(state.over)}.</strong> Add some cheaper items or raise the out-of-pocket amount.</div>`;
+      return;
+    }
+    box.innerHTML = "";
+    res.results.forEach((r, idx) => {
+      const div = document.createElement("article");
+      div.className = "receipt" + (idx===0 ? " best" : "");
+      const diff = r.total - T;
+      const verdict = diff > 0
+        ? `<span class="pill pay">You pay ${fmt(diff)}</span>`
+        : diff === 0 ? `<span class="pill ok">Exactly covered</span>`
+        : (-diff <= 100 ? `<span class="pill ok">Covered · ${fmt(-diff)} unused</span>`
+                        : `<span class="pill left">Covered · ${fmt(-diff)} unused</span>`);
+      div.innerHTML = `
+        ${idx===0 ? `<div class="tag">Closest to ${fmt(T)}</div>` : ""}
+        <ul class="lines">${r.lines.map(l => `<li><span class="q">${l.q}×</span><span class="n">${esc(l.it.name)}</span><span class="p">${fmt(l.q*l.it.price)}</span></li>`).join("")}</ul>
+        <div class="totals">
+          <div><span>Subtotal</span><span>${fmt(r.sub)}</span></div>
+          <div><span>Tax ${state.tax}%</span><span>${fmt(r.tax)}</span></div>
+          <div class="grand"><span>Total</span><span>${fmt(r.total)}</span></div>
+        </div>
+        <div class="verdict">${verdict}<button class="smallbtn" type="button">Copy list</button></div>`;
+      div.querySelector(".smallbtn").addEventListener("click", () => {
+        const text = r.lines.map(l => `${l.q} x ${l.it.name} (${fmt(l.it.price)})`).join("\n") + `\nTotal with tax: ${fmt(r.total)}`;
+        copy(text, "Shopping list copied");
+      });
+      box.appendChild(div);
+    });
+    const best = res.results[0];
+    if(T - best.total > 500){
+      const n = document.createElement("p"); n.className = "note";
+      n.textContent = `Your list can't get within ${fmt(T-best.total)} of the check. Raising the "up to" count on a few items, or adding more items, will help.`;
+      box.appendChild(n);
+    }
+    if(res.truncated){
+      const n = document.createElement("p"); n.className = "note";
+      n.textContent = "Big list, so these are the best matches found in a quick search. Lowering the item limit can turn up closer ones.";
+      box.appendChild(n);
+    }
+  }
+
+  // ---------- settings ----------
+  function bindSetting(id, get, set){
+    const el = $(id); el.value = get();
+    el.addEventListener("input", () => { set(el.value); save(); schedule(); });
+    el.addEventListener("blur", () => { el.value = get(); });
+  }
+  bindSetting("over", () => plain(state.over), v => state.over = toCents(v));
+  bindSetting("tax", () => String(state.tax), v => { const n = parseFloat(v); state.tax = isFinite(n) ? Math.min(20, Math.max(0, n)) : 0; });
+  bindSetting("maxKinds", () => String(state.maxKinds), v => { const n = parseInt(v,10); state.maxKinds = isFinite(n) ? Math.min(15, Math.max(1,n)) : 6; });
+
+  $("addCheck").addEventListener("click", () => {
+    state.checks.push(0); save(); renderChecks();
+    const inputs = $("amounts").querySelectorAll("input"); inputs[inputs.length-1].focus();
+  });
+  $("addForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const name = $("newName").value, price = toCents($("newPrice").value);
+    if(!name.trim()) return;
+    addItem(name, price);
+    $("newName").value = ""; $("newPrice").value = ""; $("newName").focus();
+  });
+  let clearArmed = 0;
+  $("clearBtn").addEventListener("click", () => {
+    const b = $("clearBtn");
+    if(!state.items.length) return;
+    if(!clearArmed){
+      b.textContent = "Tap again to clear everything";
+      clearArmed = setTimeout(() => { clearArmed = 0; b.textContent = "Clear list"; }, 4000);
+      return;
+    }
+    clearTimeout(clearArmed); clearArmed = 0; b.textContent = "Clear list";
+    state.items = []; save(); renderItems(); schedule(); toast("List cleared");
+  });
+  // Share links need the page's own address, which isn't available inside an embedded preview.
+  if(window.top !== window.self) $("shareBtn").hidden = true;
+
+  // ---------- sharing ----------
+  function encodeList(){
+    const slim = state.items.map(i => [i.name, i.price, i.max, i.pinned?1:0]);
+    const bytes = new TextEncoder().encode(JSON.stringify(slim));
+    let bin = ""; bytes.forEach(b => bin += String.fromCharCode(b));
+    return btoa(bin).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+  }
+  function decodeList(s){
+    s = s.replace(/-/g,"+").replace(/_/g,"/");
+    const bin = atob(s); const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+    const arr = JSON.parse(new TextDecoder().decode(bytes));
+    if(!Array.isArray(arr)) throw new Error("bad");
+    return arr.slice(0,200).map(a => normItem({ name:a[0], price:a[1], max:a[2], pinned:!!a[3] })).filter(i=>i.name);
+  }
+  $("shareBtn").addEventListener("click", async () => {
+    if(!state.items.length){ toast("Add some items first"); return; }
+    const url = location.origin + location.pathname + "#list=" + encodeList();
+    if(navigator.share){
+      try{ await navigator.share({ title:"My rebate check list", text:"Here's my list for The 11% Solution", url }); return; }catch(e){ if(e && e.name === "AbortError") return; }
+    }
+    copy(url, "Link copied");
+  });
+  let pending = null;
+  function checkImport(){
+    const m = location.hash.match(/^#list=([A-Za-z0-9_-]+)/);
+    if(!m) return;
+    try{ pending = decodeList(m[1]); }catch(e){ toast("That shared link didn't open"); pending = null; }
+    try{ history.replaceState(null, "", location.pathname + location.search); }catch(e){}
+    if(!pending || !pending.length) return;
+    $("importText").textContent = `Someone shared a list with ${pending.length} item${pending.length>1?"s":""}.`;
+    $("importBanner").classList.add("show");
+  }
+  function closeBanner(){ $("importBanner").classList.remove("show"); pending = null; }
+  $("importAdd").addEventListener("click", () => {
+    const have = new Set(state.items.map(i=>i.name.toLowerCase()));
+    const added = pending.filter(i => !have.has(i.name.toLowerCase()));
+    state.items = added.concat(state.items); save(); renderItems(); schedule();
+    toast(`Added ${added.length} item${added.length===1?"":"s"}`); closeBanner();
+  });
+  $("importReplace").addEventListener("click", () => {
+    state.items = pending; save(); renderItems(); schedule(); toast("List replaced"); closeBanner();
+  });
+  $("importDismiss").addEventListener("click", closeBanner);
+
+  // ---------- utils ----------
+  async function copy(text, msg){
+    try{ await navigator.clipboard.writeText(text); toast(msg); return; }catch(e){}
+    try{
+      const ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly","");
+      ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand("copy"); ta.remove();
+      toast(ok ? msg : "Copy didn't work here. Long-press to select instead.");
+    }catch(e){ toast("Copy didn't work here. Long-press to select instead."); }
+  }
+  let tt;
+  function toast(msg){
+    const t = $("toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 2200);
+  }
+
+  renderChecks(); renderItems(); checkImport(); renderResults();
+
+  if("serviceWorker" in navigator && location.protocol === "https:"){
+    window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+  }
+})();
+</script>
+</body>
+</html>

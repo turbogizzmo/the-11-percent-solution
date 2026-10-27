@@ -1,0 +1,15 @@
+{
+  "name": "The 11% Solution",
+  "short_name": "11% Solution",
+  "description": "Find the combination of things you'd buy anyway that uses up your rebate check.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef2ee",
+  "theme_color": "#21304a",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
