@@ -1,0 +1,46 @@
+name: Bright Data account check
+
+# Read-only questions about the Bright Data account, plus a one-record scraper test (1 credit at most).
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      KEY: ${{ secrets.BRIGHTDATA_API_KEY }}
+    steps:
+      - name: Account status
+        run: curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/status; echo
+      - name: Balance
+        run: curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/customer/balance; echo
+      - name: Active zones
+        run: curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/zone/get_active_zones; echo
+      - name: Is the Menards scraper visible to this account?
+        run: |
+          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/datasets/list \
+            | python3 -c "import json,sys; d=json.load(sys.stdin); m=[x for x in d if 'menards' in json.dumps(x).lower()]; print(len(d), 'datasets visible;', m or 'no Menards entry')" \
+            || echo "(could not list datasets)"
+      - name: Do search results carry prices? (2 credits)
+        env:
+          ZONE: ${{ secrets.BRIGHTDATA_SERP_ZONE }}
+        run: |
+          for engine in "https://www.google.com/search?q=site%3Amenards.com+menards+ice+melt+50+lb&gl=us&hl=en&brd_json=1" "https://www.bing.com/search?q=site%3Amenards.com+menards+ice+melt+50+lb&cc=us&brd_json=1"; do
+            echo "== $engine"
+            curl -sS -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
+              -d "{\"zone\":\"$ZONE\",\"url\":\"$engine\",\"format\":\"raw\"}" https://api.brightdata.com/request \
+              | python3 -c "
+          import json,sys
+          d=json.load(sys.stdin)
+          print('top-level keys:', list(d.keys()))
+          for r in (d.get('organic') or [])[:4]: print(json.dumps(r)[:700])
+          for k in ('shopping','popular_products','product_listings'):
+              if d.get(k): print(k, json.dumps(d[k])[:700])
+          " || echo "(not JSON)"
+          done
+      - name: One-record scraper test
+        run: |
+          curl -sS -w '\nHTTP %{http_code}\n' -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
+            -d '{"input":[{"url":"https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/rapid-melt-reg-sodium-chloride-magnesium-chloride-ice-melt-50-lb-bag/2651514/p-1444429567816-c-1526586197110.htm","all_variations":false}]}' \
+            "https://api.brightdata.com/datasets/v3/trigger?dataset_id=gd_motp6b7s1n9zlq6lwj&include_errors=true"
