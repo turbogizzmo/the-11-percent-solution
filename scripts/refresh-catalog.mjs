@@ -39,6 +39,16 @@ async function readUrls() {
 const ideaUrlsFile = path.join(here, "idea-urls.json");
 const readJson = async (f, fallback) => JSON.parse(await readFile(f, "utf8").catch(() => JSON.stringify(fallback)));
 
+// A found product only counts if its link mentions the idea's key word, so "washer fluid"
+// doesn't pick up zinc washers. The key word is the idea's m, or the last word of its name.
+function relevant(idea, link) {
+  // .../<category>/<product-name>/<sku>/p-123.htm: only the product name counts, not the category folders.
+  const parts = link.toLowerCase().split("/");
+  const slug = parts[parts.length - 3] || "";
+  const head = idea.n.split(",")[0].trim().split(/\s+/).pop().toLowerCase().replace(/s$/, "");
+  return new RegExp(idea.m || head.replace(/[^a-z0-9-]/g, "")).test(slug);
+}
+
 // Google results for `site:menards.com <phrase>` through Bright Data's SERP API.
 async function findProducts(ideas, saved) {
   const zone = process.env.BRIGHTDATA_SERP_ZONE;
@@ -64,7 +74,8 @@ async function findProducts(ideas, saved) {
               body: JSON.stringify({ zone, url, format: "raw" }),
             });
             // Busy searches sometimes come back empty; try again.
-            if (res && res !== "") data = typeof res === "string" ? JSON.parse(res) : res;
+            if (res && typeof res === "object") data = res;
+            else if (res) { console.log(`  ${new URL(url).hostname} said: ${String(res).slice(0, 100)}`); break; } // not results; try the other engine
             else await sleep(2000);
           }
           if (!data) continue;
@@ -72,7 +83,7 @@ async function findProducts(ideas, saved) {
           links = all.filter(l => PRODUCT.test(l));
           if (links.length) break;
         }
-        saved[idea.id] = [...new Set(links)].slice(0, 3);
+        saved[idea.id] = [...new Set(links.filter(l => relevant(idea, l)))].slice(0, 3);
         if (saved[idea.id].length) found++;
         else console.log(`  no Menards products for "${idea.n}" (top results: ${all.slice(0, 3).join(" ") || "none"})`);
       } catch (e) {
