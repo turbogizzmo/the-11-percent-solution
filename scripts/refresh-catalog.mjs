@@ -62,9 +62,17 @@ async function findProducts(ideas, saved) {
   let found = 0;
   for (let i = 0; i < todo.length; i += 5) {
     await Promise.all(todo.slice(i, i + 5).map(async idea => {
-      // Google often ignores site: for these searches, so Bing (same zone) is the fallback.
-      const q = encodeURIComponent(`site:menards.com menards ${idea.q.replace(/(^|\s)-/g, "$1")}`);
-      const engines = [`https://www.google.com/search?q=${q}&gl=us&hl=en&brd_json=1`, `https://www.bing.com/search?q=${q}&cc=us&brd_json=1`];
+      // Each phrasing finds Menards products for a different set of items (tested Oct 2026),
+      // so try them in turn until one turns up a matching product.
+      const term = idea.q.replace(/(^|\s)-/g, "$1");
+      const q = s => encodeURIComponent(s);
+      const google = (s, extra = "") => `https://www.google.com/search?q=${q(s)}&gl=us&hl=en&brd_json=1${extra}`;
+      const engines = [
+        google(`menards ${term}`),
+        `https://www.bing.com/search?q=${q(`menards ${term}`)}&cc=us&brd_json=1`,
+        google(`${term} site:menards.com/main`),
+        google(term, "&as_sitesearch=www.menards.com"),
+      ];
       try {
         let links = [], all = [];
         for (const url of engines) {
@@ -82,10 +90,10 @@ async function findProducts(ideas, saved) {
           }
           if (!data) continue;
           all = (data.organic || []).map(r => clean(r.link || r.url));
-          links = all.filter(l => PRODUCT.test(l));
+          links = all.filter(l => PRODUCT.test(l) && relevant(idea, l));
           if (links.length) break;
         }
-        saved[idea.id] = [...new Set(links.filter(l => relevant(idea, l)))].slice(0, 3);
+        saved[idea.id] = [...new Set(links)].slice(0, 3);
         if (saved[idea.id].length) found++;
         else console.log(`  no Menards products for "${idea.n}" (top results: ${all.slice(0, 3).join(" ") || "none"})`);
       } catch (e) {
