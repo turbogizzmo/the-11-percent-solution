@@ -12,11 +12,14 @@ jobs:
       KEY: ${{ secrets.BRIGHTDATA_API_KEY }}
     steps:
       - name: Account status
-        run: curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/status; echo
+        run: |
+          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/status; echo
       - name: Balance
-        run: curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/customer/balance; echo
+        run: |
+          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/customer/balance; echo
       - name: Active zones
-        run: curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/zone/get_active_zones; echo
+        run: |
+          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/zone/get_active_zones; echo
       - name: Is the Menards scraper visible to this account?
         run: |
           curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/datasets/list \
