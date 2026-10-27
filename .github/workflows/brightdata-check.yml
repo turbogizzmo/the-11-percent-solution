@@ -3,6 +3,11 @@ name: Bright Data account check
 # Read-only questions about the Bright Data account, plus a one-record scraper test (1 credit at most).
 on:
   workflow_dispatch:
+    inputs:
+      free_only:
+        description: "Skip the steps that use credits"
+        type: boolean
+        default: true
 
 jobs:
   check:
@@ -25,7 +30,11 @@ jobs:
           curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/datasets/list \
             | python3 -c "import json,sys; d=json.load(sys.stdin); m=[x for x in d if 'menards' in json.dumps(x).lower()]; print(len(d), 'datasets visible;', m or 'no Menards entry')" \
             || echo "(could not list datasets)"
+      - name: Menards scraper options (inputs and discovery modes)
+        run: |
+          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/datasets/gd_motp6b7s1n9zlq6lwj/metadata; echo
       - name: Do search results carry prices? (2 credits)
+        if: ${{ !inputs.free_only }}
         env:
           ZONE: ${{ secrets.BRIGHTDATA_SERP_ZONE }}
         run: |
@@ -43,6 +52,7 @@ jobs:
           " || echo "(not JSON)"
           done
       - name: One-record scraper test
+        if: ${{ !inputs.free_only }}
         run: |
           curl -sS -w '\nHTTP %{http_code}\n' -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
             -d '{"input":[{"url":"https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/rapid-melt-reg-sodium-chloride-magnesium-chloride-ice-melt-50-lb-bag/2651514/p-1444429567816-c-1526586197110.htm","all_variations":false}]}' \
