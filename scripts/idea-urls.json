@@ -1,12 +1,32 @@
 {
  "furnace-filter": [],
- "rock-salt": [],
+ "rock-salt": [
+  "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/rapid-melt-reg-sodium-chloride-magnesium-chloride-ice-melt-50-lb-bag/2651514/p-1444429567816-c-1526586197110.htm",
+  "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/hotrock-ecoguard-sodium-chloride-magnesium-chloride-ice-melt-50lb-bag/795682/p-1570516252120-c-1526586197110.htm",
+  "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/vanquish-calcium-chloride-ice-melt-50-lb-bag/2651622/p-1444429569673-c-1526586197110.htm"
+ ],
  "furnace-filter-3pk": [],
  "softener-salt": [],
  "ice-melt": [],
- "snow-shovel": [],
- "wiper-blades": [],
- "snow-brush": [],
- "washer-fluid": [],
- "washer-fluid-winter": []
+ "snow-shovel": [
+  "https://www.menards.com/main/outdoors/snow-ice-removal/snow-shovels/rugg-reg-17-extendable-roof-rake/99p/p-3289655538040729-c-1526586197108.htm"
+ ],
+ "wiper-blades": [
+  "https://www.menards.com/main/tools/automotive/windshield-wiper-blades/goodyear-reg-silicone-beam-wiper-blade/gys22/p-1642874295695126-c-1486994582435.htm",
+  "https://www.menards.com/main/tools/automotive/windshield-wiper-blades/rain-x-reg-weatherbeater-reg-wiper-blade/rx30222/p-1444436206446-c-1486994582435.htm",
+  "https://www.menards.com/main/tools/automotive/windshield-wiper-blades/rain-x-reg-vision-reg-beam-wiper-blade/810022/p-1490941334919-c-1486994582435.htm"
+ ],
+ "snow-brush": [
+  "https://www.menards.com/main/building-materials/pole-barn-post-frame-materials/pole-barn-post-frame-tools-accessories/10-pro-rib-universal-snow-bar/coppercolor1566741-75/p-1531808857301-c-5713.htm"
+ ],
+ "washer-fluid": [
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-20-deg-f-windshield-washer-fluid-1-gallon/234526-35/p-1444443335772-c-10098.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-ultimate-all-season-windshield-washer-fluid-1-gallon/93506/p-1444443336003-c-10098.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-de-bug-windshield-washer-fluid-1-gallon/90006/p-1444443335023-c-10098.htm"
+ ],
+ "washer-fluid-winter": [
+  "https://www.menards.com/main/hardware/fasteners-connectors/washers-spacers/flat-washers/midwest-fastener-reg-20mm-class-8-zinc-flat-washer-1-count/87453/p-1444440163304-c-8945.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-rv-and-marine-antifreeze-55-gallon/900956/p-1444443335532-c-10098.htm",
+  "https://www.menards.com/main/hardware/fasteners-connectors/washers-spacers/flat-washers/midwest-fastener-reg-20mm-class-8-zinc-flat-washer-5-count/73694/p-1444439954077-c-8945.htm"
+ ]
 }
