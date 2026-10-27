@@ -50,22 +50,28 @@ async function findProducts(ideas, saved) {
   let found = 0;
   for (let i = 0; i < todo.length; i += 5) {
     await Promise.all(todo.slice(i, i + 5).map(async idea => {
-      const q = encodeURIComponent(`site:menards.com ${idea.q}`);
+      // Google often ignores site: for these searches, so Bing (same zone) is the fallback.
+      const q = encodeURIComponent(`site:menards.com menards ${idea.q.replace(/(^|\s)-/g, "$1")}`);
+      const engines = [`https://www.google.com/search?q=${q}&gl=us&hl=en&brd_json=1`, `https://www.bing.com/search?q=${q}&cc=us&brd_json=1`];
       try {
-        let data;
-        for (let attempt = 0; attempt < 3 && !data; attempt++) {
-          const res = await call("https://api.brightdata.com/request", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ zone, url: `https://www.google.com/search?q=${q}&num=20&gl=us&hl=en&brd_json=1`, format: "raw" }),
-          });
-          // Busy searches sometimes come back empty; try again.
-          if (res && res !== "") data = typeof res === "string" ? JSON.parse(res) : res;
-          else await sleep(2000);
+        let links = [], all = [];
+        for (const url of engines) {
+          let data;
+          for (let attempt = 0; attempt < 3 && !data; attempt++) {
+            const res = await call("https://api.brightdata.com/request", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ zone, url, format: "raw" }),
+            });
+            // Busy searches sometimes come back empty; try again.
+            if (res && res !== "") data = typeof res === "string" ? JSON.parse(res) : res;
+            else await sleep(2000);
+          }
+          if (!data) continue;
+          all = (data.organic || []).map(r => clean(r.link || r.url));
+          links = all.filter(l => PRODUCT.test(l));
+          if (links.length) break;
         }
-        if (!data) throw new Error("empty response 3 times");
-        const all = (data.organic || []).map(r => clean(r.link || r.url));
-        const links = all.filter(l => PRODUCT.test(l));
         saved[idea.id] = [...new Set(links)].slice(0, 3);
         if (saved[idea.id].length) found++;
         else console.log(`  no Menards products for "${idea.n}" (top results: ${all.slice(0, 3).join(" ") || "none"})`);
