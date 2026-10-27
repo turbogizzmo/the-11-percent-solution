@@ -441,9 +441,15 @@ footer p{margin:4px 0}
     const [i, c] = await Promise.all([get("ideas.json"), get("catalog.json")]);
     ideas = (i && i.ideas) || [];
     if(c) catalog = { updated:c.updated || null, items:(c.items||[]).filter(x => x && x.n && x.p > 0) };
-    // Real price per idea: the cheapest Menards option found for it.
+    // Real price per idea: the Menards option closest to the typical price. Options far off
+    // (a single screw for "screw kit", a 144-towel case for "bath towels") keep the estimate instead.
     priceOf = {};
-    catalog.items.forEach(x => { if(x.i && (!priceOf[x.i] || x.p < priceOf[x.i].p)) priceOf[x.i] = x; });
+    const est = Object.fromEntries(ideas.map(d => [d.id, d.e]));
+    const off = x => Math.abs(Math.log(x.p / est[x.i]));
+    catalog.items.forEach(x => {
+      if(!x.i || !est[x.i] || x.p < est[x.i]*0.4 || x.p > est[x.i]*2.5) return;
+      if(!priceOf[x.i] || off(x) < off(priceOf[x.i])) priceOf[x.i] = x;
+    });
     const real = ideas.filter(d => priceOf[d.id]).length;
     $("planMeta").textContent = real
       ? `${real} of ${ideas.length} with Menards prices` + (catalog.updated ? ` from ${new Date(catalog.updated).toLocaleDateString("en-US",{month:"short",day:"numeric"})}` : "")
@@ -479,7 +485,8 @@ footer p{margin:4px 0}
     const rand = rng(state.plan.seed);
     let best = null;
     for(let trial = 0; trial < 400; trial++){
-      const order = pool.filter(x => !lockedIds.has(x.id)).map(x => [rand(), x]).sort((a,b) => a[0]-b[0]).map(a => a[1]);
+      // Items with real Menards prices tend to come first; estimates fill in around them.
+      const order = pool.filter(x => !lockedIds.has(x.id)).map(x => [rand() * (x.est ? 1 : 0.6), x]).sort((a,b) => a[0]-b[0]).map(a => a[1]);
       const pickIds = locked.map(x => x.id); let sub = locked.reduce((s,x) => s + x.price, 0);
       const kinds = new Set(locked.map(x => kindOf(x.id)).filter(Boolean));
       const take = x => { pickIds.push(x.id); sub += x.price; const k = kindOf(x.id); if(k) kinds.add(k); };
