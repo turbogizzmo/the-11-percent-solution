@@ -8,6 +8,7 @@
 // 2. Price: Bright Data's "Menards Products" scraper reads every saved product page, plus any extra
 //    URLs in scripts/urls.txt (1 record each).
 // Options: --find-only stops after step 1. --limit N looks up at most N ideas this run.
+//          --retry-missing searches again for ideas that found nothing last time.
 //          --raw saves the untouched scraper output to scripts/raw-snapshot.json for checking field names.
 //          --from <file.json> builds catalog.json from a Bright Data export instead of calling the API.
 
@@ -53,9 +54,10 @@ function relevant(idea, link) {
 async function findProducts(ideas, saved) {
   const zone = process.env.BRIGHTDATA_SERP_ZONE;
   const li = process.argv.indexOf("--limit");
-  const todo = ideas.filter(i => !saved[i.id]?.length).slice(0, li > 0 ? +process.argv[li + 1] || Infinity : Infinity);
+  const retry = process.argv.includes("--retry-missing");
+  const todo = ideas.filter(i => !(i.id in saved) || (retry && !saved[i.id].length)).slice(0, li > 0 ? +process.argv[li + 1] || Infinity : Infinity);
   if (!todo.length) return;
-  if (!zone) { console.log(`${todo.length} ideas have no Menards products yet; set BRIGHTDATA_SERP_ZONE to look them up.`); return; }
+  if (!zone) { console.log(`${todo.length} ideas haven't been searched yet; set BRIGHTDATA_SERP_ZONE to look them up.`); return; }
   console.log(`Looking up ${todo.length} ideas on Google…`);
   let found = 0;
   for (let i = 0; i < todo.length; i += 5) {
