@@ -5,6 +5,7 @@
 // Reads product page URLs from scripts/urls.txt (one per line, or a CSV with a "url" column,
 // like the input file Bright Data's dashboard exports). Each URL costs one Bright Data record.
 // Options: --raw saves the untouched scraper output to scripts/raw-snapshot.json for checking field names.
+//          --from <file.json> builds catalog.json from a Bright Data export instead of calling the API.
 
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
@@ -15,8 +16,10 @@ const API = "https://api.brightdata.com/datasets/v3";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, "..");
 
+const fromIdx = process.argv.indexOf("--from");
+const fromFile = fromIdx > 0 ? process.argv[fromIdx + 1] : null;
 const key = process.env.BRIGHTDATA_API_KEY;
-if (!key) { console.error("Set BRIGHTDATA_API_KEY first."); process.exit(1); }
+if (!key && !fromFile) { console.error("Set BRIGHTDATA_API_KEY first."); process.exit(1); }
 const auth = { Authorization: `Bearer ${key}` };
 
 async function readUrls() {
@@ -64,7 +67,8 @@ function cents(v) {
 const titleCase = s => s.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()).replace(/ And /g, " & ");
 function dept(row) {
   const tree = row.category_tree;
-  if (Array.isArray(tree) && tree.length) { const t = tree[0]; return String(t.name ?? t).trim(); }
+  // category_tree starts with "Home"; the department is the next level down.
+  if (Array.isArray(tree) && tree.length > 1) { const t = tree[1]; return String(t.name ?? t).trim(); }
   const m = String(row.url || "").match(/menards\.com\/main\/([^/]+)\//);
   return m ? titleCase(m[1]) : String(row.product_category || "").trim();
 }
@@ -72,18 +76,25 @@ function dept(row) {
 function toItem(row) {
   if (!row || row.error || row.warning_code === "dead_page") return null;
   const n = String(pick(row, ["title", "name", "product_name"]) || "").trim();
-  const p = cents(pick(row, ["final_price", "sale_price", "price", "current_price", "initial_price"]));
+  // "price" is the register price. Bright Data's "sale_price" is the price after the 11% mail-in rebate,
+  // which isn't what the check has to cover.
+  const p = cents(pick(row, ["price", "final_price", "current_price", "initial_price"]));
   const u = String(row.url || "").split("?")[0];
   const stock = String(pick(row, ["availability", "in_stock", "stock_status"]) ?? "").toLowerCase();
   if (!n || !p || !u) return null;
-  if (/out of stock|unavailable|discontinued|false/.test(stock)) return null;
+  if (/site can.t be reached|pardon our interruption|access denied/i.test(n)) return null; // blocked fetches
+  if (/out.of.stock|unavailable|discontinued|false/.test(stock)) return null;
   if (/gift card/i.test(n)) return null; // rebate checks can't buy gift cards
   return { n: n.slice(0, 120), p, d: dept(row), u };
 }
 
-const urls = await readUrls();
-if (!urls.length) { console.error("No Menards product URLs in scripts/urls.txt."); process.exit(1); }
-const rows = await scrape(urls);
+let rows;
+if (fromFile) rows = JSON.parse(await readFile(fromFile, "utf8"));
+else {
+  const urls = await readUrls();
+  if (!urls.length) { console.error("No Menards product URLs in scripts/urls.txt."); process.exit(1); }
+  rows = await scrape(urls);
+}
 const list = Array.isArray(rows) ? rows : [];
 if (process.argv.includes("--raw")) await writeFile(path.join(here, "raw-snapshot.json"), JSON.stringify(list, null, 2));
 
