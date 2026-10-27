@@ -3,3 +3,8 @@ Thumbs.db
 node_modules/
 .wrangler/
 scripts/raw-snapshot.json
+
+# Local data downloads
+Menards Products.json
+input_list_example.csv
+the-11-percent-solution.zip

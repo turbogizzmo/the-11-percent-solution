@@ -159,13 +159,28 @@ h2{font:700 1.25rem/1.2 var(--display);margin:0;text-transform:uppercase;letter-
 .del:hover{color:var(--red)}
 .list-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
 
-.catbar input{width:100%;border:1px solid var(--rule);background:var(--surface);border-radius:4px;padding:10px 12px}
-.chips.depts{margin:10px 0}
+.chips.tags{margin:10px 0 14px}
 .chip[aria-pressed="true"]{background:var(--brand);border:1px solid var(--brand);color:#fff}
-.seg{display:flex;border:2px solid var(--brand);border-radius:4px;overflow:hidden;margin-bottom:12px}
-.seg button{flex:1;border:0;background:var(--surface);padding:8px 4px;font-weight:700;color:var(--brand)}
-.seg button+button{border-left:2px solid var(--brand)}
-.seg button[aria-pressed="true"]{background:var(--brand);color:#fff}
+.plan-actions{display:flex;gap:10px;margin-top:12px}
+.plan-actions .btn{flex:1}
+.btn.ghost{background:transparent;color:var(--brand);border:2px solid var(--brand)}
+.btn.ghost:hover{background:var(--green-bg)}
+.lines .ctl{display:flex;gap:2px;flex:none}
+.lines .ctl button{border:0;background:none;width:30px;height:28px;border-radius:4px;color:var(--ink-soft);font-size:.95rem;padding:0}
+.lines .ctl button:hover{background:var(--paper);color:var(--ink)}
+.lines .ctl button[data-act="lock"]{opacity:.28;filter:grayscale(1)}
+.lines .ctl button[data-act="lock"][aria-pressed="true"]{opacity:1;filter:none}
+.lines li.locked .n{font-weight:600}
+.lines .est{font-size:.75rem;color:var(--ink-soft);font-family:var(--sans);margin-right:3px}
+.back{margin-top:6px;font-size:.8125rem;color:var(--ink-soft)}
+.left{background:var(--brand);color:#fff;border-bottom:5px solid var(--yellow);border-radius:4px;padding:12px 16px;margin-bottom:10px}
+.left .big{font:800 2.25rem/1.1 var(--display);letter-spacing:-.01em}
+.left .sm{font-size:.875rem;opacity:.9}
+.left.over{background:var(--red);border-bottom-color:#7a1015}
+.items.cart{margin:10px 0 12px}
+.items.cart li{grid-template-columns:auto 1fr auto auto}
+.items.cart .pricebox input{width:4.6em}
+.items.cart li.off .iname{text-decoration:none;color:var(--ink-soft)}
 .lines .n a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--ink-soft)}
 .lines .d{display:block;font-size:.75rem;color:var(--ink-soft)}
 
@@ -238,24 +253,43 @@ footer p{margin:4px 0}
     <div class="micr" aria-hidden="true">⑆ 000000 ⑆ 0000 ⑈ spend it all ⑈</div>
   </div>
 
-  <section aria-labelledby="catTitle">
+  <section id="cartSec" aria-labelledby="cartTitle" hidden>
     <div class="sec-head">
-      <h2 id="catTitle">Menards picks</h2>
-      <p class="sub" id="catMeta"></p>
+      <h2 id="cartTitle">Shopping</h2>
+      <button class="linkbtn" id="cartDone" type="button">Done shopping</button>
     </div>
-    <div class="catbar">
-      <label class="vh" for="catSearch">Only show items matching</label>
-      <input id="catSearch" type="search" placeholder="Narrow it down, e.g. tools, bulbs, dog" autocomplete="off">
+    <div class="left" id="cartLeft" aria-live="polite"></div>
+    <p class="sub">Check things off as they go in the cart and fix the price to match the shelf tag.</p>
+    <ul class="items cart" id="cartLines"></ul>
+    <form class="addform" id="cartAdd" autocomplete="off">
+      <label class="vh" for="cartName">Something else</label>
+      <input id="cartName" placeholder="Something else you grabbed" required>
+      <label class="vh" for="cartPrice">Price</label>
+      <input id="cartPrice" class="price" placeholder="$ price" inputmode="decimal">
+      <button class="btn" type="submit">Add</button>
+    </form>
+    <div class="ideas" id="fillersBox">
+      <p id="fillersText"></p>
+      <div class="chips" id="fillers"></div>
     </div>
-    <div class="chips depts" id="deptChips"></div>
-    <div class="seg" role="group" aria-label="How many items">
-      <button type="button" data-size="1" aria-pressed="true">1 item</button>
-      <button type="button" data-size="2" aria-pressed="false">2 items</button>
-      <button type="button" data-size="3" aria-pressed="false">3 items</button>
-    </div>
-    <div class="results" id="catResults" aria-live="polite"></div>
   </section>
 
+  <section id="planSec" aria-labelledby="planTitle">
+    <div class="sec-head">
+      <h2 id="planTitle">What should I buy?</h2>
+      <p class="sub" id="planMeta"></p>
+    </div>
+    <p class="sub">Tap what fits your life. You'll get a basket of useful stuff that uses up the check.</p>
+    <div class="chips tags" id="tagChips"></div>
+    <div class="results" id="basket" aria-live="polite"></div>
+    <div class="plan-actions">
+      <button class="btn ghost" id="shuffleBtn" type="button">Shuffle</button>
+      <button class="btn" id="shopBtn" type="button">Start shopping</button>
+    </div>
+  </section>
+
+  <details class="how own">
+    <summary>Use your own list instead</summary>
   <section aria-labelledby="matchesTitle">
     <div class="sec-head">
       <h2 id="matchesTitle">From your own list</h2>
@@ -286,11 +320,15 @@ footer p{margin:4px 0}
       <div class="chips" id="chips"></div>
     </div>
   </section>
+  </details>
 
   <details class="how">
     <summary>How it works</summary>
     <ul>
-      <li>Your list is the menu. Add things you really would buy, with today's prices. Set how many of each you'd take with the stepper.</li>
+      <li><b>What should I buy?</b> builds a basket from everyday things people use: filters, salt, bulbs, batteries, cleaning supplies, tools. Tap <b>Shuffle</b> for a different mix, 🔒 to keep an item, ↻ to swap one.</li>
+      <li>Prices marked "about" are typical prices. The rest are real Menards.com prices from the date shown, and they can still differ by store.</li>
+      <li><b>Start shopping</b> keeps a running total in the store, so you know exactly what's left on the check, and suggests small things that fit what's left.</li>
+      <li>With your own list, you're the menu. Add things you really would buy, with today's prices. Set how many of each you'd take with the stepper.</li>
       <li>Tap <b>Must buy</b> on anything that has to be in the cart. Uncheck an item to leave it out without deleting it.</li>
       <li>Matches add sales tax so the total lines up with the register, then show what's left on the check or what you'd pay.</li>
       <li>Your list stays on this device. <b>Share my list</b> makes a link someone else can open to copy it.</li>
@@ -299,7 +337,7 @@ footer p{margin:4px 0}
   </details>
 
   <footer>
-    <p>Not affiliated with or endorsed by Menards. Prices are whatever you enter.</p>
+    <p>Not affiliated with or endorsed by Menards. Prices are estimates or past Menards.com prices; check the shelf before you buy.</p>
   </footer>
 </div>
 <div class="toast" id="toast" role="status"></div>
@@ -309,7 +347,8 @@ footer p{margin:4px 0}
   const KEY = "spend-the-check.v1";
   const IDEAS = ["Furnace filter","Ice melt","LED bulbs","AA batteries","AAA batteries","Paper towels","Toilet paper","Trash bags","Bird seed","Water softener salt","Windshield washer fluid","Duct tape","WD-40","Caulk","Work gloves","Extension cord","Mouse traps","Dish soap","Laundry detergent","Pop / soda","Snacks","Light switch cover","Smoke detector","Furnace filter (spare)"];
 
-  const defaults = { checks:[8628], over:300, tax:5.5, maxKinds:6, items:[], catSize:1, depts:[], catq:"" };
+  const defaults = { checks:[8628], over:300, tax:5.5, maxKinds:6, items:[],
+    plan:{ tags:["household","home","car"], seed:1, locked:[], basket:[] }, cart:{ active:false, lines:[] } };
   let state = load();
 
   function load(){
@@ -389,139 +428,247 @@ footer p{margin:4px 0}
   }
   window.__solve = solve; // for testing
 
-  // ---------- Menards catalog ----------
-  // catalog.json is rebuilt by scripts/refresh-catalog.mjs: { updated, items:[{n,p,d,u}] }, p in cents.
-  let catalog = { updated:null, items:[] };
-  let catLoaded = false;
-  async function loadCatalog(){
-    try{
-      const res = await fetch("catalog.json", { cache:"no-cache" });
-      if(res.ok){
-        const c = await res.json();
-        catalog = { updated:c.updated || null, items:(c.items||[]).filter(i => i && i.n && i.p > 0) };
+  // ---------- planner ----------
+  // ideas.json: curated things people use, with estimated prices. catalog.json (from
+  // scripts/refresh-catalog.mjs) adds real Menards prices; items tagged with an idea id (i) replace the estimate.
+  const TAGS = [["household","Everyday basics"],["home","Homeowner"],["car","Car"],["pets","Pets"],["yard","Yard & garden"],["diy","Tools & DIY"],["cleaning","Cleaning"]];
+  const SEASONS = { winter:["winter","fall"], spring:["spring","summer"], summer:["summer","spring"], fall:["fall","winter"] };
+  const season = ["winter","winter","spring","spring","spring","summer","summer","summer","fall","fall","fall","winter"][new Date().getMonth()];
+  let ideas = [], catalog = { updated:null, items:[] }, priceOf = {};
+
+  async function loadData(){
+    const get = async f => { try{ const r = await fetch(f, { cache:"no-cache" }); return r.ok ? r.json() : null; }catch(e){ return null; } };
+    const [i, c] = await Promise.all([get("ideas.json"), get("catalog.json")]);
+    ideas = (i && i.ideas) || [];
+    if(c) catalog = { updated:c.updated || null, items:(c.items||[]).filter(x => x && x.n && x.p > 0) };
+    // Real price per idea: the cheapest Menards option found for it.
+    priceOf = {};
+    catalog.items.forEach(x => { if(x.i && (!priceOf[x.i] || x.p < priceOf[x.i].p)) priceOf[x.i] = x; });
+    const real = ideas.filter(d => priceOf[d.id]).length;
+    $("planMeta").textContent = real
+      ? `${real} of ${ideas.length} with Menards prices` + (catalog.updated ? ` from ${new Date(catalog.updated).toLocaleDateString("en-US",{month:"short",day:"numeric"})}` : "")
+      : "";
+    if(!state.plan.basket.length) buildBasket();
+    renderPlan(); renderCart();
+  }
+
+  // An idea as it appears in a basket: real Menards item when we have one, else the estimate.
+  function pick(id){
+    const d = ideas.find(x => x.id === id); if(!d) return null;
+    const real = priceOf[id];
+    return real ? { id, name:d.n, price:real.p, url:real.u, title:real.n, est:false }
+                : { id, name:d.n, price:d.e, url:"https://www.menards.com/main/search.html?search=" + encodeURIComponent(d.q), est:true };
+  }
+  function eligible(){
+    const tags = new Set(state.plan.tags), ok = SEASONS[season];
+    return ideas.filter(d => d.t.some(t => tags.has(t)) && (d.s === "any" || ok.includes(d.s)));
+  }
+
+  const kindOf = id => (ideas.find(d => d.id === id) || {}).g || null;
+
+  // Seeded shuffle so "Shuffle" gives a new basket but reloading keeps the same one.
+  function rng(seed){ return () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }; }
+
+  // Many random greedy fills; keep the one that lands closest to the check (going over counts extra).
+  function buildBasket(){
+    const T = target(); const r = state.tax/100; const total = s => s + Math.round(s*r);
+    const cap = T + state.over;
+    const pool = eligible().map(d => pick(d.id)).filter(Boolean);
+    const locked = state.plan.locked.map(pick).filter(Boolean);
+    const lockedIds = new Set(locked.map(x => x.id));
+    const rand = rng(state.plan.seed);
+    let best = null;
+    for(let trial = 0; trial < 400; trial++){
+      const order = pool.filter(x => !lockedIds.has(x.id)).map(x => [rand(), x]).sort((a,b) => a[0]-b[0]).map(a => a[1]);
+      const pickIds = locked.map(x => x.id); let sub = locked.reduce((s,x) => s + x.price, 0);
+      const kinds = new Set(locked.map(x => kindOf(x.id)).filter(Boolean));
+      const take = x => { pickIds.push(x.id); sub += x.price; const k = kindOf(x.id); if(k) kinds.add(k); };
+      const dup = x => pickIds.includes(x.id) || kinds.has(kindOf(x.id));
+      // Big checks get one or two bigger items so it isn't all small stuff.
+      let bigs = T >= 30000 ? 2 : T >= 15000 ? 1 : 0;
+      bigs -= locked.filter(x => (ideas.find(d => d.id === x.id)||{}).b).length;
+      for(const x of order){
+        if(bigs <= 0) break;
+        if(!(ideas.find(d => d.id === x.id)||{}).b || dup(x) || total(sub + x.price) > Math.max(T*0.6, 0)) continue;
+        take(x); bigs--;
       }
-    }catch(e){}
-    catLoaded = true;
-    renderDepts(); scheduleCat();
-  }
-
-  // Closest combos of `size` different catalog items (one of each) to the check, tax included.
-  function catSolve(items, T, over, taxPct, size, limit){
-    const r = Math.max(0, taxPct)/100;
-    const total = s => s + Math.round(s*r);
-    const cap = T + over;
-    const want = Math.round(T/(1+r)); // subtotal that lands on the check after tax
-    const list = items.filter(i => total(i.p) <= cap).sort((a,b) => a.p - b.p);
-    const n = list.length;
-    let pool = [];
-    const add = idx => {
-      const sub = idx.reduce((s,k) => s + list[k].p, 0), t = total(sub);
-      if(t > cap) return;
-      pool.push({ score:Math.abs(T - t), sub, tax:t-sub, total:t, idx });
-      if(pool.length > 4000){ pool.sort((a,b) => a.score-b.score); pool.length = 800; }
-    };
-    // index of the first item priced >= v, searching from `lo`
-    const lower = (v, lo) => { let hi = n; while(lo < hi){ const m = (lo+hi) >> 1; if(list[m].p < v) lo = m+1; else hi = m; } return lo; };
-    const near = (v, lo, fn) => { const k = lower(v, lo); for(const c of [k-1, k, k+1]) if(c >= lo && c < n) fn(c); };
-
-    if(size === 1) for(let i=0;i<n;i++) add([i]);
-    else if(size === 2) for(let i=0;i<n;i++) near(want - list[i].p, i+1, j => add([i,j]));
-    else {
-      let steps = 0;
-      outer: for(let i=0;i<n;i++) for(let j=i+1;j<n;j++){
-        const rest = want - list[i].p - list[j].p;
-        if(rest < list[j].p - 200) break; // everything after j is pricier still
-        near(rest, j+1, k => add([i,j,k]));
-        if(++steps > 1500000) break outer;
+      for(const x of order){
+        if(dup(x) || pickIds.length >= 25) continue;
+        if(total(sub + x.price) <= cap) take(x);
+        if(total(sub) >= T) break;
       }
+      const t = total(sub);
+      const score = t > T ? (t - T) * 2 : T - t;
+      if(!best || score < best.score) best = { score, ids:pickIds };
+      if(score === 0) break;
     }
-    pool.sort((a,b) => a.score - b.score);
-    // Spread results out: each item shows up in one suggestion at most.
-    const used = new Set(), out = [];
-    for(const c of pool){
-      if(c.idx.some(k => used.has(k))) continue;
-      c.idx.forEach(k => used.add(k));
-      out.push({ ...c, lines:c.idx.map(k => ({ q:1, name:list[k].n, price:list[k].p, url:list[k].u, dept:list[k].d })) });
-      if(out.length >= limit) break;
-    }
-    return out;
+    state.plan.basket = best ? best.ids : [];
+    save();
   }
 
-  function catFiltered(){
-    const words = state.catq.toLowerCase().split(/\s+/).filter(Boolean);
-    const depts = new Set(state.depts);
-    return catalog.items.filter(i =>
-      (!depts.size || depts.has(i.d)) &&
-      words.every(w => i.n.toLowerCase().includes(w) || (i.d||"").toLowerCase().includes(w)));
+  function totals(lines){
+    const sub = lines.reduce((s,l) => s + l.price*(l.q||1), 0);
+    const tax = Math.round(sub * state.tax/100);
+    return { sub, tax, total:sub + tax };
+  }
+  function verdict(diff){
+    return diff > 0 ? `<span class="pill pay">You pay ${fmt(diff)}</span>`
+      : diff === 0 ? `<span class="pill ok">Exactly covered</span>`
+      : (-diff <= 100 ? `<span class="pill ok">Covered · ${fmt(-diff)} unused</span>`
+                      : `<span class="pill left">Covered · ${fmt(-diff)} unused</span>`);
   }
 
-  function renderDepts(){
-    const box = $("deptChips"); box.innerHTML = "";
-    const counts = {};
-    catalog.items.forEach(i => { if(i.d) counts[i.d] = (counts[i.d]||0) + 1; });
-    const names = Object.keys(counts).sort((a,b) => counts[b]-counts[a]).slice(0, 14).sort();
-    state.depts = state.depts.filter(d => counts[d]);
-    names.forEach(d => {
+  function renderTags(){
+    const box = $("tagChips"); box.innerHTML = "";
+    TAGS.forEach(([id, label]) => {
       const b = document.createElement("button");
-      b.type = "button"; b.className = "chip"; b.textContent = d;
-      b.setAttribute("aria-pressed", state.depts.includes(d));
+      b.type = "button"; b.className = "chip"; b.textContent = label;
+      b.setAttribute("aria-pressed", state.plan.tags.includes(id));
       b.addEventListener("click", () => {
-        state.depts = state.depts.includes(d) ? state.depts.filter(x => x !== d) : state.depts.concat(d);
-        b.setAttribute("aria-pressed", state.depts.includes(d)); save(); scheduleCat();
+        const on = state.plan.tags.includes(id);
+        if(on && state.plan.tags.length === 1){ toast("Keep at least one"); return; }
+        state.plan.tags = on ? state.plan.tags.filter(t => t !== id) : state.plan.tags.concat(id);
+        b.setAttribute("aria-pressed", !on);
+        buildBasket(); renderPlan();
       });
       box.appendChild(b);
     });
-    const meta = $("catMeta");
-    meta.textContent = catalog.items.length
-      ? `${catalog.items.length.toLocaleString()} items` + (catalog.updated ? ` · prices from ${new Date(catalog.updated).toLocaleDateString("en-US",{month:"short",day:"numeric"})}` : "")
-      : "";
   }
 
-  let catTimer;
-  function scheduleCat(){ clearTimeout(catTimer); catTimer = setTimeout(renderCat, 150); }
-  function renderCat(){
-    const box = $("catResults");
+  function renderPlan(){
+    const box = $("basket");
     const T = target();
-    if(!catLoaded){ box.innerHTML = `<div class="empty">Loading Menards items…</div>`; return; }
-    if(!catalog.items.length){
-      box.innerHTML = `<div class="empty"><strong>The Menards catalog isn't loaded yet.</strong> Use your own list below for now.</div>`;
-      return;
-    }
+    if(!ideas.length){ box.innerHTML = `<div class="empty">Loading ideas…</div>`; return; }
     if(!T){ box.innerHTML = `<div class="empty">Type your check amount above to start.</div>`; return; }
-    const items = catFiltered();
-    if(!items.length){ box.innerHTML = `<div class="empty"><strong>No items match that filter.</strong> Try a different word or category.</div>`; return; }
-    const res = catSolve(items, T, state.over, state.tax, state.catSize, 6);
-    if(!res.length){
-      box.innerHTML = `<div class="empty"><strong>No ${state.catSize}-item combos fit under ${fmt(T + state.over)}.</strong> Try fewer items or a wider filter.</div>`;
-      return;
-    }
-    box.innerHTML = "";
-    res.forEach((r, idx) => box.appendChild(receipt(r, T, idx)));
-    const n = document.createElement("p"); n.className = "note";
-    n.textContent = "Prices come from Menards.com and can differ by store. Tap an item to check it before you go.";
-    box.appendChild(n);
-  }
-  $("catSearch").value = state.catq;
-  $("catSearch").addEventListener("input", e => { state.catq = e.target.value; save(); scheduleCat(); });
-  document.querySelectorAll(".seg button").forEach(b => {
-    b.setAttribute("aria-pressed", +b.dataset.size === state.catSize);
-    b.addEventListener("click", () => {
-      state.catSize = +b.dataset.size; save();
-      document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", x === b));
-      scheduleCat();
+    const lines = state.plan.basket.map(pick).filter(Boolean);
+    if(!lines.length){ box.innerHTML = `<div class="empty"><strong>Nothing fits yet.</strong> Turn on a few more categories above.</div>`; return; }
+    const t = totals(lines);
+    const anyEst = lines.some(l => l.est);
+    const div = document.createElement("article");
+    div.className = "receipt best";
+    div.innerHTML = `
+      <div class="tag">Basket for ${fmt(T)}</div>
+      <ul class="lines">${lines.map(l => {
+        const locked = state.plan.locked.includes(l.id);
+        return `<li class="${locked ? "locked" : ""}" data-id="${esc(l.id)}">
+          <span class="n"><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.name)}</a>${l.title ? `<span class="d">${esc(l.title)}</span>` : ""}</span>
+          <span class="p">${l.est ? `<span class="est">about</span>` : ""}${fmt(l.price)}</span>
+          <span class="ctl">
+            <button type="button" data-act="lock" aria-pressed="${locked}" aria-label="${locked ? "Unlock" : "Keep"} ${esc(l.name)}" title="Keep this">🔒</button>
+            <button type="button" data-act="swap" aria-label="Swap ${esc(l.name)}" title="Swap for something else">↻</button>
+            <button type="button" data-act="drop" aria-label="Remove ${esc(l.name)}" title="Remove">×</button>
+          </span></li>`; }).join("")}</ul>
+      <div class="totals">
+        <div><span>Subtotal</span><span>${fmt(t.sub)}</span></div>
+        <div><span>Tax ${state.tax}%</span><span>${fmt(t.tax)}</span></div>
+        <div class="grand"><span>Total</span><span>${anyEst ? "about " : ""}${fmt(t.total)}</span></div>
+      </div>
+      <div class="verdict">${verdict(t.total - T)}<button class="smallbtn" type="button" data-act="copy">Copy list</button></div>
+      ${t.total > T + state.over && state.plan.locked.length ? `<p class="note">The items you kept (🔒) already go past the check. Unlock one to make room.</p>` : ""}
+      <p class="back">Most Menards items carry the 11% rebate, so this could earn about ${fmt(Math.round(t.sub*0.11))} back on your next check.</p>`;
+    div.addEventListener("click", e => {
+      const btn = e.target.closest("button"); if(!btn) return;
+      const id = btn.closest("li")?.dataset.id;
+      if(btn.dataset.act === "copy"){
+        copy(lines.map(l => `${l.name} - ${l.est ? "about " : ""}${fmt(l.price)}` + (l.est ? "" : `\n  ${l.url}`)).join("\n") + `\nTotal with tax: ${fmt(t.total)}`, "Shopping list copied");
+      } else if(btn.dataset.act === "lock"){
+        state.plan.locked = state.plan.locked.includes(id) ? state.plan.locked.filter(x => x !== id) : state.plan.locked.concat(id);
+        save(); renderPlan();
+      } else if(btn.dataset.act === "drop"){
+        state.plan.basket = state.plan.basket.filter(x => x !== id);
+        state.plan.locked = state.plan.locked.filter(x => x !== id);
+        save(); renderPlan();
+      } else if(btn.dataset.act === "swap") swap(id);
     });
+    box.innerHTML = ""; box.appendChild(div);
+  }
+
+  // Swap one item for a different idea that keeps the total about the same.
+  function swap(id){
+    const cur = pick(id); if(!cur) return;
+    const inBasket = new Set(state.plan.basket);
+    const kinds = new Set(state.plan.basket.filter(x => x !== id).map(kindOf).filter(Boolean));
+    const opts = eligible().map(d => pick(d.id)).filter(x => x && !inBasket.has(x.id) && !kinds.has(kindOf(x.id)));
+    if(!opts.length){ toast("Nothing else to swap in"); return; }
+    opts.sort((a,b) => Math.abs(a.price-cur.price) - Math.abs(b.price-cur.price));
+    const near = opts.slice(0, 6);
+    const next = near[Math.floor(Math.random()*near.length)];
+    state.plan.basket = state.plan.basket.map(x => x === id ? next.id : x);
+    state.plan.locked = state.plan.locked.filter(x => x !== id);
+    save(); renderPlan();
+  }
+
+  $("shuffleBtn").addEventListener("click", () => { state.plan.seed = (Math.random()*1e9)|0; buildBasket(); renderPlan(); });
+  $("shopBtn").addEventListener("click", () => {
+    const lines = state.plan.basket.map(pick).filter(Boolean);
+    state.cart = { active:true, lines:lines.map(l => ({ id:l.id, n:l.name, p:l.price, on:false, est:l.est })) };
+    save(); renderCart();
+    $("cartSec").scrollIntoView({ behavior:"smooth", block:"start" });
   });
+
+  // ---------- in-store cart ----------
+  function renderCart(){
+    const sec = $("cartSec"), on = state.cart && state.cart.active;
+    sec.hidden = !on; $("planSec").hidden = !!on;
+    if(!on) return;
+    const ul = $("cartLines"); ul.innerHTML = "";
+    state.cart.lines.forEach((l, idx) => {
+      const li = document.createElement("li");
+      li.className = l.on ? "" : "off";
+      li.innerHTML = `
+        <input type="checkbox" ${l.on ? "checked" : ""} aria-label="${esc(l.n)} is in the cart">
+        <div class="iname">${esc(l.n)}</div>
+        <label class="pricebox"><span>$</span><span class="vh">Shelf price of ${esc(l.n)}</span>
+          <input inputmode="decimal" autocomplete="off" value="${l.p ? plain(l.p) : ""}" placeholder="price"></label>
+        <button class="del" type="button" aria-label="Remove ${esc(l.n)}">×</button>`;
+      const chk = li.querySelector("input[type=checkbox]");
+      chk.addEventListener("change", () => { l.on = chk.checked; li.classList.toggle("off", !l.on); save(); updateLeft(); });
+      const price = li.querySelector(".pricebox input");
+      price.addEventListener("input", () => { l.p = toCents(price.value); l.est = false; save(); updateLeft(); });
+      price.addEventListener("blur", () => { if(l.p) price.value = plain(l.p); });
+      li.querySelector(".del").addEventListener("click", () => { state.cart.lines.splice(idx, 1); save(); renderCart(); });
+      ul.appendChild(li);
+    });
+    updateLeft();
+  }
+  function updateLeft(){
+    const T = target();
+    const inCart = state.cart.lines.filter(l => l.on);
+    const t = totals(inCart.map(l => ({ price:l.p })));
+    const left = T - t.total;
+    const box = $("cartLeft");
+    box.className = "left" + (left < 0 ? " over" : "");
+    box.innerHTML = left >= 0
+      ? `<div class="big">${fmt(left)} left</div><div class="sm">${inCart.length} in cart · ${fmt(t.total)} with tax of ${fmt(T)}</div>`
+      : `<div class="big">Over by ${fmt(-left)}</div><div class="sm">You'd pay that at the register · ${fmt(t.total)} with tax</div>`;
+    // Small things that fit in the room left after everything on the list, biggest fit first.
+    const planned = totals(state.cart.lines.map(l => ({ price:l.p }))).total;
+    const spare = T - planned;
+    const room = Math.floor(spare / (1 + state.tax/100));
+    const have = new Set(state.cart.lines.map(l => l.id).filter(Boolean));
+    const fits = room > 0 ? eligible().map(d => pick(d.id)).filter(x => x && !have.has(x.id) && x.price <= room)
+      .sort((a,b) => b.price - a.price).slice(0, 8) : [];
+    $("fillersText").textContent = fits.length ? `Room for ${fmt(spare)} more after your list. Tap to add:` : "";
+    const fb = $("fillers"); fb.innerHTML = "";
+    fits.forEach(x => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "chip"; b.textContent = `+ ${x.name} · ${x.est ? "~" : ""}${fmt(x.price)}`;
+      b.addEventListener("click", () => { state.cart.lines.push({ id:x.id, n:x.name, p:x.price, on:false, est:x.est }); save(); renderCart(); });
+      fb.appendChild(b);
+    });
+  }
+  $("cartAdd").addEventListener("submit", e => {
+    e.preventDefault();
+    const n = $("cartName").value.trim(); if(!n) return;
+    state.cart.lines.push({ n, p:toCents($("cartPrice").value), on:true });
+    $("cartName").value = ""; $("cartPrice").value = ""; save(); renderCart();
+  });
+  $("cartDone").addEventListener("click", () => { state.cart.active = false; save(); renderCart(); renderPlan(); });
 
   // One suggestion card. r: { lines:[{q,name,price,url?,dept?}], sub, tax, total }
   function receipt(r, T, idx){
     const div = document.createElement("article");
     div.className = "receipt" + (idx===0 ? " best" : "");
-    const diff = r.total - T;
-    const verdict = diff > 0
-      ? `<span class="pill pay">You pay ${fmt(diff)}</span>`
-      : diff === 0 ? `<span class="pill ok">Exactly covered</span>`
-      : (-diff <= 100 ? `<span class="pill ok">Covered · ${fmt(-diff)} unused</span>`
-                      : `<span class="pill left">Covered · ${fmt(-diff)} unused</span>`);
     const name = l => l.url && /^https:\/\/www\.menards\.com\//.test(l.url)
       ? `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.name)}</a>` : esc(l.name);
     div.innerHTML = `
@@ -532,7 +679,7 @@ footer p{margin:4px 0}
         <div><span>Tax ${state.tax}%</span><span>${fmt(r.tax)}</span></div>
         <div class="grand"><span>Total</span><span>${fmt(r.total)}</span></div>
       </div>
-      <div class="verdict">${verdict}<button class="smallbtn" type="button">Copy list</button></div>`;
+      <div class="verdict">${verdict(r.total - T)}<button class="smallbtn" type="button">Copy list</button></div>`;
     div.querySelector(".smallbtn").addEventListener("click", () => {
       const text = r.lines.map(l => `${l.q} x ${l.name} (${fmt(l.price)})` + (l.url ? `\n  ${l.url}` : "")).join("\n") + `\nTotal with tax: ${fmt(r.total)}`;
       copy(text, "Shopping list copied");
@@ -550,10 +697,10 @@ footer p{margin:4px 0}
         <input inputmode="decimal" autocomplete="off" value="${c ? plain(c) : ""}" placeholder="0.00"></label>` +
         (idx ? `<button class="iconbtn" type="button" aria-label="Remove check ${idx+1}">✕</button>` : "");
       const input = row.querySelector("input");
-      input.addEventListener("input", () => { state.checks[idx] = toCents(input.value); save(); updateTotal(); schedule(); });
+      input.addEventListener("input", () => { state.checks[idx] = toCents(input.value); save(); updateTotal(); schedule(); replan(); });
       input.addEventListener("blur", () => { if(state.checks[idx]) input.value = plain(state.checks[idx]); });
       const rm = row.querySelector("button");
-      if(rm) rm.addEventListener("click", () => { state.checks.splice(idx,1); save(); renderChecks(); schedule(); });
+      if(rm) rm.addEventListener("click", () => { state.checks.splice(idx,1); save(); renderChecks(); schedule(); replan(); });
       box.appendChild(row);
     });
     updateTotal();
@@ -627,7 +774,13 @@ footer p{margin:4px 0}
 
   // ---------- render: results ----------
   let timer;
-  function schedule(){ clearTimeout(timer); timer = setTimeout(renderResults, 120); scheduleCat(); }
+  function schedule(){ clearTimeout(timer); timer = setTimeout(renderResults, 120); }
+  // The check amount, out-of-pocket limit and tax all change what fits in the basket.
+  let planTimer;
+  function replan(){
+    clearTimeout(planTimer);
+    planTimer = setTimeout(() => { if(ideas.length){ buildBasket(); renderPlan(); } if(state.cart.active) updateLeft(); }, 250);
+  }
   function renderResults(){
     const box = $("results");
     const T = target();
@@ -667,7 +820,7 @@ footer p{margin:4px 0}
   // ---------- settings ----------
   function bindSetting(id, get, set){
     const el = $(id); el.value = get();
-    el.addEventListener("input", () => { set(el.value); save(); schedule(); });
+    el.addEventListener("input", () => { set(el.value); save(); schedule(); replan(); });
     el.addEventListener("blur", () => { el.value = get(); });
   }
   bindSetting("over", () => plain(state.over), v => state.over = toCents(v));
@@ -760,7 +913,7 @@ footer p{margin:4px 0}
     clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 2200);
   }
 
-  renderChecks(); renderItems(); checkImport(); renderResults(); renderCat(); loadCatalog();
+  renderChecks(); renderItems(); checkImport(); renderResults(); renderTags(); renderPlan(); loadData();
 
   if("serviceWorker" in navigator && location.protocol === "https:"){
     window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
