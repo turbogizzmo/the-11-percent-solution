@@ -1,6 +1,6 @@
-name: Bright Data discovery test
+name: Bright Data search test
 
-# Tries the Menards scraper's "find products" modes, 3 products max each (about 6 credits).
+# Compares search phrasings for finding Menards product pages (1 credit per search).
 on:
   workflow_dispatch:
 
@@ -10,31 +10,38 @@ jobs:
     timeout-minutes: 30
     env:
       KEY: ${{ secrets.BRIGHTDATA_API_KEY }}
+      ZONE: ${{ secrets.BRIGHTDATA_SERP_ZONE }}
     steps:
-      - name: Try each discovery mode
+      - name: Try each phrasing
+        shell: python3 {0}
         run: |
-          base="https://api.brightdata.com/datasets/v3/trigger?dataset_id=gd_motp6b7s1n9zlq6lwj&include_errors=true&type=discover_new&limit_per_input=3"
-          try() {
-            echo "== $1"
-            curl -sS -w '\nHTTP %{http_code}\n' -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" -d "$2" "$base&discover_by=$1" | tee -a out.txt
+          import json, os, re, urllib.parse, urllib.request
+          from concurrent.futures import ThreadPoolExecutor
+          P = re.compile(r"^https://www\.menards\.com/main/.+/p-\d+")
+          items = ["AA batteries 24 pack", "ice melt 50 lb", "furnace filter 16x25x1", "paper towels", "motor oil 5w-30 5 quart", "snow shovel"]
+          def g(q, extra=""): return f"https://www.google.com/search?q={urllib.parse.quote(q)}&gl=us&hl=en&brd_json=1{extra}"
+          def b(q): return f"https://www.bing.com/search?q={urllib.parse.quote(q)}&cc=us&brd_json=1"
+          styles = {
+            "google: menards <q>": lambda q: g("menards " + q),
+            "google: <q> site:menards.com/main": lambda q: g(q + " site:menards.com/main"),
+            "google: <q> as_sitesearch": lambda q: g(q, "&as_sitesearch=www.menards.com"),
+            "bing: menards <q>": lambda q: b("menards " + q),
           }
-          try category_url '{"input":[{"category_url":"https://www.menards.com/main/tools/hand-tools/measuring-layout-tools/tape-measures-rulers/c-1549901401002.htm"}]}'
-          try keyword '{"input":[{"keyword":"AA batteries"}]}'
-      - name: Wait for any snapshots and show what came back
-        run: |
-          for id in $(grep -o '"snapshot_id":"[^"]*"' out.txt | cut -d'"' -f4); do
-            echo "== snapshot $id"
-            for i in $(seq 1 40); do
-              s=$(curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/datasets/v3/progress/$id)
-              echo "$s"
-              echo "$s" | grep -q '"ready"\|"failed"' && break
-              sleep 20
-            done
-            curl -sS -H "Authorization: Bearer $KEY" "https://api.brightdata.com/datasets/v3/snapshot/$id?format=json" \
-              | python3 -c "
-          import json,sys
-          d=json.load(sys.stdin)
-          print(len(d),'rows')
-          for r in d[:5]: print(r.get('price'), (r.get('title') or r.get('error') or '')[:80], r.get('url'))
-          " || true
-          done
+          def run(args):
+            name, q = args
+            body = json.dumps({"zone": os.environ["ZONE"], "url": styles[name](q), "format": "raw"}).encode()
+            req = urllib.request.Request("https://api.brightdata.com/request", body, {"Authorization": "Bearer " + os.environ["KEY"], "Content-Type": "application/json"})
+            try:
+              d = json.loads(urllib.request.urlopen(req, timeout=90).read())
+              links = [r.get("link") or "" for r in d.get("organic") or []]
+              prods = [l for l in links if P.match(l)]
+              return name, q, len(prods), (prods[:2] or links[:2])
+            except Exception as e:
+              return name, q, -1, [str(e)[:80]]
+          jobs = [(n, q) for n in styles for q in items]
+          with ThreadPoolExecutor(6) as ex:
+            res = list(ex.map(run, jobs))
+          for n in styles:
+            rows = [r for r in res if r[0] == n]
+            print(f"\n== {n}: {sum(1 for r in rows if r[2] > 0)}/{len(rows)} found products")
+            for _, q, c, l in rows: print(f"  {c:>2} {q}: {' '.join(x.split('/')[-3][:50] if 'menards' in x else x[:60] for x in l)}")
