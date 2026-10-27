@@ -36,7 +36,7 @@ The service worker (offline mode) only registers over HTTPS, so test that part o
 
 ## Settings
 
-The default sales tax is 5.5% (Eau Claire, WI). Change `tax:5.5` in `index.html` to set a different default; users can also change it on the check.
+The default sales tax is 5.5%. Change `tax:5.5` in `index.html` to set a different default; users can also change it on the check.
 
 ## Files
 

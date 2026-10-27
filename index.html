@@ -6,7 +6,7 @@
 <title>The 11% Solution</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Enter your Menards rebate check amount and find the combination of things you'd buy anyway that uses it up without paying extra.">
-<meta name="theme-color" content="#21304a">
+<meta name="theme-color" content="#00843d">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -14,60 +14,66 @@
 <meta property="og:description" content="Turn an odd-amount rebate check into stuff you'd buy anyway, without paying a few hundred extra.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#eef2ee;
-  --surface:#fbfcfa;
-  --check:#e3ece6;
-  --check-line:#9fb6a8;
-  --ink:#1d2738;
-  --ink-soft:#56627a;
-  --rule:#cfd8d2;
-  --navy:#21304a;
-  --green:#2c6a4c;
-  --green-bg:#e0efe6;
-  --red:#b23a2c;
-  --red-bg:#f7e4e0;
-  --amber:#9a6a12;
-  --amber-bg:#f6ecd5;
-  --focus:#3c6fd1;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --paper:#f2f2f2;
+  --surface:#ffffff;
+  --check:#fffbe6;
+  --check-line:#e0c64a;
+  --ink:#1a1a1a;
+  --ink-soft:#555b57;
+  --rule:#d6d6d6;
+  --navy:#00843d;
+  --brand:#00843d;
+  --brand-dark:#006830;
+  --yellow:#ffd200;
+  --green:#00843d;
+  --green-bg:#e3f3e9;
+  --red:#d2232a;
+  --red-bg:#fbe5e6;
+  --amber:#8a6300;
+  --amber-bg:#fff4cc;
+  --focus:#1565c0;
+  --mono:"Roboto Mono",ui-monospace,Menlo,monospace;
+  --sans:"Roboto",Arial,Helvetica,sans-serif;
+  --display:"Roboto Condensed","Arial Narrow",Arial,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --paper:#141917;--surface:#1c2320;--check:#1f2a25;--check-line:#3d5248;
-    --ink:#e7ece9;--ink-soft:#9aa8a1;--rule:#2f3a35;--navy:#cfd9ef;
-    --green:#7cc9a0;--green-bg:#1d3329;--red:#f0907f;--red-bg:#3a221e;
-    --amber:#e6bd6a;--amber-bg:#352b18;--focus:#8fb1f5;color-scheme:dark;
+    --paper:#121513;--surface:#1c201d;--check:#2a2714;--check-line:#7a6a22;
+    --ink:#eceeed;--ink-soft:#a3aaa6;--rule:#333a36;--navy:#4cc27f;--brand:#00843d;--brand-dark:#005c2a;
+    --green:#5fd394;--green-bg:#17301f;--red:#ff7a7f;--red-bg:#3a1c1e;
+    --amber:#ffd75e;--amber-bg:#352c10;--focus:#8fb8f5;color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#141917;--surface:#1c2320;--check:#1f2a25;--check-line:#3d5248;
-  --ink:#e7ece9;--ink-soft:#9aa8a1;--rule:#2f3a35;--navy:#cfd9ef;
-  --green:#7cc9a0;--green-bg:#1d3329;--red:#f0907f;--red-bg:#3a221e;
-  --amber:#e6bd6a;--amber-bg:#352b18;--focus:#8fb1f5;color-scheme:dark;
+  --paper:#121513;--surface:#1c201d;--check:#2a2714;--check-line:#7a6a22;
+  --ink:#eceeed;--ink-soft:#a3aaa6;--rule:#333a36;--navy:#4cc27f;--brand:#00843d;--brand-dark:#005c2a;
+  --green:#5fd394;--green-bg:#17301f;--red:#ff7a7f;--red-bg:#3a1c1e;
+  --amber:#ffd75e;--amber-bg:#352c10;--focus:#8fb8f5;color-scheme:dark;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--sans);
-  padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+  padding:0 0 env(safe-area-inset-bottom)}
 .wrap{max-width:620px;margin:0 auto;padding-block:20px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 button,input{font:inherit;color:inherit}
 button{cursor:pointer}
 a{color:inherit}
 
-header.top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:4px 2px 18px}
-.brand{font-weight:700;font-size:1.25rem;letter-spacing:-.01em;margin:0}
-.brand span{color:var(--green)}
-.top p{margin:0;color:var(--ink-soft);font-size:.875rem;text-align:right}
+.masthead{background:var(--brand);color:#fff;border-bottom:5px solid var(--yellow);
+  padding:calc(12px + env(safe-area-inset-top)) max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px))}
+header.top{max-width:620px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font:800 1.5rem/1.1 var(--display);letter-spacing:-.01em;margin:0;text-transform:uppercase;font-style:italic}
+.brand span{color:var(--yellow)}
+.top p{margin:0;color:#e6f4ec;font-size:.8125rem;text-align:right;font-weight:500}
 
 /* The check */
-.check{position:relative;background:var(--check);border:1px solid var(--check-line);border-radius:6px;
+.check{position:relative;background:var(--check);border:1px solid var(--check-line);border-left:6px solid var(--brand);border-radius:6px;
   padding:18px 18px 16px;overflow:hidden;
   background-image:
     repeating-radial-gradient(circle at 0 100%, transparent 0 9px, color-mix(in srgb,var(--check-line) 22%,transparent) 9px 10px),
@@ -78,7 +84,7 @@ header.top{display:flex;align-items:baseline;justify-content:space-between;gap:1
 .payto em{font-style:normal;color:var(--ink);font-weight:500;border-bottom:1px solid var(--check-line);padding:0 4px}
 .amounts{display:flex;flex-direction:column;gap:8px}
 .amt-row{display:flex;align-items:center;gap:8px}
-.amt-box{flex:1;display:flex;align-items:center;background:var(--surface);border:1.5px solid var(--navy);border-radius:4px;padding:4px 12px;min-width:0}
+.amt-box{flex:1;display:flex;align-items:center;background:var(--surface);border:2px solid var(--brand);border-radius:4px;padding:4px 12px;min-width:0}
 .amt-box .cur{font:600 1.75rem/1 var(--mono);color:var(--ink-soft);margin-right:4px}
 .amt-box input{flex:1;min-width:0;border:0;background:transparent;outline:none;font:600 2.25rem/1.2 var(--mono);letter-spacing:-.02em;padding:4px 0}
 .amt-row.extra .amt-box input{font-size:1.5rem}
@@ -97,7 +103,7 @@ header.top{display:flex;align-items:baseline;justify-content:space-between;gap:1
 /* Sections */
 section{margin-top:28px}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 2px 10px;flex-wrap:wrap}
-h2{font-size:1.125rem;margin:0;letter-spacing:-.005em}
+h2{font:700 1.25rem/1.2 var(--display);margin:0;text-transform:uppercase;letter-spacing:.01em}
 .sub{color:var(--ink-soft);font-size:.875rem;margin:0}
 .inline-field{display:flex;align-items:center;gap:6px;font-size:.875rem;color:var(--ink-soft)}
 .inline-field input{width:3.2em;text-align:center;border:1px solid var(--rule);border-radius:4px;background:var(--surface);padding:3px 4px;font:500 .9375rem var(--mono)}
@@ -105,8 +111,8 @@ h2{font-size:1.125rem;margin:0;letter-spacing:-.005em}
 /* Receipts */
 .results{display:flex;flex-direction:column;gap:12px}
 .receipt{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:14px 16px 12px;position:relative}
-.receipt.best{border-color:var(--navy);box-shadow:3px 3px 0 var(--navy)}
-.receipt .tag{font-size:.8125rem;font-weight:600;color:var(--navy);margin-bottom:6px}
+.receipt.best{border-color:var(--brand);border-top:5px solid var(--yellow);box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.receipt .tag{display:inline-block;font:700 .8125rem var(--display);text-transform:uppercase;letter-spacing:.03em;color:#fff;background:var(--brand);padding:2px 8px;border-radius:3px;margin-bottom:8px}
 .lines{list-style:none;margin:0;padding:0;font-size:.9375rem}
 .lines li{display:flex;gap:10px;padding:3px 0}
 .lines .q{font:500 .875rem var(--mono);color:var(--ink-soft);min-width:2.2em}
@@ -114,7 +120,7 @@ h2{font-size:1.125rem;margin:0;letter-spacing:-.005em}
 .lines .p{font:500 .9375rem var(--mono);white-space:nowrap}
 .totals{margin-top:8px;padding-top:8px;border-top:1px dashed var(--rule);font:400 .875rem var(--mono);color:var(--ink-soft)}
 .totals div{display:flex;justify-content:space-between}
-.totals .grand{color:var(--ink);font-weight:600;font-size:1rem;margin-top:2px}
+.totals .grand{color:var(--red);font-weight:700;font-size:1.125rem;margin-top:2px}
 .verdict{margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .pill{display:inline-block;border-radius:999px;padding:3px 10px;font-size:.875rem;font-weight:600}
 .pill.ok{background:var(--green-bg);color:var(--green)}
@@ -130,7 +136,8 @@ h2{font-size:1.125rem;margin:0;letter-spacing:-.005em}
 .addform{display:grid;grid-template-columns:1fr 6.5em auto;gap:8px;margin-bottom:12px}
 .addform input{border:1px solid var(--rule);background:var(--surface);border-radius:4px;padding:10px 12px;min-width:0}
 .addform input.price{font-family:var(--mono)}
-.btn{border:0;background:var(--navy);color:var(--paper);border-radius:4px;padding:10px 16px;font-weight:600}
+.btn{border:0;background:var(--yellow);color:#1a1a1a;border-radius:4px;padding:10px 16px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.btn:hover{background:#f2c500}
 .items{list-style:none;margin:0;padding:0;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
 .items li{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;padding:10px 12px;border-top:1px solid var(--rule)}
 .items li:first-child{border-top:0}
@@ -147,7 +154,7 @@ h2{font-size:1.125rem;margin:0;letter-spacing:-.005em}
 .stepper button{border:0;background:transparent;width:30px;height:32px;color:var(--ink-soft);font-weight:600}
 .stepper output{font:500 .875rem var(--mono);min-width:3.6em;text-align:center}
 .pin{border:1px solid var(--rule);background:transparent;border-radius:999px;padding:5px 10px;font-size:.8125rem;font-weight:600;color:var(--ink-soft)}
-.pin[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.pin[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
 .del{border:0;background:none;color:var(--ink-soft);font-size:1.25rem;line-height:1;width:32px;height:32px;border-radius:4px}
 .del:hover{color:var(--red)}
 .list-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
@@ -158,11 +165,11 @@ h2{font-size:1.125rem;margin:0;letter-spacing:-.005em}
 .chip{border:1px dashed var(--check-line);background:transparent;border-radius:999px;padding:6px 12px;font-size:.875rem;color:var(--ink)}
 .chip:hover{border-style:solid;background:var(--surface)}
 
-.banner{background:var(--navy);color:var(--paper);border-radius:4px;padding:12px 14px;margin-bottom:16px;display:none}
+.banner{background:var(--brand);color:#fff;border-radius:4px;padding:12px 14px;margin-bottom:16px;display:none}
 .banner.show{display:block}
 .banner .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-.banner button{border:1px solid color-mix(in srgb,var(--paper) 50%,transparent);background:transparent;color:var(--paper);border-radius:4px;padding:6px 12px;font-weight:600;font-size:.875rem}
-.banner button.primary{background:var(--paper);color:var(--navy)}
+.banner button{border:1px solid rgba(255,255,255,.6);background:transparent;color:#fff;border-radius:4px;padding:6px 12px;font-weight:600;font-size:.875rem}
+.banner button.primary{background:var(--yellow);border-color:var(--yellow);color:#1a1a1a}
 
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:4px;font-size:.9375rem;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:90vw}
 .toast.show{opacity:1;transform:translate(-50%,0)}
@@ -183,11 +190,13 @@ footer p{margin:4px 0}
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="masthead">
   <header class="top">
     <h1 class="brand">The 11% <span>Solution</span></h1>
     <p>Use the whole rebate.<br>Don't pay hundreds extra.</p>
   </header>
+</div>
+<div class="wrap">
 
   <div class="banner" id="importBanner" role="region" aria-label="Shared list">
     <div id="importText"></div>
