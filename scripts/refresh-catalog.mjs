@@ -9,6 +9,7 @@
 //    URLs in scripts/urls.txt (1 record each).
 // Options: --find-only stops after step 1. --limit N looks up at most N ideas this run.
 //          --retry-missing searches again for ideas that found nothing last time.
+//          --new-only prices only products not already in catalog.json (saves credits mid-month).
 //          --raw saves the untouched scraper output to scripts/raw-snapshot.json for checking field names.
 //          --from <file.json> builds catalog.json from a Bright Data export instead of calling the API.
 
@@ -170,7 +171,7 @@ const saved = await readJson(ideaUrlsFile, {});
 const ideaOf = {}; // product url -> idea id
 const index = () => { for (const [id, urls] of Object.entries(saved)) for (const u of urls) ideaOf[u] = id; };
 
-let rows;
+let rows, kept = [];
 if (fromFile) { index(); rows = JSON.parse(await readFile(fromFile, "utf8")); }
 else {
   await findProducts(ideas, saved);
@@ -178,12 +179,21 @@ else {
   index();
   const urls = [...new Set([...Object.keys(ideaOf), ...await readUrls()])];
   if (!urls.length) { console.error("No Menards product URLs to price. Set BRIGHTDATA_SERP_ZONE or add some to scripts/urls.txt."); process.exit(1); }
-  rows = await scrape(urls);
+  // --new-only prices just the products catalog.json doesn't have yet and keeps the rest as they are.
+  if (process.argv.includes("--new-only")) {
+    const { items: old = [] } = await readJson(path.join(root, "catalog.json"), {});
+    const want = new Set(urls);
+    kept = old.filter(x => want.has(x.u));
+    const have = new Set(kept.map(x => x.u));
+    const fresh = urls.filter(u => !have.has(u));
+    console.log(`Keeping ${kept.length} priced products; pricing ${fresh.length} new ones.`);
+    rows = fresh.length ? await scrape(fresh) : [];
+  } else rows = await scrape(urls);
 }
 const list = Array.isArray(rows) ? rows : [];
 if (process.argv.includes("--raw")) await writeFile(path.join(here, "raw-snapshot.json"), JSON.stringify(list, null, 2));
 
-const items = list.map(toItem).filter(Boolean);
+const items = [...kept, ...list.map(toItem).filter(Boolean)];
 for (const it of items) if (ideaOf[it.u]) it.i = ideaOf[it.u];
 if (!items.length) {
   console.error(`Got ${list.length} rows but none had a name and price. First row keys: ${Object.keys(list[0] || {}).join(", ")}`);
