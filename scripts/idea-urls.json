@@ -7,7 +7,11 @@
   "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/hotrock-ecoguard-sodium-chloride-magnesium-chloride-ice-melt-50lb-bag/795682/p-1570516252120-c-1526586197110.htm",
   "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/vanquish-calcium-chloride-ice-melt-50-lb-bag/2651622/p-1444429569673-c-1526586197110.htm"
  ],
- "furnace-filter-3pk": [],
+ "furnace-filter-3pk": [
+  "https://www.menards.com/main/heating-cooling/air-filters/true-blue-merv-11-pleated-air-filter-3-pack/tba1625-3pk/p-1642874331272723-c-6856.htm",
+  "https://www.menards.com/main/heating-cooling/air-filters/true-blue-merv-11-pleated-air-filter-3-pack/tba1620-3pk/p-1642874331272720-c-6856.htm",
+  "https://www.menards.com/main/heating-cooling/air-filters/true-blue-merv-11-pleated-air-filter-3-pack/tba2025-3pk/p-1642874331272724-c-6856.htm"
+ ],
  "softener-salt": [
   "https://www.menards.com/main/plumbing/water-filtration-softeners/water-softener-salt/diamond-crystal-reg-bright-soft-water-softener-salt-pellets-40-lb/1898010/p-1472733157753-c-6727.htm",
   "https://www.menards.com/main/plumbing/water-filtration-softeners/water-softener-salt/morton-reg-clean-and-protect-trade-water-softener-salt-pellets-40-lb/f125000000g/p-1533564539663-c-6727.htm",
@@ -17,7 +21,9 @@
   "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/splash-reg-premium-ice-melt-50-lb-bag/136050/p-4348828407082120-c-1526586197110.htm",
   "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/rock-salt-sodium-chloride-ice-melt-50lb-bag/hr-rs-50/p-1469416826447-c-1526586197110.htm"
  ],
- "snow-shovel": [],
+ "snow-shovel": [
+  "https://www.menards.com/main/outdoors/snow-ice-removal/snow-shovels/nordic-plow-24-perfect-shovel/nap-ps24/p-1444449372093-c-1526586197108.htm"
+ ],
  "wiper-blades": [
   "https://www.menards.com/main/tools/automotive/windshield-wiper-blades/goodyear-reg-silicone-beam-wiper-blade/gys22/p-1642874295695126-c-1486994582435.htm",
   "https://www.menards.com/main/tools/automotive/windshield-wiper-blades/rain-x-reg-weatherbeater-reg-wiper-blade/rx30222/p-1444436206446-c-1486994582435.htm",
@@ -33,7 +39,10 @@
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-ultimate-all-season-windshield-washer-fluid-1-gallon/93506/p-1444443336003-c-10098.htm",
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-de-bug-windshield-washer-fluid-1-gallon/90006/p-1444443335023-c-10098.htm"
  ],
- "washer-fluid-winter": [],
+ "washer-fluid-winter": [
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-20-deg-f-windshield-washer-fluid-1-gallon/234526-35/p-1444443335772-c-10098.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-ultimate-all-season-windshield-washer-fluid-1-gallon/93506/p-1444443336003-c-10098.htm"
+ ],
  "motor-oil": [
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/motor-oil-filters/valvoline-trade-daily-protection-synthetic-blend-sae-5w-30-motor-oil/881159/p-1464215404844-c-9112.htm",
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/motor-oil-filters/pennzoil-reg-full-synthetic-5w-30-motor-oil/550058602/p-1642874263823591-c-9112.htm",
@@ -43,7 +52,9 @@
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/motor-oil-filters/purolator-premium-protection-engine-oil-filter/l10241/p-10928726134703633-c-9112.htm",
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/motor-oil-filters/purolator-one-trade-advanced-protection-engine-oil-filter/pl15436/p-10928726134702568-c-9112.htm"
  ],
- "car-wash": [],
+ "car-wash": [
+  "https://www.menards.com/main/tools/automotive/automotive-cleaning-detailing/chemical-guys-reg-hydrosuds-ceramic-car-wash-soap-16-oz/cws21216/p-7720120060195460-c-9102.htm"
+ ],
  "de-icer": [
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-red-hot-windshield-de-icer-32-oz/234632/p-1642874346613615-c-10098.htm",
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/tellico-reg-aerosol-de-icer-10-oz/512387t/p-4648626055282536-c-10098.htm",
@@ -73,8 +84,15 @@
   "https://www.menards.com/main/lighting-ceiling-fans/flashlights-accessories/guidesman-reg-1000-lumen-led-rubbergrip-rechargeable-flashlight/87440/p-1642874265832057-c-6314.htm",
   "https://www.menards.com/main/lighting-ceiling-fans/flashlights-accessories/guidesman-reg-800-lumen-led-tactical-flashlight/87826/p-1642874262922838-c-6314.htm"
  ],
- "led-bulbs": [],
- "led-br30": [],
+ "led-bulbs": [
+  "https://www.menards.com/main/electrical/light-bulbs/general-purpose-light-bulbs/gt-lite-reg-a19-e26-led-light-bulb/gt-a19-16pk3-l/p-10338754666846921-c-642874317706870.htm",
+  "https://www.menards.com/main/electrical/light-bulbs/general-purpose-light-bulbs/gt-lite-reg-a19-e26-led-light-bulb/gt-a19-16pk5-l/p-10338754666846590-c-642874317706870.htm"
+ ],
+ "led-br30": [
+  "https://www.menards.com/main/electrical/light-bulbs/spot-flood-light-bulbs/feit-electric-reg-enhance-reg-75-watt-equivalent-dimmable-par30-long-neck-led-light-bulb-2-pack/par30ldm930ca2/p-1545377241380-c-642874317706873.htm",
+  "https://www.menards.com/main/electrical/light-bulbs/spot-flood-light-bulbs/feit-electric-reg-65-watt-equivalent-br40-dimmable-led-light-bulb-2-pack/br40dm10kled2/p-1459185048175-c-642874317706873.htm",
+  "https://www.menards.com/main/electrical/light-bulbs/spot-flood-light-bulbs/feit-electric-reg-par38-adjustable-white-led-light-bulb-1-pack/ppar38150dm5cctca15k/p-1642874317344662-c-642874317706873.htm"
+ ],
  "antifreeze": [
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/menards-reg-extended-life-antifreeze-coolant-1-gallon/mnxb53/p-1557210865618-c-10098.htm",
   "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/peak-reg-50-50-green-antifreeze-coolant-1-gallon/ruab53/p-1557210865643-c-10098.htm",
@@ -88,7 +106,11 @@
  "work-light": [
   "https://www.menards.com/main/lighting-ceiling-fans/work-lights/smart-electrician-reg-1000-lumen-rechargeable-led-work-light/se311/p-3149259783598161-c-7546.htm"
  ],
- "9v-batteries": [],
+ "9v-batteries": [
+  "https://www.menards.com/main/electrical/batteries/duracell-reg-coppertop-reg-9-volt-alkaline-batteries/5755772durac005/p-1456889268045-c-6303.htm",
+  "https://www.menards.com/main/electrical/batteries/energizer-reg-max-reg-9v-alkaline-batteries/522bp4/p-1444429987475-c-6303.htm",
+  "https://www.menards.com/main/electrical/batteries/energizer-reg-max-reg-9v-alkaline-batteries/522bp12/p-1444429983644-c-6303.htm"
+ ],
  "headlamp": [
   "https://www.menards.com/main/lighting-ceiling-fans/flashlights-accessories/litezall-reg-1300-lumen-cob-led-rechargeable-headlamp/la-1-3khl-3-6/p-1642874259898080-c-6314.htm",
   "https://www.menards.com/main/high-power-headlamp/32078/p-4397831390157090-c-1642874346487668.htm",
@@ -124,7 +146,11 @@
   "https://www.menards.com/main/electrical/electrical-cords-surge-protectors/surge-protectors-power-strips/proht-12-outlet-power-strip-with-3-cord/03201/p-1444435959415-c-13969.htm",
   "https://www.menards.com/main/tools/tool-storage/tool-storage-accessories/masterforce-reg-tool-storage-power-strip/333059/p-3289655540258245-c-3289655538914241.htm"
  ],
- "smart-plug": [],
+ "smart-plug": [
+  "https://www.menards.com/main/electrical/electrical-cords-surge-protectors/outlet-adapters/bytech-reg-indoor-wi-fi-smart-plugs-2-pack/by-pl-wf-100-x2/p-1642874359318188-c-6483.htm",
+  "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/outlet-timers/enbrighten-reg-outdoor-wi-fi-smart-plug-with-2-grounded-outlets/71018/p-1642874323183970-c-6471.htm",
+  "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/outlet-timers/enbrighten-reg-vibe-wifi-smart-plug-in-switch/81731/p-1642874323185108-c-6471.htm"
+ ],
  "timer": [
   "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/outlet-timers/ge-reg-outdoor-dusk-to-dawn-photocell-timer-with-2-grounded-outlets/82206/p-1642874323183694-c-6471.htm",
   "https://www.menards.com/main/lighting-ceiling-fans/outdoor-lighting/outdoor-light-accessories/performax-trade-exterior-photocell-timer-with-25-cord-and-3-grounded-outlets/hodt13e/p-1642874323152575-c-7529.htm",
@@ -150,13 +176,20 @@
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/dish-detergents/cascade-reg-platinum-fresh-dishwasher-pods-34-count/15542/p-1642874339654795-c-7100.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/dish-detergents/cascade-reg-complete-dishwasher-detergent-action-pacs-27-count/037000880530/p-4346935021360899-c-7100.htm"
  ],
- "dish-soap": [],
+ "dish-soap": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/dish-detergents/dawn-ultra-refill-jug-dishwashing-soap-67-oz/19188/p-4368329663916477-c-7100.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/dish-detergents/dawn-reg-ultra-original-liquid-dish-soap-38-oz/91064/p-1542353350543-c-7100.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/dish-detergents/dawn-platinum-advanced-power-liquid-dish-detergent-90-oz/724a/p-4392432168159713-c-7100.htm"
+ ],
  "toilet-paper": [
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/toilet-paper/no-name-reg-toilet-paper-12-rolls/6068/p-4503227203035631-c-7191.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/toilet-paper/charmin-reg-essentials-strong-toilet-paper-12-mega-rolls/97344/p-1486452023942-c-7191.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/toilet-paper/cottonelle-ultra-clean-toilet-paper-12-mega-rolls/10036000564942/p-1642874371538685-c-7191.htm"
  ],
- "paper-towels": [],
+ "paper-towels": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/paper-towels-napkins/bounty-reg-paper-towels-6-double-plus-rolls/19286/p-1642874346960874-c-7194.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/paper-towels-napkins/bounty-reg-full-sheet-paper-towels-6-mega-rolls/16076/p-1642874346960777-c-7194.htm"
+ ],
  "glass-cleaner": [
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/glass-cleaners/sprayway-reg-glass-cleaner-19-oz/sw050r/p-4492431695884459-c-7103.htm",
   "https://www.menards.com/main/tools/automotive/automotive-cleaning-detailing/invisible-glass-reg-premium-automotive-and-home-glass-cleaner-spray-bottle-22-oz/92166/p-1477376416624-c-9102.htm",
@@ -205,13 +238,23 @@
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/air-fresheners/zep-reg-crisp-and-clean-automatic-air-freshener-spray-starter-kit/zumfkit14/p-1507271283064-c-7096.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/air-fresheners/j-r-watkins-trade-lemon-room-air-freshener-spray-4-oz/104711/p-1642874311561491-c-7096.htm"
  ],
- "rubber-gloves": [],
+ "rubber-gloves": [
+  "https://www.menards.com/main/grocery-home/clothing-accessories/gloves/rubber-gloves/mr-clean-reg-reusable-latex-gloves-2-pairs/243648/p-1444426116203-c-7083.htm",
+  "https://www.menards.com/main/grocery-home/clothing-accessories/gloves/rubber-gloves/mr-clean-reg-ultra-grip-latex-gloves/243037/p-1444426115798-c-7083.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/mr-clean-reg-nitrile-disposable-latex-gloves-10-count/243058/p-1642874299354102-c-7113.htm"
+ ],
  "push-broom": [
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/brooms-dustpans/libman-reg-24-multi-surface-push-broom/805004/p-1444438076409-c-7110.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/brooms-dustpans/libman-reg-24-push-broom-with-squeegee/1230004/p-1554186422385-c-7110.htm"
  ],
- "drain-cleaner": [],
- "toilet-cleaner": [],
+ "drain-cleaner": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/drain-cleaners/liquid-plumr-reg-full-clog-destroyer-liquid-drain-cleaner-80-oz/00228/p-1444426634368-c-7101.htm"
+ ],
+ "toilet-cleaner": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/bathroom-cleaners/lysol-reg-power-toilet-bowl-cleaner-2-count/251824oz/p-1444452029529-c-7098.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/bathroom-cleaners/lysol-reg-professional-disinfectant-toilet-bowl-cleaner-32-oz/0-36241-20663-5/p-1452112253252-c-7098.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/bathroom-cleaners/lysol-reg-brand-new-day-trade-coconut-water-sea-minerals-automatic-toilet-bowl-cleaner-2-count/99905/p-4389833584119810-c-7098.htm"
+ ],
  "shop-vac": [
   "https://www.menards.com/main/tools/wet-dry-vacuums-accessories/shop-vac-reg-5-gallon-4-5-peak-hp-stainless-wet-dry-shop-vacuum/5989305/p-4283774896191850-c-10092.htm",
   "https://www.menards.com/main/tools/wet-dry-vacuums-accessories/masterforce-reg-5-gallon-5-5-peak-hp-wet-dry-vacuum/vfb511b-3901/p-5999193517310699-c-10092.htm",
@@ -357,24 +400,39 @@
   "https://www.menards.com/main/tools/hand-tools/pliers-plier-sets/tool-shop-reg-pliers-set-6-piece/ts-dg-ps6/p-1444421179390-c-9156.htm",
   "https://www.menards.com/main/tools/hand-tools/pliers-plier-sets/tool-shop-reg-pliers-set-10-piece/ts-48405/p-1642874317247160-c-9156.htm"
  ],
- "screwdriver-set": [],
+ "screwdriver-set": [
+  "https://www.menards.com/main/8-piece-screwdriver-set/cb483/p-4346132906964679-c-1642874346487671.htm",
+  "https://www.menards.com/main/electrical/electrical-tools-accessories/electrical-hand-tools/jonard-tools-reg-7-piece-insulated-screwdriver-kit/tk-70ins/p-1841405561956067-c-6455.htm"
+ ],
  "blades": [
   "https://www.menards.com/main/tools/hand-tools/utility-knives/masterforce-reg-utility-knife-blades-100-pack/mf-35076/p-1642874354719616-c-1484756386273.htm",
   "https://www.menards.com/main/tools/hand-tools/utility-knives/masterforce-reg-heavy-duty-utility-knife-blades-100-pack/mf-35078/p-1642874354719618-c-1484756386273.htm"
  ],
- "hammer": [],
+ "hammer": [
+  "https://www.menards.com/main/tools/hand-tools/hammers/estwing-28-oz-solid-steel-framing-hammer/e3-28sm/p-1444430074687-c-9143.htm",
+  "https://www.menards.com/main/tools/hand-tools/hammers/estwing-22-oz-solid-steel-framing-hammer/e3-22sm/p-1444430074989-c-9143.htm",
+  "https://www.menards.com/main/tools/hand-tools/hammers/fiskars-reg-pro-isocore-trade-22-oz-framing-hammer/750240-1002/p-60300702646-c-9143.htm"
+ ],
  "level": [
   "https://www.menards.com/main/tools/hand-tools/measuring-layout-tools/levels/masterforce-reg-magnetic-torpedo-levels/mf6012/p-1559716571676-c-1549901401008.htm",
   "https://www.menards.com/main/tools/hand-tools/measuring-layout-tools/levels/masterforce-reg-magnetic-torpedo-levels/mf6009/p-1559716571353-c-1549901401008.htm",
   "https://www.menards.com/main/tools/hand-tools/measuring-layout-tools/levels/johnson-level-reg-10-magnetic-digital-torpedo-level/1435-1000d/p-1559716571515-c-1549901401008.htm"
  ],
- "driver-bits": [],
+ "driver-bits": [
+  "https://www.menards.com/main/tools/power-tool-accessories/drill-bits-accessories/performax-reg-drill-and-drive-bit-set-41-piece/75121/p-1642874315877236-c-10079.htm",
+  "https://www.menards.com/main/tools/power-tool-accessories/drive-bits-accessories/masterforce-reg-master-drive-bit-set-100-piece/67208/p-1524810602896-c-10156.htm",
+  "https://www.menards.com/main/tools/power-tool-accessories/drive-bits-accessories/performax-reg-1-slotted-insert-drive-bit-set-5-piece/mc90234/p-1472733018325-c-10156.htm"
+ ],
  "stud-finder": [
   "https://www.menards.com/main/tools/hand-tools/stud-finders/zircon-studsensor-trade-pro-sl-ac-stud-finder/61903/p-1444448127711-c-9167.htm",
   "https://www.menards.com/main/tools/hand-tools/stud-finders/stud-buddy-reg-magnetic-stud-finder/000107/p-1539107090046-c-9167.htm",
   "https://www.menards.com/main/tools/hand-tools/stud-finders/zircon-reg-studsensor-trade-70-led-stud-finder/74297/p-1532586488472-c-9167.htm"
  ],
- "drill-bits": [],
+ "drill-bits": [
+  "https://www.menards.com/main/tools/power-tool-accessories/drill-bits-accessories/performax-reg-black-oxide-metric-twist-drill-bit-set-8-piece/5311/p-1497525450110-c-10079.htm",
+  "https://www.menards.com/main/tools/power-tool-accessories/drill-bits-accessories/masterforce-reg-sds-plus-6-3-8-masonry-hammer-drill-bit-set-6-piece/sdsset7/p-1444445247009-c-10079.htm",
+  "https://www.menards.com/main/tools/power-tool-accessories/drill-bits-accessories/cmt-reg-forstner-drill-bit-set-4-piece/537-000-04/p-1444426661052-c-10079.htm"
+ ],
  "socket-set": [
   "https://www.menards.com/main/tools/hand-tools/sockets/masterforce-reg-1-2-drive-sae-6-point-hex-bit-impact-socket-set-7-piece/68282/p-1524810607882-c-9159.htm",
   "https://www.menards.com/main/tools/hand-tools/sockets/masterforce-reg-3-8-drive-metric-flex-socket-set-7-piece/67231/p-1524810597111-c-9159.htm",
@@ -458,7 +516,11 @@
   "https://www.menards.com/main/pet-wildlife/dog-supplies/dog-beds-furniture/master-paws-reg-48-x-36-castlerock-orthopedic-gusset-dog-bed/mn-00023-pg/p-1642874314622865-c-8320.htm",
   "https://www.menards.com/main/pet-wildlife/dog-supplies/dog-beds-furniture/master-paws-reg-40-x-30-partridge-premium-orthopedic-gusset-dog-bed/mn-00014-pg/p-1642874314629658-c-8320.htm"
  ],
- "suet": [],
+ "suet": [
+  "https://www.menards.com/main/pet-wildlife/bird-wildlife-supplies/bird-seeds-food/enchanted-garden-trade-high-energy-suet-cake-12-pack/162/p-1642874318669997-c-7881.htm",
+  "https://www.menards.com/main/pet-wildlife/bird-wildlife-supplies/bird-feeders-accessories/enchanted-garden-reg-roofed-double-suet-cake-feeder/81422/p-1642874297208513-c-7874.htm",
+  "https://www.menards.com/main/pet-wildlife/bird-wildlife-supplies/bird-seeds-food/enchanted-garden-trade-fruit-nut-suet-balls-4-pack/432/p-1642874338496835-c-7881.htm"
+ ],
  "bird-seed": [
   "https://www.menards.com/main/pet-wildlife/bird-wildlife-supplies/bird-seeds-food/enchanted-garden-trade-wild-bird-food-seed-blend-20-lb/2661272/p-1444431465154-c-7881.htm",
   "https://www.menards.com/main/pet-wildlife/bird-wildlife-supplies/bird-seeds-food/kaytee-reg-nut-fruit-blend-trade-wild-bird-food-seed/100213759/p-1531117742573-c-7881.htm",
@@ -477,7 +539,11 @@
   "https://www.menards.com/main/outdoors/gardening/lawn-plant-care/lawn-fertilizers/menards-reg-premium-starter-lawn-fertilizer-5-000-sq-ft-15-23-10/2601614/p-1444429569300-c-1463608034795.htm",
   "https://www.menards.com/main/outdoors/gardening/lawn-plant-care/lawn-fertilizers/menards-reg-premium-app-2-weed-feed-lawn-fertilizer-5-000-sq-ft-28-0-3/2601605/p-1444429566841-c-1463608034795.htm"
  ],
- "grass-seed": [],
+ "grass-seed": [
+  "https://www.menards.com/main/outdoors/gardening/lawn-plant-care/grass-seed/pennington-reg-contractors-mix-grass-seed-7-lbs/100549951/p-1642874271538666-c-1463608034796.htm",
+  "https://www.menards.com/main/outdoors/gardening/lawn-plant-care/grass-seed/scotts-reg-turf-builder-reg-sun-shade-mix-reg-grass-seed-7-lbs/18121/p-1444453650029-c-1463608034796.htm",
+  "https://www.menards.com/main/outdoors/gardening/lawn-plant-care/grass-seed/pennington-reg-sun-shade-grass-seed-25-lbs/100551122/p-1642874303043449-c-1463608034796.htm"
+ ],
  "shelving": [
   "https://www.menards.com/main/storage-organization/garage-outdoor-organizers/freestanding-shelving-units/muscle-rack-trade-30w-x-60h-x-12d-4-tier-steel-shelving-unit/ur301260pb4-b/p-1642874270689964-c-12652.htm",
   "https://www.menards.com/main/storage-organization/garage-outdoor-organizers/freestanding-shelving-units/24w-x-53h-x-13d-4-tier-chrome-steel-wire-shelving-unit-600-lb-capacity/e3560135oh401lb-g/p-4331230578483875-c-12652.htm",
@@ -523,7 +589,11 @@
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/rakes/22-leaf-rake-with-handle/51057/p-1642874354521077-c-1541513694152.htm",
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/rakes/truper-reg-24-steel-leaf-rake/34308/p-1444445288390-c-1541513694152.htm"
  ],
- "leaf-bags": [],
+ "leaf-bags": [
+  "https://www.menards.com/main/grocery-home/menards-collectibles/menards-at-work/30-gallon-paper-lawn-and-leaf-bags-5-count/6484947/p-1444431571811-c-13322.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/trash-bags/hefty-reg-strong-39-gallon-extra-large-lawn-leaf-drawstring-trash-bags-18-count/00e86720/p-1461693473310-c-7131.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/trash-bags/biobag-reg-33-gallon-compostable-lawn-leaf-bags-10-count/186274/p-1444425426144-c-7131.htm"
+ ],
  "garden-gloves": [
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/garden-gloves-kneeling-pads/wells-lamont-reg-ladies-botanical-print-safety-cuff-garden-gloves/4183m/p-5999193515296683-c-1541443802945.htm",
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/garden-gloves-kneeling-pads/rw-rugged-wear-reg-mens-h20-waterproof-latex-garden-gloves/rw7186b-m/p-60896062309-c-1541443802945.htm",
@@ -554,7 +624,11 @@
   "https://www.menards.com/main/outdoors/insect-pest-control/home-insect-control/spectracide-reg-bug-stop-reg-ready-to-use-home-insect-killer-1-gal/hg-96098/p-1444445582096-c-14245.htm",
   "https://www.menards.com/main/outdoors/insect-pest-control/personal-insect-repellents/off-reg-botanicals-mosquito-insect-repellent-spritz-4-oz/00238/p-7720120060189155-c-10119.htm"
  ],
- "citronella": [],
+ "citronella": [
+  "https://www.menards.com/main/grocery-home/decorative-accents/candles-candle-holders/tuscany-candle-trade-18-oz-2-wick-candle/56674/p-1498199608728-c-6922.htm",
+  "https://www.menards.com/main/grocery-home/decorative-accents/candles-candle-holders/5-oz-lavender-lemonade-scented-candle-assorted-styles/16132116000/p-4370130306944813-c-6922.htm",
+  "https://www.menards.com/main/outdoors/outdoor-decor/outdoor-lanterns-torches/enchanted-garden-trade-6-solar-flameless-candle/44576mnd/p-1642874263751349-c-14310.htm"
+ ],
  "wheelbarrow": [
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/wheelbarrows-parts/truper-reg-steel-wheelbarrow-with-steel-handle-6-cu-ft/fnsh6160/p-1522305038978-c-1642874338567560.htm",
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/wheelbarrows-parts/4-cu-ft-poly-wheelbarrow/2906050mml/p-4386333270029541-c-1642874338567560.htm",
@@ -565,8 +639,16 @@
   "https://www.menards.com/main/outdoors/grills-outdoor-cooking/grilling-tools/charbroil-reg-safer-grill-brush/cb1250090r6/p-1642874337528023-c-1461078035988.htm",
   "https://www.menards.com/main/outdoors/grills-outdoor-cooking/grilling-tools/huxley-electric-grill-brush/md414/p-4343629939364697-c-1461078035988.htm"
  ],
- "solar-lights": [],
- "charcoal": [],
+ "solar-lights": [
+  "https://www.menards.com/main/lighting-ceiling-fans/outdoor-lighting/landscape-lighting/patriot-lighting-reg-majestic-solar-led-path-landscape-light-10-pack/sl24023/p-1642874337894601-c-7541.htm",
+  "https://www.menards.com/main/lighting-ceiling-fans/outdoor-lighting/landscape-lighting/patriot-lighting-reg-carah-solar-led-path-landscape-light/sl24001/p-1642874337893987-c-7541.htm",
+  "https://www.menards.com/main/lighting-ceiling-fans/outdoor-lighting/rope-string-lights/patriot-lighting-reg-21-2-3-8-10-light-solar-cafe-string-light/32103/p-10338754666922049-c-14318.htm"
+ ],
+ "charcoal": [
+  "https://www.menards.com/main/outdoors/grills-outdoor-cooking/charcoal-smoking-wood/kingsford-reg-original-bbq-smoker-charcoal-grilling-briquets-16-lb-2-pack/60253/p-1642874323842291-c-1461078035991.htm",
+  "https://www.menards.com/main/outdoors/grills-outdoor-cooking/charcoal-smoking-wood/royal-oak-reg-classic-premium-hardwood-charcoal-briquets-15-4-lb/192270021/p-1642874300418123-c-1461078035991.htm",
+  "https://www.menards.com/main/outdoors/grills-outdoor-cooking/charcoal-smoking-wood/kingsford-reg-match-light-reg-charcoal-briquets-8-lb/32097/p-1642874323842187-c-1461078035991.htm"
+ ],
  "patio-chair": [
   "https://www.menards.com/main/outdoors/patio-furniture/patio-chairs-seating/backyard-creations-reg-gray-folding-high-dining-chair/frn-008412cgy/p-1642874268146457-c-13020.htm"
  ],
@@ -579,13 +661,19 @@
   "https://www.menards.com/main/heating-cooling/indoor-air-quality/humidifiers-accessories/aircare-reg-replacement-humidifier-wick-filter-1043/1043/p-1444430073304-c-9507.htm",
   "https://www.menards.com/main/heating-cooling/indoor-air-quality/humidifiers-accessories/honeywell-replacement-humidifier-wick-filter/hac504pf1/p-1570775245029-c-9507.htm"
  ],
- "box-fan": [],
+ "box-fan": [
+  "https://www.menards.com/main/heating-cooling/portable-fans/beyond-breeze-trade-9-high-velocity-personal-fan/cfhv9/p-1642874282952556-c-12727.htm"
+ ],
  "space-heater": [
   "https://www.menards.com/main/heating-cooling/heaters/space-heaters/vornado-reg-vortex-750w-fan-forced-electric-space-heater/eh1-0133-06/p-1554186423105-c-5617.htm",
   "https://www.menards.com/main/heating-cooling/heaters/space-heaters/lifesmart-reg-1-500w-infrared-heater/ht1198qx/p-1642874287165996-c-5617.htm",
   "https://www.menards.com/main/heating-cooling/heaters/space-heaters/vornado-reg-velocity-1500-watt-electric-space-heater/eh1-0180-43/p-1642874318151155-c-5617.htm"
  ],
- "shower-head": [],
+ "shower-head": [
+  "https://www.menards.com/main/bath/bathroom-faucets/showerheads/aquacare-trade-8-spray-chrome-handheld-showerhead-with-power-wash/2639r/p-10834816302325966-c-5907.htm",
+  "https://www.menards.com/main/bath/bathroom-faucets/showerheads/moen-reg-magnetix-trade-engage-eco-performance-6-spray-setting-handheld-showerhead/26100ep/p-1470102259562-c-5907.htm",
+  "https://www.menards.com/main/bath/bathroom-faucets/showerheads/moen-reg-attune-eco-performance-6-spray-setting-chrome-handheld-shower/218h0/p-1642874261688993-c-5907.htm"
+ ],
  "faucet-aerator": [
   "https://www.menards.com/main/plumbing/plumbing-installation-repair/faucet-repair/faucet-aerators-accessories/delta-reg-2-2-gpm-aerator-in-chrome/rp330/p-1444428996547-c-8538.htm",
   "https://www.menards.com/main/plumbing/plumbing-installation-repair/faucet-repair/faucet-aerators-accessories/moen-reg-2-2-gpm-aerator/3919/p-1444440547796-c-8538.htm",
@@ -596,9 +684,18 @@
   "https://www.menards.com/main/plumbing/drain-cleaning-tools/plumbing-snakes-augers/plumb-works-reg-toilet-plunger/pf0474-ps/p-4300927234294368-c-8514.htm",
   "https://www.menards.com/main/plumbing/drain-cleaning-tools/plumbing-snakes-augers/korky-reg-beehive-max-reg-toilet-plunger/99-4a/p-1444437520376-c-8514.htm"
  ],
- "toilet-flapper": [],
- "shower-curtain": [],
- "bath-towels": [],
+ "toilet-flapper": [
+  "https://www.menards.com/main/plumbing/plumbing-installation-repair/toilet-repair/korky-reg-plus-toilet-flapper/2001bp/p-1444437520008-c-1525700042005.htm",
+  "https://www.menards.com/main/plumbing/plumbing-installation-repair/toilet-repair/fluidmaster-reg-universal-toilet-flapper/502p4/p-1444430542858-c-1525700042005.htm",
+  "https://www.menards.com/main/plumbing/plumbing-installation-repair/toilet-repair/korky-reg-ultra-saver-toilet-flapper/100bp/p-1444437518993-c-1525700042005.htm"
+ ],
+ "shower-curtain": [
+  "https://www.menards.com/main/bath/bathroom-hardware-coordinates/shower-curtains/zenna-home-reg-striped-70w-x-72h-polyester-shower-curtain-liner/lfrwtrwwl/p-1545290785751-c-9455.htm",
+  "https://www.menards.com/main/bath/bathroom-hardware-coordinates/shower-curtains/zenna-home-reg-solid-70w-x-72h-microfiber-shower-curtain-liner/lfrtexwwl/p-1545290782708-c-9455.htm"
+ ],
+ "bath-towels": [
+  "https://www.menards.com/main/macouba-white-bath-towels-6-piece-set/fs6-white/p-4297533607102373-c-1642874346487672.htm"
+ ],
  "boot-tray": [
   "https://www.menards.com/main/flooring-rugs/area-rugs-mats-runners/door-mats/multy-home-trade-17-x-35-manor-boot-tray/mt5001022/p-1444441318585-c-6530.htm",
   "https://www.menards.com/main/flooring-rugs/area-rugs-mats-runners/door-mats/black-14-x-28-utility-boot-tray/z11729/p-1642874285315783-c-6530.htm"
@@ -623,7 +720,11 @@
   "https://www.menards.com/main/grocery-home/grocery/snack-food/snack-mixes-chips-dip/herrs-reg-sour-cream-onion-flavored-ripple-potato-chips-7-oz/840/p-1553495601748-c-6692.htm",
   "https://www.menards.com/main/grocery-home/grocery/snack-food/snack-mixes-chips-dip/herrs-crisp-n-tasty-potato-chips-13-oz/3159/p-1642874294423891-c-6692.htm"
  ],
- "bottled-water": [],
+ "bottled-water": [
+  "https://www.menards.com/main/grocery-home/grocery/beverages/water/glacier-mist-reg-natural-spring-bottled-water-24-pack/500159/p-1444451353159-c-6646.htm",
+  "https://www.menards.com/main/grocery-home/grocery/beverages/water/glacier-mist-reg-natural-spring-bottled-water-24-pack/581256/p-1556865080653-c-6646.htm",
+  "https://www.menards.com/main/grocery-home/grocery/beverages/water/fruit-splash-trade-flavored-variety-pack-bottled-water-24-pack/500963/p-1444451353433-c-6646.htm"
+ ],
  "first-aid": [
   "https://www.menards.com/main/grocery-home/health-beauty/first-aid/curad-reg-175-piece-complete-first-aid-kit/curfak300rbv1/p-6698461259422528-c-13547.htm",
   "https://www.menards.com/main/grocery-home/health-beauty/first-aid/curad-reg-compact-75-piece-first-aid-kit/curfak200/p-1444439430994-c-13547.htm",
@@ -677,19 +778,30 @@
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/facial-tissue/kleenex-reg-facial-tissue-on-the-go-pack-assorted-styles-3-pack/11977/p-1534400999932-c-7192.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/facial-tissue/puffs-ultra-soft-facial-tissues-3-boxes/35520/p-1529476116792-c-7192.htm"
  ],
- "plastic-wrap": [],
+ "plastic-wrap": [
+  "https://www.menards.com/main/grocery-home/office-supplies/shipping-moving-supplies/polar-plastics-17-1-2-x-1-500-self-cling-stretch-wrap/5658100/p-1444451027897-c-7161.htm",
+  "https://www.menards.com/main/grocery-home/office-supplies/shipping-moving-supplies/duck-reg-brand-stretch-wrap-clear-20-in-x-1-000-ft/285850/p-1642874308531825-c-7161.htm"
+ ],
  "small-trash-bags": [
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/trash-bags/steelcoat-reg-vanilla-4-gallon-drawstring-trash-bags-30-count/fg-p9934-91/p-4415528221621274-c-7131.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/trash-bags/steelcoat-reg-vanilla-8-gallon-drawstring-trash-bags-30-count/fg-p9921-43a/p-1642874277618999-c-7131.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/trash-bags/steelcoat-reg-13-gallon-drawstring-trash-bags-30-count/fg-p9941-35l/p-1642874277618612-c-7131.htm"
  ],
- "plastic-cups": [],
+ "plastic-cups": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/disposable-tableware/hefty-reg-9-oz-clear-party-perfect-plastic-cups-40-count/00c20940/p-1642874282466822-c-1525790966394.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/disposable-tableware/hefty-reg-18-oz-red-party-on-plastic-cups-50-count/00c21895/p-1642874282469009-c-1525790966394.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/disposable-tableware/hefty-reg-16-oz-to-go-hot-cups-with-lids-20-count/00c20016/p-1642874282466915-c-1525790966394.htm"
+ ],
  "sandwich-bags": [
   "https://www.menards.com/main/kitchen/kitchen-essentials/food-storage/glad-reg-sandwich-zipper-bags-50-ct/57263/p-1444426638125-c-7139.htm",
   "https://www.menards.com/main/kitchen/kitchen-essentials/food-storage/ziploc-reg-sandwich-bags-270-count/71257/p-1469640408895-c-7139.htm",
   "https://www.menards.com/main/kitchen/kitchen-essentials/food-storage/handi-wrap-reg-sandwich-bags-200-ct/hw15478/p-1642874271054790-c-7139.htm"
  ],
- "cutlery": [],
+ "cutlery": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/disposable-tableware/diamond-reg-plastic-cutlery-48-count/4142636115/p-1444436307804-c-1525790966394.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/disposable-tableware/glad-heavy-duty-plastic-forks-24-count/88188/p-4649332014888181-c-1525790966394.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/disposable-tableware/home-smart-heavy-duty-clear-plastic-forks-48-count/01077/p-4479332134334577-c-1525790966394.htm"
+ ],
  "dish-brush": [
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/scotch-brite-reg-dish-wand-brush/750-4/p-1571639336917-c-7113.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/scotch-brite-reg-soap-control-dish-wand-brush-scrubber/751u-4/p-1571639337654-c-7113.htm"
@@ -704,7 +816,11 @@
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/laundry-care/laundry-detergent/method-reg-free-clear-laundry-detergent-53-5-oz/318024/p-1642874338076417-c-7129.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/laundry-care/laundry-detergent/tide-reg-original-scent-liquid-laundry-detergent-125-oz/12101/p-1642874311124632-c-7129.htm"
  ],
- "stain-remover": [],
+ "stain-remover": [
+  "https://www.menards.com/main/appliances/vacuum-cleaners-floor-care/floor-care-accessories/hoover-reg-oxy-stain-remover-22oz/ah31602/p-1642874264860845-c-9949.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/all-purpose-cleaners/as-seen-on-tv-the-dream-stain-remover/abra-0621-rt/p-4422729494765310-c-7097.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/laundry-care/stain-removers/clorox-2-reg-stain-remover-color-booster-liquid-66-oz/30039/p-1571293771135-c-7130.htm"
+ ],
  "fabric-softener": [
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/laundry-care/fabric-softeners-dryer-sheets/downy-reg-april-fresh-liquid-fabric-softener-100-oz/61425/p-4376334383721172-c-7127.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/laundry-care/fabric-softeners-dryer-sheets/downy-reg-soft-cool-cotton-liquid-fabric-softener-100-oz/61432/p-4658334381628603-c-7127.htm",
@@ -729,7 +845,9 @@
   "https://www.menards.com/main/storage-organization/laundry-organizers/clothes-hangers-garment-bags/whitmor-reg-plastic-clothes-hangers-10-count/6345-8701-10-wht/p-1524724197794-c-12714.htm",
   "https://www.menards.com/main/storage-organization/laundry-organizers/clothes-hangers-garment-bags/whitmor-reg-plastic-clothes-hangers-10-count/6345-8701-10-sgr/p-1524724197870-c-12714.htm"
  ],
- "bath-mat": [],
+ "bath-mat": [
+  "https://www.menards.com/main/flooring-rugs/area-rugs-mats-runners/bathroom-rugs/steady-home-21-x-34-bath-mat/22fr011w/p-1642874296209593-c-12414.htm"
+ ],
  "kitchen-towels": [
   "https://www.menards.com/main/kitchen/kitchen-essentials/kitchen-table-linens/set-of-4-kitchen-towels/pied-kt16-tl-s4/p-4384031240236830-c-1507903453529.htm",
   "https://www.menards.com/main/kitchen/kitchen-essentials/kitchen-table-linens/set-of-4-microfiber-kitchen-towel-gray/mfk-mb-gy4/p-1642874308082664-c-1507903453529.htm",
@@ -746,19 +864,33 @@
  "toilet-brush": [
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/bathroom-cleaners/scrubbing-bubbles-reg-fresh-brush-reg-citrus-starter-kit/423/p-1642874309829571-c-7098.htm"
  ],
- "toilet-seat": [],
- "pitcher-filters": [],
+ "toilet-seat": [
+  "https://www.menards.com/main/bath/bathroom-safety/drive-medical-reg-premium-white-toilet-seat-riser-with-removable-arms/12402/p-1444429329530-c-6052.htm",
+  "https://www.menards.com/main/bath/toilets/bidet-toilet-seats-attachments/bio-bidet-slim-one-white-electric-round-bidet-toilet-seat/rslim1r000/p-1642874272277712-c-1642874279165835.htm"
+ ],
+ "pitcher-filters": [
+  "https://www.menards.com/main/plumbing/water-filtration-softeners/water-filtration-pitchers/brita-reg-replacement-water-pitcher-filter/35512/p-1642874322971625-c-1535732895504.htm",
+  "https://www.menards.com/main/plumbing/water-filtration-softeners/water-filtration-pitchers/pur-plus-water-pitcher-dispenser-replacement-filter-3-pack/ppf951k3av5/p-9967014798750331-c-1535732895504.htm"
+ ],
  "food-containers": [
   "https://www.menards.com/main/kitchen/kitchen-essentials/food-storage/14-count-airtight-food-storage-containers/38903/p-4348829495211655-c-7139.htm",
   "https://www.menards.com/main/kitchen/kitchen-essentials/food-storage/rubbermaid-reg-takealongs-reg-rectangle-plastic-container-food-storage-3-piece-set/2086710/p-1642874282469830-c-7139.htm",
   "https://www.menards.com/main/kitchen/kitchen-essentials/food-storage/anchor-hocking-reg-glass-container-food-storage-4-piece-set/13318ahg17/p-1444424113929-c-7139.htm"
  ],
- "hand-sanitizer": [],
+ "hand-sanitizer": [
+  "https://www.menards.com/main/bath/bathroom-hardware-coordinates/soap-lotion-dispensers/alpine-industries-white-40-oz-wall-mount-automatic-foam-hand-sanitizer-and-soap-dispenser-with-floor-stand/430-f-s/p-60300806977-c-9452.htm",
+  "https://www.menards.com/main/bath/bathroom-hardware-coordinates/soap-lotion-dispensers/alpine-industries-40-oz-wall-mount-automatic-gel-hand-sanitizer-and-liquid-soap-dispenser/430-l/p-60300805447-c-9452.htm",
+  "https://www.menards.com/main/bath/bathroom-hardware-coordinates/soap-lotion-dispensers/alpine-40-oz-wall-mount-automatic-hand-sanitizer-dispenser/430-l40ozgel/p-4320333760779330-c-9452.htm"
+ ],
  "coffee-filters": [
   "https://www.menards.com/main/appliances/small-appliances/all-small-appliances/brew-rite-reg-4-cup-basket-style-coffee-filters-200-ct/47-201w-12/p-1444452477232-c-9488.htm",
   "https://www.menards.com/main/appliances/small-appliances/all-small-appliances/brew-rite-reg-8-12-cup-basket-style-coffee-filters-200-ct/45-201w-9/p-1444452477399-c-9488.htm"
  ],
- "lint-roller": [],
+ "lint-roller": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/laundry-care/lint-rollers-fabric-care/electric-lint-remover-assorted-colors/cb435/p-4510732252449841-c-7128.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/laundry-care/lint-rollers-fabric-care/teki-rechargeable-electric-lint-remover/gc301/p-4488931390149588-c-7128.htm",
+  "https://www.menards.com/main/paint/paint-sprayers-applicators/paint-roller-covers/linzer-reg-signature-pro-trade-9-x-3-8-lint-free-roller-covers-6-pk/9fld36pk0900/p-1642874284401861-c-8115.htm"
+ ],
  "cereal": [
   "https://www.menards.com/main/grocery-home/grocery/cereal-breakfast-food/post-reg-fruity-pebbles-trade-cereal-27-5-oz/35619/p-2844360750598923-c-6651.htm",
   "https://www.menards.com/main/grocery-home/grocery/cereal-breakfast-food/moms-best-reg-cereals-old-fashion-oats-42-oz/21787/p-3149259783652325-c-6651.htm"
@@ -771,7 +903,11 @@
   "https://www.menards.com/main/grocery-home/grocery/snack-food/trail-mix-nuts/fisher-reg-oven-roasted-never-fried-reg-deluxe-mixed-nuts-8-75-oz/p27589/p-1516347094369-c-6706.htm",
   "https://www.menards.com/main/grocery-home/grocery/snack-food/trail-mix-nuts/planters-snack-mix-nuts-34-oz/123341/p-1642874260775087-c-6706.htm"
  ],
- "coffee-pods": [],
+ "coffee-pods": [
+  "https://www.menards.com/main/grocery-home/grocery/beverages/coffee-creamer-cappuccino/donut-cafe-gourmet-classic-blend-coffee-pods-100-count/292815/p-37325794167923-c-6637.htm",
+  "https://www.menards.com/main/grocery-home/grocery/beverages/coffee-creamer-cappuccino/marcella-reg-gourmet-coffee-original-blend-medium-roast-coffee-pods-42-count/144012/p-177023397339968-c-6637.htm",
+  "https://www.menards.com/main/grocery-home/grocery/beverages/coffee-creamer-cappuccino/marcella-reg-gourmet-coffee-variety-pack-light-roast-coffee-pods-48-count/144020/p-177023397340241-c-6637.htm"
+ ],
  "sports-drinks": [
   "https://www.menards.com/main/grocery-home/grocery/beverages/sports-drinks/gatorade-reg-zero-glacier-freeze-sports-drink-8-pack/05200004334/p-1642874303350947-c-6645.htm",
   "https://www.menards.com/main/grocery-home/grocery/beverages/sports-drinks/gatorade-reg-orange-sports-drink-8-pack/5200020807/p-1642874302922196-c-6645.htm"
@@ -781,7 +917,10 @@
   "https://www.menards.com/main/grocery-home/grocery/soups-broths/campbells-reg-soup-on-the-go-creamy-tomato-11-1-oz/5739425/p-1444426155380-c-1528988295732.htm",
   "https://www.menards.com/main/grocery-home/grocery/soups-broths/campbells-reg-unsalted-cream-of-chicken-soup-10-5-oz/27974/p-13285244103407560-c-1528988295732.htm"
  ],
- "interior-cleaner": [],
+ "interior-cleaner": [
+  "https://www.menards.com/main/paint/interior-paint-stain/wall-trim-paint/dura-clean-reg-interior-paint-primer-yellow-color-family/duraclnint5-219-3db-s/p-60894838943-c-8025.htm",
+  "https://www.menards.com/main/paint/interior-paint-stain/wall-trim-paint/dura-clean-reg-interior-paint-primer-yellow-color-family/duraclnintqt-214-7db-s/p-60894843854-c-8025.htm"
+ ],
  "granola-bars": [
   "https://www.menards.com/main/grocery-home/grocery/snack-food/snack-bars-fruit-snacks/kind-reg-mixed-berry-healthy-grains-reg-energy-bars-7-1-oz/67068/p-4316528575903520-c-6724.htm",
   "https://www.menards.com/main/grocery-home/grocery/snack-food/snack-bars-fruit-snacks/sunbelt-bakery-blueberry-soft-baked-bars-11oz/03171/p-4417232679006506-c-6724.htm"
@@ -790,7 +929,9 @@
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/air-fresheners/bright-air-reg-cool-clean-trade-air-freshener-2-count/901321/p-1444425727383-c-7096.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/air-fresheners/brightair-reg-cool-clean-trade-automatic-air-freshener-spray-starter-kit/900773/p-3289655538173554-c-7096.htm"
  ],
- "pasta": [],
+ "pasta": [
+  "https://www.menards.com/main/grocery-home/grocery/packaged-meals-canned-meats-seafood/chef-boyardee-reg-spaghetti-meatballs-microwavable-bowl-7-5-oz/6414404717/p-1444427270947-c-14058.htm"
+ ],
  "funnel": [
   "https://www.menards.com/main/tools/automotive/automotive-tools-shop-equipment/tool-shop-reg-4-piece-funnel-set/261-7453/p-1642874257884323-c-9113.htm",
   "https://www.menards.com/main/tools/automotive/automotive-tools-shop-equipment/funnel-king-trade-economy-funnels-3-pack/32835/p-1461693540223-c-9113.htm",
@@ -831,13 +972,18 @@
   "https://www.menards.com/main/tools/automotive/towing-cargo-management/straps-tie-downs/performax-trade-20-x-2-yellow-tow-strap-with-loop-ends/41104/p-1642874257885735-c-14203.htm",
   "https://www.menards.com/main/tools/automotive/towing-cargo-management/straps-tie-downs/performax-trade-30-x-2-yellow-tow-strap-with-hooks/41102/p-1642874257884983-c-14203.htm"
  ],
- "candelabra-bulbs": [],
+ "candelabra-bulbs": [
+  "https://www.menards.com/main/electrical/light-bulbs/decorative-light-bulbs/feit-electric-reg-ca10-e12-soft-white-flame-effect-led-light-bulb-2-pack/bpflamecled2/p-1550302365436-c-642874317706871.htm"
+ ],
  "dimmer": [
   "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/dimmer-controls/legrand-reg-radiant-reg-led-1-pole-three-way-triac-dimmer-switch-3-pack/rhcl453pw3pkcc4/p-4221069730015350-c-6321.htm",
   "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/dimmer-controls/legrand-reg-radiant-reg-white-multi-location-remote-led-dimmer/hmrwccv4/p-377646779806861-c-6321.htm",
   "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/dimmer-controls/lutron-reg-diva-reg-1-25-amp-led-single-pole-3-way-dimmer-switch/dvcl-153p-bl/p-1444438497291-c-6321.htm"
  ],
- "rechargeable-aa": [],
+ "rechargeable-aa": [
+  "https://www.menards.com/main/electrical/batteries/performax-aa-solar-rechargeable-batteries-4-pack/aa800mah4/p-7429806127620949-c-6303.htm",
+  "https://www.menards.com/main/electrical/batteries/energizer-recharge-reg-rechargeable-aaa-nimh-batteries-4-pack/nh12pfp-4/p-105478343677-c-6303.htm"
+ ],
  "gfci": [
   "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/electrical-outlets/performax-trade-gfci-outlet/ppiwd3951/p-1642874299971551-c-9526.htm",
   "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/electrical-outlets/performax-tradetamper-resistant-gfci-outlet/ppiwd3837/p-1642874299979618-c-9526.htm",
@@ -858,10 +1004,26 @@
   "https://www.menards.com/main/electrical/home-electronics/cell-phone-accessories/armor-all-trade-6-lightning-usb-cable/aas8-0104-org/p-5999193515885514-c-6509.htm",
   "https://www.menards.com/main/electrical/home-electronics/cell-phone-accessories/cj-tech-4-in-1-charging-cable/47237/p-4522031541644422-c-6509.htm"
  ],
- "outlet-adapter": [],
- "hdmi": [],
- "furnace-filter-20x25": [],
- "mounting-tape": [],
+ "outlet-adapter": [
+  "https://www.menards.com/main/electrical/electrical-cords-surge-protectors/outlet-adapters/performax-trade-3-outlet-plug-adapter/bv800804/p-1496643769702-c-6483.htm",
+  "https://www.menards.com/main/electrical/electrical-cords-surge-protectors/outlet-adapters/performax-trade-lighted-3-outlet-plug-adapter/bv800001/p-1557383846144-c-6483.htm",
+  "https://www.menards.com/main/electrical/electrical-cords-surge-protectors/outlet-adapters/performax-trade-white-6-outlet-plug-adapter/bv800004/p-1557469884926-c-6483.htm"
+ ],
+ "hdmi": [
+  "https://www.menards.com/main/electrical/electronics/audio-video-home-networking/audio-video-cables/xtreme-trade-6-hdmi-cable/xhv1-1063-blk/p-5999193516656878-c-6297.htm",
+  "https://www.menards.com/main/electrical/electronics/audio-video-home-networking/audio-video-cables/cjtech-6-4k-hdmi-cable/72628/p-4654627767347268-c-6297.htm",
+  "https://www.menards.com/main/electrical/electronics/audio-video-home-networking/audio-video-cables/sanus-reg-6-5-8k-ultra-high-speed-hdmi-cable/53712/p-1642874358801788-c-6297.htm"
+ ],
+ "furnace-filter-20x25": [
+  "https://www.menards.com/main/heating-cooling/air-filters/bestair-reg-basic-allergen-7500-merv-8-pleated-air-filter/b1-2025-8-12/p-1444451632466-c-6856.htm",
+  "https://www.menards.com/main/heating-cooling/air-filters/true-blue-reg-basic-merv-7-pleated-air-filter/220251-4/p-1444451617702-c-6856.htm",
+  "https://www.menards.com/main/heating-cooling/air-filters/bestair-reg-premium-allergen-9100-merv-12-pleated-air-filter/b1-2025-12-6/p-1444451626861-c-6856.htm"
+ ],
+ "mounting-tape": [
+  "https://www.menards.com/main/paint/adhesives-glue-tape/tape/mounting-tape/scotch-mount-trade-1-x-60-extreme-double-sided-mounting-tape/414h-dc/p-1642874255235232-c-13186.htm",
+  "https://www.menards.com/main/paint/adhesives-glue-tape/tape/mounting-tape/gorilla-reg-2-x-48-clear-tough-wide-reg-mounting-tape/104671/p-5999193515452370-c-13186.htm",
+  "https://www.menards.com/main/paint/adhesives-glue-tape/tape/mounting-tape/total-tape-trade-1-8-x-0-68-double-sided-mounting-strips-10-pack/11710507/p-5832605973484648-c-13186.htm"
+ ],
  "command-hooks": [
   "https://www.menards.com/main/storage-organization/closet-organizers/decorative-hooks-mounting-accessories/command-trade-small-white-utility-wall-hook/17002/p-1444421710245-c-12640.htm",
   "https://www.menards.com/main/storage-organization/closet-organizers/decorative-hooks-mounting-accessories/command-trade-clear-medium-wall-hook/17091clr-vp/p-1444421739311-c-12640.htm",
@@ -890,7 +1052,11 @@
   "https://www.menards.com/main/hardware/casters-furniture-hardware/furniture-slides-glides/shepherd-hardware-reg-commercial-grade-1-gray-and-white-self-adhesive-felt-pads/6706/p-1536820077553-c-13088.htm",
   "https://www.menards.com/main/hardware/casters-furniture-hardware/furniture-slides-glides/shepherd-hardware-reg-heavy-duty-4-1-4-x-6-brown-self-adhesive-felt-sheets-2-pack/9860/p-1444442245992-c-13088.htm"
  ],
- "tray-liners": [],
+ "tray-liners": [
+  "https://www.menards.com/main/paint/paint-sprayers-applicators/paint-trays-buckets/pro-paintr-black-paint-tray-liners-10-pack/2126/p-1566368843693-c-13972.htm",
+  "https://www.menards.com/main/paint/paint-sprayers-applicators/paint-trays-buckets/pro-paintr-9-standard-paint-roller-tray-liner/200302/p-1566368843687-c-13972.htm",
+  "https://www.menards.com/main/paint/paint-sprayers-applicators/paint-trays-buckets/pro-paintr-9-deepwell-paint-roller-tray-liner/2159/p-1566368843701-c-13972.htm"
+ ],
  "wood-filler": [
   "https://www.menards.com/main/paint/interior-paint-stain/wood-maintenance-repair/dap-reg-plastic-wood-reg-interior-exterior-natural-latex-wood-filler/7079808135/p-1549265391064-c-7959.htm",
   "https://www.menards.com/main/paint/interior-paint-stain/wood-maintenance-repair/j-b-weld-reg-wood-restore-trade-interior-exterior-repair-putty-wood-filler/40003/p-1444436332208-c-7959.htm",
@@ -906,8 +1072,16 @@
   "https://www.menards.com/main/tools/hand-tools/wrenches-wrench-sets/tool-shop-reg-8-adjustable-wrench/2437817/p-1444421177806-c-9157.htm",
   "https://www.menards.com/main/tools/hand-tools/wrenches-wrench-sets/irwin-reg-protouch-trade-8-adjustable-wrench/2078608/p-1444436149249-c-9157.htm"
  ],
- "nails": [],
- "hex-keys": [],
+ "nails": [
+  "https://www.menards.com/main/hardware/fasteners-connectors/nails/wire-brad-nails/nail-and-tack-assortment-750-piece/2335058/p-1444451997935-c-8757.htm",
+  "https://www.menards.com/main/hardware/fasteners-connectors/screws/wood-screws/grip-fast-reg-assorted-nail-and-screw-4-lb-tub/229-1012/p-3289655538559453-c-8940.htm",
+  "https://www.menards.com/main/grocery-home/toys-games/pretend-play-toys/fashion-nail-kit-assorted-styles/mn2015/p-1642874290674374-c-642874317763587.htm"
+ ],
+ "hex-keys": [
+  "https://www.menards.com/main/tools/hand-tools/sockets/masterforce-reg-3-8-drive-sae-hex-bit-socket-set-7-piece/67242/p-1524810602272-c-9159.htm",
+  "https://www.menards.com/main/tools/hand-tools/sockets/masterforce-reg-3-8-drive-metric-hex-bit-socket-set-7-piece/67243/p-1524810598260-c-9159.htm",
+  "https://www.menards.com/main/tools/power-tool-accessories/drive-bits-accessories/performax-reg-1-hex-insert-drive-bit-set-9-piece/c044027/p-1444444260305-c-10156.htm"
+ ],
  "clamps": [
   "https://www.menards.com/main/tools/hand-tools/clamps-vises/masterforce-reg-12-light-duty-ratcheting-bar-clamp-2-pack/mf-60669/p-1642874283096126-c-9135.htm",
   "https://www.menards.com/main/tools/hand-tools/clamps-vises/tekton-reg-18-ratchet-bar-clamp-2-pack/clp51518d/p-4496629803131129-c-9135.htm"
@@ -930,7 +1104,11 @@
   "https://www.menards.com/main/tools/power-tool-accessories/tool-stands-saw-horses/masterforce-reg-folding-steel-sawhorse/65067/p-1444436621888-c-1496857146263.htm",
   "https://www.menards.com/main/tools/power-tool-accessories/tool-stands-saw-horses/masterforce-reg-adjustable-folding-steel-sawhorse/65068/p-1444436617805-c-1496857146263.htm"
  ],
- "ear-plugs": [],
+ "ear-plugs": [
+  "https://www.menards.com/main/tools/workwear-safety-gear/earplugs-earmuffs/3m-trade-pro-protect-electronic-hearing-protector-earmuff-with-bluetooth-technology/90545h1-dc-ps/p-1642874309257302-c-13850.htm",
+  "https://www.menards.com/main/tools/workwear-safety-gear/earplugs-earmuffs/3m-trade-25-nrr-folding-earmuffs/90563h1-dc/p-1567060206692-c-13850.htm",
+  "https://www.menards.com/main/tools/workwear-safety-gear/earplugs-earmuffs/macks-reg-double-up-reg-earmuff-glasses-safety-kit/5561/p-1472733170387-c-13850.htm"
+ ],
  "hand-saw": [
   "https://www.menards.com/main/tools/hand-tools/hand-saws-saw-blades/masterforce-reg-15-aluminum-handle-hand-saw/mf-tdw4208/p-3490591039995335-c-9123.htm",
   "https://www.menards.com/main/tools/hand-tools/hand-saws-saw-blades/masterforce-reg-20-aluminum-handle-hand-saw/mf-tdw4210/p-3490591039994448-c-9123.htm",
@@ -941,8 +1119,15 @@
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/garden-gloves-kneeling-pads/yardworks-reg-gardener-knee-pads/2655017/p-7720120058520827-c-1541443802945.htm",
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/garden-gloves-kneeling-pads/master-garden-gardener-high-density-foam-knee-pads/30-9037-100/p-1642874371080220-c-1541443802945.htm"
  ],
- "tool-box": [],
- "lantern": [],
+ "tool-box": [
+  "https://www.menards.com/main/tools/tool-storage/tool-boxes/performax-reg-water-resistant-tool-box/mnd320101m/p-1642874353985770-c-1526043700147.htm",
+  "https://www.menards.com/main/tools/tool-storage/tool-boxes/performax-reg-water-resistant-tool-box/mnd320100am/p-1642874353985265-c-1526043700147.htm"
+ ],
+ "lantern": [
+  "https://www.menards.com/main/outdoors/outdoor-recreation-sports/camping-rv-supplies/camping-accessories/stansport-reg-9-battery-operated-led-camp-lantern/132/p-1503901827874-c-7834.htm",
+  "https://www.menards.com/main/lighting-ceiling-fans/flashlights-accessories/guidesman-reg-1200-lumen-rechargeable-lantern/83372/p-1642874368140680-c-6314.htm",
+  "https://www.menards.com/main/lighting-ceiling-fans/flashlights-accessories/as-seen-on-tv-battery-daddy-trade-1000-lumen-led-lantern/badalmc124/p-1642874364711585-c-6314.htm"
+ ],
  "duster-refills": [
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/everyday-necessities-duster-kit/852659732432/p-4422729494773769-c-7113.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/libman-reg-flexible-microfiber-duster/585006/p-1444438065755-c-7113.htm"
@@ -971,12 +1156,20 @@
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/century-container-5-gallon-food-safe-bucket/0-307-05/p-1444426310665-c-7113.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/menards-reg-vintage-5-gallon-bucket/20512201-0310p4/p-4663533408831037-c-7113.htm"
  ],
- "vinegar": [],
+ "vinegar": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/all-purpose-cleaners/tile-plus-reg-cleaning-vinegar-64-oz/14002/p-1531290475566-c-7097.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/all-purpose-cleaners/worry-free-30-cleaning-vinegar-128-oz/100552317/p-4330226055330132-c-7097.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/all-purpose-cleaners/solutions-cleaning-vinegar-with-oxi-32-oz/14028/p-2654092911207950-c-7097.htm"
+ ],
  "squeegee": [
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/libman-reg-flex-blade-floor-squeegee/1014006/p-1444438063601-c-7113.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/telescopic-window-squeegee-and-sponge/od852/p-4300927234318780-c-7113.htm"
  ],
- "trash-can": [],
+ "trash-can": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/trash-cans-recycle-bins/kl-eumlarve-cabinetry-reg-trash-can-35-quart/rv-35-13nl-8/p-12160768390210151-c-7124.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/trash-cans-recycle-bins/eko-horizon-11-9-gallon-stainless-steel-motion-sensor-trash-can/ek9262mt-45l/p-1538548339435-c-7124.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/trash-cans-recycle-bins/rubbermaid-reg-roughneck-reg-50-gallon-wheeled-trash-can-with-lid/fg285100bla/p-1642874281138961-c-7124.htm"
+ ],
  "cat-treats": [
   "https://www.menards.com/main/pet-wildlife/cat-supplies/cat-treats/temptations-trade-creamy-dairy-flavor-cat-treats-16-oz/474-343-15/p-7720120059100338-c-8296.htm",
   "https://www.menards.com/main/pet-wildlife/cat-supplies/cat-treats/temptations-trade-tasty-chicken-flavor-cat-treats-3-oz/474-287-15/p-7720120059100820-c-8296.htm",
@@ -986,7 +1179,11 @@
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/all-purpose-cleaners/lysol-reg-crisp-linen-disinfectant-spray-19-oz/79329/p-1444452025716-c-7097.htm",
   "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/all-purpose-cleaners/lysol-reg-spring-waterfall-disinfectant-spray-19-oz/79326/p-1444452026452-c-7097.htm"
  ],
- "scrub-brush": [],
+ "scrub-brush": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/libman-reg-7-scrub-brush/510006/p-1444438068608-c-7113.htm",
+  "https://www.menards.com/main/paint/painting-tools/scrub-brush/db-002a/p-1642874337007350-c-8076.htm",
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/cleaning-supplies/cleaning-tools/libman-reg-9-heavy-duty-scrub-brush/513006/p-1444438071451-c-7113.htm"
+ ],
  "leash": [
   "https://www.menards.com/main/pet-wildlife/dog-supplies/dog-collars-leashes/wolfgang-mountainwave-1-x-6-dog-leash/wl-003-69/p-1642874316687964-c-8306.htm"
  ],
@@ -1043,7 +1240,11 @@
   "https://www.menards.com/main/outdoors/gardening/lawn-plant-care/plant-food/miracle-gro-reg-water-soluble-all-purpose-plant-food-5-lb/1013510/p-1642874276880262-c-1463608034798.htm",
   "https://www.menards.com/main/outdoors/gardening/lawn-plant-care/plant-food/miracle-gro-reg-pour-feed-ready-to-use-liquid-plant-food-32-oz/3006002/p-1444453631146-c-1463608034798.htm"
  ],
- "landscape-fabric": [],
+ "landscape-fabric": [
+  "https://www.menards.com/main/building-materials/landscaping-materials/landscaping-fabric/master-garden-trade-3-x-50-standard-landscape-fabric/00003/p-1444427378258-c-13236.htm",
+  "https://www.menards.com/main/building-materials/landscaping-materials/landscaping-fabric/master-garden-trade-3-x-50-basic-landscape-fabric/00001/p-1444427384331-c-13236.htm",
+  "https://www.menards.com/main/building-materials/landscaping-materials/landscaping-fabric/advanced-infiniweb-landscape-fabric/lf60245/p-1642874312285079-c-13236.htm"
+ ],
  "flower-pots": [
   "https://www.menards.com/main/outdoors/planters-hanging-baskets/landmark-plastic-4-round-grower-pots-10-pack/ia400mg-100rc-l001/p-1466525872847-c-10138.htm"
  ],
@@ -1057,8 +1258,16 @@
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/shovels-tampers/masterforce-reg-fiberglass-long-handle-round-point-digging-shovel/2654235/p-1642874314600374-c-13243.htm",
   "https://www.menards.com/main/outdoors/gardening/garden-landscaping-tools/shovels-tampers/masterforce-reg-hardwood-long-handle-round-point-digging-shovel/2654226/p-1642874314599662-c-13243.htm"
  ],
- "snow-pusher": [],
- "pet-ice-melt": [],
+ "snow-pusher": [
+  "https://www.menards.com/main/outdoors/snow-ice-removal/snow-shovels/suncast-reg-24-steel-core-reg-pusher/sp24006pk/p-4395728407117670-c-1526586197108.htm",
+  "https://www.menards.com/main/outdoors/snow-ice-removal/snow-shovels/suncast-reg-30-uhmw-snow-pusher/spuh3000/p-3490591039061307-c-1526586197108.htm",
+  "https://www.menards.com/main/outdoors/snow-ice-removal/snow-shovels/emsco-group-bigfoot-trade-25-steel-snow-pusher/1279/p-4283774894131540-c-1526586197108.htm"
+ ],
+ "pet-ice-melt": [
+  "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/k-9-reg-pet-friendly-magnesium-chloride-ice-melt-20-lb-bag/2651521/p-1496211568908-c-1526586197110.htm",
+  "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/k-9-reg-pet-friendly-magnesium-chloride-ice-melt-8-lb-jug/2651520/p-1444429569016-c-1526586197110.htm",
+  "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/hotrock-pawguard-pet-friendly-magnesium-chloride-ice-melt-25-lb-bag/pawguard-25b/p-60892459835-c-1526586197110.htm"
+ ],
  "sled": [
   "https://www.menards.com/main/outdoors/outdoor-recreation-sports/winter-activity-equipment/h20-26-sno-spinner-sled-assorted-styles/3018-combo1-12/p-1558593140159-c-1554308647764.htm",
   "https://www.menards.com/main/outdoors/outdoor-recreation-sports/winter-activity-equipment/h2o-66-mega-boggan-sled/3012-black-12/p-1558593139887-c-1554308647764.htm"
@@ -1111,10 +1320,214 @@
   "https://www.menards.com/main/holiday-decorations/christmas/christmas-lights/enchanted-forest-reg-25-light-led-vintage-multicolor-ceramic-c9-christmas-string-light-set/m24-1335/p-1642874314290933-c-12284.htm",
   "https://www.menards.com/main/holiday-decorations/christmas/christmas-lights/enchanted-forest-reg-100-light-led-vintage-multicolor-mini-christmas-string-light-set/m24-1220/p-1642874314306986-c-12284.htm"
  ],
- "wall-shelf": [],
+ "wall-shelf": [
+  "https://www.menards.com/main/storage-organization/shelves-shelving-units/wall-shelves/designers-image-trade-17-7-8w-x-7-7-8d-floating-wall-shelf/49917/p-4492431695884826-c-12664.htm"
+ ],
  "knit-hat": [
   "https://www.menards.com/main/grocery-home/clothing-accessories/headwear/rw-rugged-wear-reg-adult-knit-winter-hat-assorted-colors/2039m24/p-1444442543812-c-7087.htm",
   "https://www.menards.com/main/grocery-home/clothing-accessories/headwear/menards-reg-knit-winter-hat/2306/p-1569392836706-c-7087.htm",
   "https://www.menards.com/main/grocery-home/clothing-accessories/headwear/roughneck-usb-rechargeable-led-knit-winter-hat/41596/p-1642874290509571-c-7087.htm"
+ ],
+ "gas-can": [
+  "https://www.menards.com/main/tools/automotive/automotive-tools-shop-equipment/midwest-can-5-gallon-gas-can/5610/p-1444439611360-c-9113.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-tools-shop-equipment/no-spill-reg-5-gallon-gas-can/1460/p-1642874284034112-c-9113.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-tools-shop-equipment/briggs-stratton-reg-5-gallon-gas-can/84053sl/p-4495230989743910-c-9113.htm"
+ ],
+ "pumpkin-kit": [
+  "https://www.menards.com/main/holiday-decorations/halloween/pumpkin-carving/regular-pumpkin/none-2626102/p-1444422621757-c-12346.htm"
+ ],
+ "halloween-lights": [
+  "https://www.menards.com/main/holiday-decorations/halloween/halloween-indoor-decorations/pumpkin-hollow-trade-10-3-4-led-skeleton-with-fairy-lights-halloween-lantern/fgh25059/p-1642874341631607-c-12272.htm"
+ ],
+ "halloween-candy": [
+  "https://www.menards.com/main/holiday-decorations/halloween/halloween-candy/mars-reg-mixed-fun-size-variety-jumbo-pack-30-18-oz/460489/p-1642874314437862-c-12841.htm",
+  "https://www.menards.com/main/holiday-decorations/halloween/halloween-candy/mars-reg-fun-size-reg-skittles-reg-variety-26-46-oz/461379/p-1642874318500286-c-12841.htm"
+ ],
+ "meat-thermometer": [
+  "https://www.menards.com/main/outdoors/grills-outdoor-cooking/grilling-tools/digital-meat-thermometer-with-backlight/7218991/p-1562740229706-c-1461078035988.htm",
+  "https://www.menards.com/main/outdoors/grills-outdoor-cooking/grilling-tools/charbroil-reg-instant-read-digital-thermometer/cb1250084p10/p-1642874337528445-c-1461078035988.htm",
+  "https://www.menards.com/main/outdoors/grills-outdoor-cooking/grilling-tools/taylor-reg-wired-probe-grill-thermometer/5294302gw/p-9639598970049599-c-1461078035988.htm"
+ ],
+ "gift-bags": [
+  "https://www.menards.com/main/4-mom-gift-bag/24680/p-1642874340934849-c-1642874268090700.htm",
+  "https://www.menards.com/main/holidays/christmas/christmas-gift-boxes-and-gift-bags/premium-bottle-gift-bag-happy-birthday-dots/2825891/p-1444430508897-c-1455029675718.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/gift-wrap/paper-images-multisized-gift-bag-3-pack-assorted-styles/c3gbacd-2mn/p-1642874315088448-c-12299.htm"
+ ],
+ "wrapping-paper": [
+  "https://www.menards.com/main/holiday-decorations/christmas/gift-wrap/enchanted-forest-reg-100-sq-ft-bright-holiday-wrapping-paper-assorted-styles/cw10040a5/p-1642874315076743-c-12299.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/gift-wrap/enchanted-forest-reg-25-sq-ft-multicolor-holiday-wrapping-paper-assorted-styles/cw2530a45-mn/p-1642874315088842-c-12299.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/gift-wrap/enchanted-forest-reg-50-sq-ft-botanical-holiday-wrapping-paper-assorted-styles/cw5030a25/p-1642874315079788-c-12299.htm"
+ ],
+ "tree-stand": [
+  "https://www.menards.com/main/holiday-decorations/christmas/fresh-cut-trees-greenery/welded-christmas-tree-stand/7304/p-1642874368075041-c-19824.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/fresh-cut-trees-greenery/steel-christmas-tree-stand-for-7-tree/5164/p-1642874368073941-c-19824.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/fresh-cut-trees-greenery/quick-stand-christmas-tree-stand/1514/p-1642874271823652-c-19824.htm"
+ ],
+ "roasting-pan": [
+  "https://www.menards.com/main/kitchen/kitchen-essentials/bakeware-cookware/handi-foil-15-x-11-medium-rack-roaster-pan-lid/22039-01/p-1642874365131948-c-1486130003871.htm",
+  "https://www.menards.com/main/kitchen/kitchen-essentials/bakeware-cookware/silver-lining-trade-oval-roaster/d40010/p-1504247327638-c-1486130003871.htm"
+ ],
+ "tree-skirt": [
+  "https://www.menards.com/main/holiday-decorations/christmas/tree-decorations/enchanted-forest-reg-12-mini-tree-skirt/c-21040f1/p-7429806126564118-c-12298.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/tree-decorations/enchanted-forest-reg-48-gold-patterned-christmas-tree-skirt/x87335m1/p-1642874311832461-c-12298.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/tree-decorations/enchanted-forest-reg-12-mini-tree-skirt/a-21118a/p-7429806126563080-c-12298.htm"
+ ],
+ "light-clips": [
+  "https://www.menards.com/main/holiday-decorations/christmas/hooks-clips/simple-living-solutions-reg-universal-light-clips-100-pack/712100/p-4364363663595203-c-12294.htm"
+ ],
+ "inflatable": [
+  "https://www.menards.com/main/holiday-decorations/christmas/christmas-inflatables/enchanted-forest-reg-20-led-giant-santa-waving-inflatable/22307/p-1642874346283812-c-12292.htm"
+ ],
+ "clear-tape": [
+  "https://www.menards.com/main/paint/adhesives-glue-tape/tape/packaging-tape/scotch-reg-1-2-x-450-permanent-double-sided-clear-tape/3m-137/p-1642874363992915-c-13192.htm",
+  "https://www.menards.com/main/paint/adhesives-glue-tape/tape/mounting-tape/scotch-reg-clear-extreme-fasteners-tape-2-rolls/rf6760/p-1642874298599919-c-13186.htm"
+ ],
+ "ornament-hooks": [],
+ "candy-canes": [
+  "https://www.menards.com/main/holiday-decorations/christmas/decorative-christmas-accents/enchanted-forest-reg-gnome-with-candy-cane/t0700/p-1642874342768218-c-12287.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/decorative-christmas-accents/enchanted-forest-trade-14-wood-candy-cane-christmas-direction-tabletop-decor/yw-qa24750/p-4372929939364804-c-12287.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/tree-decorations/enchanted-forest-reg-classic-red-candy-cane-shatterproof-christmas-ornaments-4-pack/81834-1/p-4332129938922209-c-12298.htm"
+ ],
+ "wreath": [
+  "https://www.menards.com/main/holiday-decorations/christmas/trees-greenery/enchanted-forest-reg-24-decorative-collection-artificial-wreath/m24-9155/p-1642874314299305-c-12297.htm",
+  "https://www.menards.com/main/outdoors/outdoor-decor/wall-decor/enchanted-garden-trade-22-spring-wreath-outdoor-wall-art-assorted-styles/a0420-055/p-60892417703-c-1523475367047.htm",
+  "https://www.menards.com/main/holiday-decorations/christmas/trees-greenery/24-tinsel-wreath-assorted-colors/sx-9157862/p-1642874364123564-c-12297.htm"
+ ],
+ "heet": [
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/heet-reg-gas-line-antifreeze-4-pack/28205/p-1444429046719-c-10098.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/iso-heet-gas-line-antifreeze-4-pack/28206/p-1444429047007-c-10098.htm"
+ ],
+ "power-stake": [
+  "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/outlet-timers/performax-reg-outdoor-power-stake-timer-with-photocell/brvpowst-dtd/p-1642874320641161-c-6471.htm",
+  "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/outlet-timers/smart-electrician-reg-15-amp-6-outlet-outdoor-power-stake-timer/brvpowst/p-1552285750751-c-6471.htm",
+  "https://www.menards.com/main/electrical/light-switches-dimmers-outlets/outlet-timers/power-gear-mechanical-6-outlet-yard-stake-timer/64759/p-1642874318490269-c-6471.htm"
+ ],
+ "roof-melt": [],
+ "ice-cleats": [
+  "https://www.menards.com/main/grocery-home/clothing-accessories/footwear-footwear-accessories/olympia-reg-sure-spikes-small-medium-ice-cleats-1-pair/21028ice/p-4377026192055118-c-7093.htm",
+  "https://www.menards.com/main/grocery-home/clothing-accessories/footwear-footwear-accessories/olympia-reg-ice-cleats-1-pair/30844ice/p-1642874317349856-c-7093.htm",
+  "https://www.menards.com/main/grocery-home/clothing-accessories/footwear-footwear-accessories/wintertrax-reg-traction-aid/10850/p-1444435931787-c-7093.htm"
+ ],
+ "thermals": [
+  "https://www.menards.com/main/grocery-home/clothing-accessories/shirts/rw-rugged-wear-reg-mens-fleece-lined-1-4-zip-thermal-shirt/12232mnchrl/p-4385532347256300-c-7091.htm"
+ ],
+ "neck-gaiter": [
+  "https://www.menards.com/main/grocery-home/clothing-accessories/headwear/rw-rugged-wear-reg-mens-black-neck-gaiter/mn077-mn/p-1642874329253431-c-7087.htm",
+  "https://www.menards.com/main/grocery-home/clothing-accessories/headwear/rw-rugged-wear-reg-mens-black-neck-gaiter/mn058-00-mn/p-1642874296492282-c-7087.htm"
+ ],
+ "heat-cable": [
+  "https://www.menards.com/main/plumbing/pipe-insulation-heat-cables/heat-cables/frost-king-reg-electric-water-pipe-heating-cable/hc9a/p-1444444947141-c-8588.htm",
+  "https://www.menards.com/main/flooring-rugs/tile-stone/under-floor-heating/warm-tiles-trade-dft-120v-electric-in-floor-heat-cable-kit/dft1048a/p-1444429543779-c-6331.htm",
+  "https://www.menards.com/main/plumbing/hydronic-radiant-heat/barrier-pipe/heat-flex-pe-rt-pipe-radiant-heat-tubing/hf9051000/p-1444449952124-c-8563.htm"
+ ],
+ "snowblower-oil": [
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/motor-oil-filters/pennzoil-reg-full-synthetic-5w-30-motor-oil/550058602/p-1642874263823591-c-9112.htm"
+ ],
+ "emergency-candles": [
+  "https://www.menards.com/main/holiday-decorations/christmas/decorative-christmas-accents/tuscany-candle-trade-3-flat-top-unscented-white-pillar-candle/56145/p-1642874301061954-c-12287.htm"
+ ],
+ "humidifier": [
+  "https://www.menards.com/main/aircare-reg-digital-3-speed-space-saver-evaporative-humidifier-6-gallon/831000/p-1455974585470-c-0.htm",
+  "https://www.menards.com/main/pntck-4l-cool-mist-humidifier/xu003r/p-4355234093736894-c-1642874346487672.htm"
+ ],
+ "jump-starter": [
+  "https://www.menards.com/main/as-seen-on-tv/as-seen-on-tv-bullseye-trade-1-000-amp-lithium-ion-rechargeable-jump-starter/6825/p-4364329283887837-c-1489409021704.htm"
+ ],
+ "weather-radio": [
+  "https://www.menards.com/main/electrical/home-electronics/speakers/midland-reg-noaa-weather-alert-radio/wr120b/p-1521009016613-c-6300.htm",
+  "https://www.menards.com/main/electrical/home-electronics/speakers/midland-reg-deluxe-noaa-weather-radio/wr400/p-1521009016809-c-6300.htm"
+ ],
+ "microwave": [
+  "https://www.menards.com/main/appliances/microwaves/countertop-microwaves/professional-series-reg-1-1-cu-ft-countertop-microwave/ps-cmc338us-ch/p-1642874314981097-c-1500043654078.htm",
+  "https://www.menards.com/main/appliances/microwaves/countertop-microwaves/continental-reg-1-1-cu-ft-countertop-microwave/ce-cmc311us-ch/p-1642874314978510-c-1500043654078.htm",
+  "https://www.menards.com/main/appliances/microwaves/countertop-microwaves/continental-reg-1-1-cu-ft-counterop-microwave/ce-cmc319us-ch/p-1642874314978628-c-1500043654078.htm"
+ ],
+ "air-fryer": [
+  "https://www.menards.com/main/appliances/small-appliances/all-small-appliances/chefman-turbofry-touch-6-quart-digital-air-fryer/rj38-zf-6t/p-4366434547708753-c-9488.htm",
+  "https://www.menards.com/main/appliances/small-appliances/all-small-appliances/chefman-dual-basket-digital-air-fryer-w-easy-view-windows-6-quart/rj38-sqpf-3tdb-2w/p-1642874294221308-c-9488.htm"
+ ],
+ "tool-combo": [
+  "https://www.menards.com/main/tools/power-tools/power-drills-impact-drivers/blackdecker-reg-20-volt-max-trade-cordless-3-8-drill-kit/bcd702c1/p-4364363665524500-c-9072.htm",
+  "https://www.menards.com/main/tools/power-tools/power-drills-impact-drivers/masterforce-reg-ultra-compact-20-volt-brushless-cordless-1-2-drill-kit/8815-1/p-1642874343852045-c-9072.htm"
+ ],
+ "pressure-washer": [
+  "https://www.menards.com/main/outdoors/outdoor-power-equipment/pressure-washers/ariens-reg-3-800-max-psi-2-5-max-gpm-gas-pressure-washer/a3875aa/p-1642874337098241-c-10113.htm",
+  "https://www.menards.com/main/outdoors/outdoor-power-equipment/pressure-washers/easy-kleen-4000-max-psi-4-max-gpm-gas-pressure-washer/as440gkgp/p-3289655538111651-c-10113.htm",
+  "https://www.menards.com/main/outdoors/outdoor-power-equipment/pressure-washers/generac-4-000-psi-3-4-gpm-gas-belt-driven-industrial-pressure-washer/6230/p-1444431298457-c-10113.htm"
+ ],
+ "mini-fridge": [
+  "https://www.menards.com/main/appliances/refrigerators/mini-refrigerators/professional-series-reg-3-1-cu-ft-compact-refrigerator/ps-crf962us-in/p-1642874367583762-c-1496238287888.htm",
+  "https://www.menards.com/main/appliances/refrigerators/mini-refrigerators/professional-series-reg-3-1-cu-ft-compact-refrigerator/ps-crf969us-in/p-1642874366930811-c-1496238287888.htm"
+ ],
+ "chest-freezer": [
+  "https://www.menards.com/main/appliances/freezers-ice-makers/criterion-reg-6-3-cu-ft-upright-freezer/cuf63p1w/p-1642874358313751-c-7214.htm",
+  "https://www.menards.com/main/appliances/freezers-ice-makers/criterion-reg-17-cu-ft-garage-ready-convertible-automatic-defrost-upright-freezer/cuf17m2w/p-3289655538341621-c-7214.htm",
+  "https://www.menards.com/main/appliances/freezers-ice-makers/criterion-reg-21-2-cu-ft-automatic-defrost-garage-ready-convertible-upright-freezer-refrigerator/cuf21c1w/p-1642874303878582-c-7214.htm"
+ ],
+ "patio-heater": [
+  "https://www.menards.com/main/outdoors/fire-pits-outdoor-heating/backyard-creations-reg-87-propane-outdoor-patio-heater/nczh-g-pc/p-1642874365548004-c-12918.htm",
+  "https://www.menards.com/main/outdoors/fire-pits-outdoor-heating/backyard-creations-reg-67-7-16-steel-square-patio-heater/gft-97019/p-1642874295523391-c-12918.htm",
+  "https://www.menards.com/main/outdoors/fire-pits-outdoor-heating/backyard-creations-reg-33-7-8-tabletop-propane-patio-heater/pbf-ss/p-1642874297633285-c-12918.htm"
+ ],
+ "upright-vac": [
+  "https://www.menards.com/main/tools/wet-dry-vacuums-accessories/shop-vac-reg-2-5-gallon-2-5-peak-hp-wet-dry-portable-vacuum/9303511/p-5999193516769150-c-10092.htm",
+  "https://www.menards.com/main/appliances/vacuum-cleaners-floor-care/stick-vacuums-sweepers/hoover-reg-streamline-hard-floor-wet-dry-stick-vacuum/fh46000v/p-1642874309421534-c-5578.htm",
+  "https://www.menards.com/main/heating-cooling/fireplaces-stoves/fireplace-wood-stove-tools-accessories/wood-stove-accessories/united-states-stove-2-5-hp-6-5-gallon-ash-vacuum/av15e/p-1505456915016-c-6881.htm"
+ ],
+ "dehumidifier": [
+  "https://www.menards.com/main/heating-cooling/dehumidifiers/pelonis-reg-35-pint-gravity-drain-dehumidifier/pad35c1dwt/p-1642874303540005-c-1497103338432.htm",
+  "https://www.menards.com/main/heating-cooling/dehumidifiers/pelonis-35-pint-dehumidifier/pad35c1dwts/p-4379827202839827-c-1497103338432.htm"
+ ],
+ "snow-blower": [
+  "https://www.menards.com/main/outdoors/outdoor-power-equipment/snow-blowers/powersmart-reg-26-212cc-two-stage-electric-start-gas-snow-blower/pssw2260led/p-7429806126771419-c-12370.htm"
+ ],
+ "aaa-batteries-8": [
+  "https://www.menards.com/main/electrical/batteries/duracell-reg-coppertop-aaa-alkaline-batteries/5755783durac005/p-1456889267755-c-6303.htm",
+  "https://www.menards.com/main/electrical/batteries/energizer-max-reg-aaa-alkaline-batteries-8-pack/e301023910/p-1642874343748744-c-6303.htm",
+  "https://www.menards.com/main/electrical/batteries/rayovac-reg-fusion-trade-aaa-alkaline-batteries/824-8ctfus/p-177023398251740-c-6303.htm"
+ ],
+ "coffee-maker": [
+  "https://www.menards.com/main/appliances/small-appliances/all-small-appliances/cuisinart-reg-12-cup-coffee-maker/dcc-1120/p-1642874300582831-c-9488.htm",
+  "https://www.menards.com/main/appliances/small-appliances/all-small-appliances/continental-reg-coffee-maker-12-cup/ce-cm249/p-1841405561328901-c-9488.htm"
+ ],
+ "aa-batteries-8": [
+  "https://www.menards.com/main/electrical/batteries/energizer-max-reg-aa-alkaline-batteries-8-pack/e301033718/p-1642874343748855-c-6303.htm",
+  "https://www.menards.com/main/electrical/batteries/duracell-reg-coppertop-aa-alkaline-batteries/5755782durac005/p-1456889268229-c-6303.htm"
+ ],
+ "trash-bags-big": [],
+ "tool-chest": [],
+ "toilet-paper-24": [
+  "https://www.menards.com/main/bath/bathroom-hardware-coordinates/toilet-paper-holders-robe-hooks/symmons-oak-toilet-paper-holder/563tpstn/p-1642874373348619-c-12890.htm",
+  "https://www.menards.com/main/bath/bathroom-hardware-coordinates/toilet-paper-holders-robe-hooks/american-standard-c-series-toilet-paper-holder/8337-230-295/p-1461693419606-c-12890.htm",
+  "https://www.menards.com/main/bath/bathroom-hardware-coordinates/toilet-paper-holders/allied-brass-dottingham-european-style-toilet-paper-holder/dt-24e-bkm/p-1482478036523-c-12890.htm"
+ ],
+ "dog-food-xl": [
+  "https://www.menards.com/main/pet-wildlife/dog-supplies/dog-food/blue-freedom-reg-grain-free-beef-dry-dog-food/479-105-15/p-1642874290700450-c-8314.htm",
+  "https://www.menards.com/main/pet-wildlife/dog-supplies/dog-food/blue-life-protection-formula-trade-all-breed-senior-chicken-brown-rice-dry-dog-food/476-135-15/p-1642874290753746-c-8314.htm",
+  "https://www.menards.com/main/pet-wildlife/dog-supplies/dog-food/blue-life-protection-formula-trade-small-breed-chicken-brown-rice-dry-dog-food/803950/p-1642874290699542-c-8314.htm"
+ ],
+ "paper-towels-12": [
+  "https://www.menards.com/main/grocery-home/cleaners-household-essentials/household-essentials/paper-towels-napkins/bounty-essentials-select-a-size-paper-towels-12-double-rolls/11093/p-1642874317146507-c-7194.htm"
+ ],
+ "water-35": [
+  "https://www.menards.com/main/grocery-home/grocery/beverages/water/glacier-mist-reg-natural-spring-bottled-water-24-pack/581256/p-1556865080653-c-6646.htm",
+  "https://www.menards.com/main/grocery-home/grocery/beverages/water/glacier-mist-reg-natural-spring-bottled-water-24-pack/500159/p-1444451353159-c-6646.htm",
+  "https://www.menards.com/main/grocery-home/grocery/beverages/water/glacier-mist-reg-purified-drinking-bottled-water-1-gallon/300119/p-1444451353817-c-6646.htm"
+ ],
+ "cat-litter-small": [
+  "https://www.menards.com/main/pet-wildlife/cat-supplies/cat-litter-accessories/purina-reg-tidy-cats-reg-with-glade-trade-clumping-cat-litter-20-lbs/15345/p-1444448993509-c-8294.htm",
+  "https://www.menards.com/main/pet-wildlife/cat-supplies/cat-litter-accessories/purina-reg-tidy-cats-reg-24-7-performance-reg-clumping-cat-litter-20-lbs/11620/p-1444448990334-c-8294.htm"
+ ],
+ "snowblower-fuel": [
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/motor-oil-filters/trufuel-reg-4-cycle-ready-to-use-fuel/6527206/p-1642874346601862-c-9112.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/motor-oil-filters/trufuel-reg-4-cycle-ready-to-use-fuel/6527238/p-1642874346601582-c-9112.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/motor-oil-filters/trufuel-reg-2-cycle-50-1-ethanol-free-pre-mixed-fuel-32-oz/6525638/p-1642874346600244-c-9112.htm"
+ ],
+ "washer-fluid-3": [
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-ultimate-all-season-windshield-washer-fluid-1-gallon/93506/p-1444443336003-c-10098.htm",
+  "https://www.menards.com/main/tools/automotive/automotive-maintenance/automotive-fluids-chemicals/splash-reg-20-deg-f-windshield-washer-fluid-1-gallon/234526-35/p-1444443335772-c-10098.htm"
+ ],
+ "ice-melt-20": [
+  "https://www.menards.com/main/outdoors/snow-ice-removal/ice-melt/end-ice-reg-sodium-chloride-calcium-chloride-magnesium-chloride-ice-melt-20-lb-bag/2651525/p-1444429569304-c-1526586197110.htm"
  ]
 }
