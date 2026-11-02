@@ -9,6 +9,9 @@ on:
         type: boolean
         default: true
 
+permissions:
+  contents: read
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -16,15 +19,23 @@ jobs:
     env:
       KEY: ${{ secrets.BRIGHTDATA_API_KEY }}
     steps:
+      # Actions logs on a public repo are readable by anyone, so the account steps print only a summary,
+      # never the raw responses (they carry the customer ID, IP, zone names and balance).
       - name: Account status
         run: |
-          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/status; echo
+          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/status \
+            | python3 -c "import json,sys; d=json.load(sys.stdin); d=d if isinstance(d,dict) else {}; print('status:', d.get('status'), '| can make requests:', d.get('can_make_requests'), '| auth problem:', 'yes' if d.get('auth_fail_reason') else 'no')" \
+            || echo "(no JSON status)"
       - name: Balance
         run: |
-          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/customer/balance; echo
+          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/customer/balance \
+            | python3 -c "import json,sys; d=json.load(sys.stdin); b=d.get('balance') if isinstance(d,dict) else None; print('balance readable:', isinstance(b,(int,float)), '| above zero:', isinstance(b,(int,float)) and b > 0)" \
+            || echo "(balance not readable)"
       - name: Active zones
         run: |
-          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/zone/get_active_zones; echo
+          curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/zone/get_active_zones \
+            | python3 -c "import json,sys; d=json.load(sys.stdin); z=d if isinstance(d,list) else []; print(len(z), 'active zones; types:', sorted({str(x.get('type')) for x in z if isinstance(x,dict)}))" \
+            || echo "(could not list zones)"
       - name: Is the Menards scraper visible to this account?
         run: |
           curl -sS -H "Authorization: Bearer $KEY" https://api.brightdata.com/datasets/list \

@@ -558,7 +558,7 @@ footer p{margin:4px 0}
       <ul class="lines">${lines.map(l => {
         const locked = state.plan.locked.includes(l.id);
         return `<li class="${locked ? "locked" : ""}" data-id="${esc(l.id)}">
-          <span class="n"><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.name)}</a>${l.title ? `<span class="d">${esc(l.title)}</span>` : ""}</span>
+          <span class="n">${/^https:\/\/www\.menards\.com\//.test(l.url) ? `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.name)}</a>` : esc(l.name)}${l.title ? `<span class="d">${esc(l.title)}</span>` : ""}</span>
           <span class="p">${l.est ? `<span class="est">about</span>` : ""}${fmt(l.price)}</span>
           <span class="ctl">
             <button type="button" data-act="lock" aria-pressed="${locked}" aria-label="${locked ? "Unlock" : "Keep"} ${esc(l.name)}" title="Keep this">🔒</button>

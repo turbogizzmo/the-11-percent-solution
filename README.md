@@ -64,8 +64,10 @@ The default sales tax is 5.5%. Change `tax:5.5` in `index.html` to set a differe
 | `ideas.json` | Curated ideas with estimated prices |
 | `catalog.json` | Real Menards items and prices (generated) |
 | `scripts/refresh-catalog.mjs` | Finds Menards products for each idea and pulls prices from Bright Data |
+| `scripts/validate-catalog.mjs` | Checks `catalog.json` and `scripts/idea-urls.json` before the refresh workflow commits them |
 | `scripts/idea-urls.json` | Menards product pages found for each idea (generated) |
 | `scripts/urls.txt` | Extra product pages to price |
 | `.github/workflows/refresh-catalog.yml` | Monthly refresh and redeploy |
+| `.github/wrangler/` | Pins the wrangler version (with a lockfile) the deploy workflows use |
 | `manifest.webmanifest`, `icon*.png`, `icon.svg` | Home-screen install |
 | `_headers` | Cloudflare Pages response headers |
