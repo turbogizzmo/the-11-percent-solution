@@ -15,6 +15,9 @@ on:
       - ideas.json
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,20 +25,24 @@ jobs:
     env:
       CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
-        if: ${{ env.CF_TOKEN != '' }}
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         if: ${{ env.CF_TOKEN != '' }}
         with:
-          node-version: 20
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: ${{ env.CF_TOKEN != '' }}
+        with:
+          node-version: 22
       - name: Deploy to Cloudflare Pages
         if: ${{ env.CF_TOKEN != '' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
+          # wrangler's exact version and dependency tree are pinned in .github/wrangler/package-lock.json.
+          (cd .github/wrangler && npm ci --ignore-scripts --no-audit --no-fund)
           mkdir site && cp index.html sw.js _headers manifest.webmanifest icon.svg icon-192.png icon-512.png catalog.json ideas.json site/
-          npx --yes wrangler@4 pages deploy site --project-name=the-11-percent-solution --branch=main
+          .github/wrangler/node_modules/.bin/wrangler pages deploy site --project-name=the-11-percent-solution --branch=main
       - name: Cloudflare secrets not set
         if: ${{ env.CF_TOKEN == '' }}
         run: echo "Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in the repo's Actions secrets to deploy automatically."

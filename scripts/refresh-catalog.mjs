@@ -159,7 +159,7 @@ function toItem(row) {
   const p = cents(pick(row, ["price", "final_price", "current_price", "initial_price"]));
   const u = clean(row.url || row.input?.url);
   const stock = String(pick(row, ["availability", "in_stock", "stock_status"]) ?? "").toLowerCase();
-  if (!n || !p || !u) return null;
+  if (!n || !p || !PRODUCT.test(u)) return null; // only real Menards product pages get linked
   if (/site can.t be reached|pardon our interruption|access denied/i.test(n)) return null; // blocked fetches
   if (/out.of.stock|unavailable|discontinued|false/.test(stock)) return null;
   if (/gift card/i.test(n)) return null; // rebate checks can't buy gift cards

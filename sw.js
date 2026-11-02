@@ -19,8 +19,11 @@ self.addEventListener("fetch", e => {
   // Network first for our own pages (so updates show up), cache fallback when offline.
   e.respondWith(
     fetch(req).then(res => {
-      const copy = res.clone();
-      caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
+      // Don't let a 404 or 5xx replace a good copy. The Google Fonts stylesheet comes back opaque (no status), so keep that.
+      if (res.ok || res.type === "opaque") {
+        const copy = res.clone();
+        caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
+      }
       return res;
     }).catch(() => caches.match(req, { ignoreSearch: true }).then(r => r || caches.match("index.html")))
   );

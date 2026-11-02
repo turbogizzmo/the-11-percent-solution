@@ -1,0 +1,8 @@
+{
+  "name": "the-11-percent-solution-deploy",
+  "private": true,
+  "description": "Pins the wrangler version the deploy workflows use.",
+  "devDependencies": {
+    "wrangler": "4.153.0"
+  }
+}
